@@ -1,5 +1,5 @@
 ---
-title: 从 BEC 到 ER=EPR：量子引力作用量相变的严格推导（整合版）
+title: 从 BEC 到 ER=EPR：量子引力作用量相变的严格推导
 author: 'Ch.hy'
 date: '2026-04-18'
 ---
