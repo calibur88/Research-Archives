@@ -935,7 +935,7 @@ D_N(t_k) \approx \sqrt{N}\cdot \mathrm{FFT}[\Lambda(n)/\sqrt{n}\,\phi(\cdot)](k)
 
 零点 $\rho = 1/2 + i\gamma$ 处 $-\zeta'/\zeta$ 有单极点，相位发生 $\pi$ 跳跃。
 
-在 FFT 谱中，这表现为幅度极小值与相位不连续：
+在 FFT 谱中，这表现为幅度极大值与相位不连续：
 
 ```math
 |\mathrm{FFT}(k)| \approx \left| \frac{1}{\rho - (1/2+it_k)} \right| \quad \text{在 } t_k \approx \gamma \text{ 处}
