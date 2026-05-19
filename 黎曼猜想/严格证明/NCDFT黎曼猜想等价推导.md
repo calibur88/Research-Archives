@@ -120,10 +120,10 @@ $$
 因此，当 $N\to\infty$ 时，仅最近邻与次近邻耦合存活。执行 Lanczos 三对角化后，$\mathcal{J}_\alpha$ 凝聚为实对称 Jacobi 矩阵：
 $$
 \mathcal{J}_\alpha=\begin{pmatrix}
-a_1 & b_1 & & \
-b_1 & a_2 & b_2 & \
-& \ddots & \ddots & \ddots \
-& & b_{N-1} & a_N
+a_1 & b_1 & & \\
+b_1 & a_2 & b_2 & \\
+& \ddots & \ddots & \ddots \\
+& & b_{N-1} & a_N 
 \end{pmatrix}.
 $$
 
@@ -277,11 +277,19 @@ $$
 
 **显式形式**（以 $r=1$，$\mathfrak{su}(2)$，$\mathbf{H}=\sigma_z=\operatorname{diag}(1,-1)$ 为例）：
 $$
-\mathcal{F}_\alpha^{(N)}=\frac{1}{\sqrt{N}}\begin{pmatrix}A_{0,0}&A_{0,1}&\cdots&A_{0,N-1}\A_{1,0}&A_{1,1}&\cdots&A_{1,N-1}\vdots&\vdots&\ddots&\vdots\A_{N-1,0}&A_{N-1,1}&\cdots&A_{N-1,N-1}\end{pmatrix},
+\mathcal{F}_\alpha^{(N)}=\frac{1}{\sqrt{N}}\begin{pmatrix}
+A_{0,0} & A_{0,1} & \cdots & A_{0,N-1} \\
+A_{1,0} & A_{1,1} & \cdots & A_{1,N-1} \\
+\vdots & \vdots & \ddots & \vdots \\
+A_{N-1,0} & A_{N-1,1} & \cdots & A_{N-1,N-1}
+\end{pmatrix},
 $$
 每个 $2\times 2$ 块为
 $$
-A_{k,n}=e^{2\pi ikn/N}\begin{pmatrix}e^{i(\alpha-1/2)\mathrm{Li}(x_n)}&0\0&e^{-i(\alpha-1/2)\mathrm{Li}(x_n)}\end{pmatrix}.
+A_{k,n}=e^{2\pi ikn/N}\begin{pmatrix}
+e^{i(\alpha-1/2)\mathrm{Li}(x_n)} & 0 \\
+0 & e^{-i(\alpha-1/2)\mathrm{Li}(x_n)}
+\end{pmatrix}.
 $$
 
 ---
@@ -758,7 +766,7 @@ $$
 
 2. **相位稳定（Lipschitz）**：
 $$
-\bigl\|e^{i\alpha\mathrm{Li}(x)\mathbf{H}}-e^{i\alpha'\mathrm{Li}(x)\mathbf{H}\bigr\|\le|\alpha-\alpha'|\cdot\mathrm{Li}(x)\cdot\|\mathbf{H}\|.
+\bigl\|e^{i\alpha\mathrm{Li}(x)\mathbf{H}}-e^{i\alpha'\mathrm{Li}(x)\mathbf{H}}\bigr\|\le|\alpha-\alpha'|\cdot\mathrm{Li}(x)\cdot\|\mathbf{H}\|.
 $$
 
 3. **显式公式余项估计**：
