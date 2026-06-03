@@ -377,7 +377,7 @@ $\text{Ш}(E/\mathbb{Q})$ 的标准上同调定义涉及四层无限嵌套：$G_
 
 #### 数值验证的真相：内部一致性检查
 
-标准数值验证流程：计算 $L^{(r)}/r!$，计算 $\Reg,\Omega,c_p,|E_{\text{tors}}|$，计算 $X = \frac{L^{(r)}/r! \cdot |E_{\text{tors}}|^2}{\Reg \cdot \Omega \cdot \prod c_p}$，若 $X$ 接近整数或完全平方数则宣称“验证通过”。第 3 步不是“解出”而是“命名”；第 4 步不是“外部验证”而是“内部一致性检查”。
+标准数值验证流程：计算 $L^{(r)}/r!$，计算 $\operatorname{Reg},\Omega,c_p,|E_{\text{tors}}|^2$，计算 $X = \frac{L^{(r)}/r! \cdot |E_{\text{tors}}|^2}{\operatorname{Reg} \cdot \Omega \cdot \prod c_p}$，若 $X$ 接近整数或完全平方数则宣称"验证通过"。第 3 步不是“解出”而是“命名”；第 4 步不是“外部验证”而是“内部一致性检查”
 
 #### 上帝数猜想：认识论同构暴露
 
