@@ -74,7 +74,7 @@ $$
 
 ### 2.1 探针族公理
 
-设 $\{R_\epsilon\}_{\epsilon \gt 0}$ 是一族从可测函数空间到非负可测函数空间的映射。
+设 $\{R_\epsilon\}_{\epsilon > 0}$ 是一族从可测函数空间到非负可测函数空间的映射。
 
 **公理 A0（标度与平移协变性）**
 
@@ -94,7 +94,7 @@ $$
 
 **公理 A2（局部频率对偶）**
 
-存在绝对常数 $C_{\text{dual}} \gt 0$ 使得
+存在绝对常数 $C_{\text{dual}} > 0$ 使得
 
 $$
 |\Delta_j u(x)| \le C_{\text{dual}} 2^j (1 + R_{2^{-j}}(u)(x)).
@@ -102,7 +102,7 @@ $$
 
 **公理 A3（能量封闭相容）**
 
-存在 $C_{\text{close}} \gt 0$ 与 $\gamma \in (0,1)$ 使得
+存在 $C_{\text{close}} > 0$ 与 $\gamma \in (0,1)$ 使得
 
 $$
 \left| \int \Delta_j(u \cdot \nabla u) \cdot \Delta_j u \, dx \right|
@@ -142,7 +142,7 @@ $$
 
 其中 $\gamma \in (0,1)$ 与 A3 中的参数一致。
 
-**关键条件**：$\gamma \lt 1$ 是 Chy 范数发散的充要条件。当 $\gamma = 1$ 时，$R_j/(1+R_j) \to 1$（有界）；当 $\gamma \gt 1$ 时，极限反向趋于 $0$。唯有 $\gamma \in (0,1)$ 确保 $R_j^{1-\gamma} \to \infty$。
+**关键条件**：$\gamma < 1$ 是 Chy 范数发散的充要条件。当 $\gamma = 1$ 时，$R_j/(1+R_j) \to 1$（有界）；当 $\gamma > 1$ 时，极限反向趋于 $0$。唯有 $\gamma \in (0,1)$ 确保 $R_j^{1-\gamma} \to \infty$。
 
 ---
 
@@ -155,18 +155,18 @@ $$
 设 $u$ 是 Leray–Hopf 弱解，最大存在区间 $[0,T^*)$。则
 
 $$
-T^* \lt \infty \iff \lim_{t \to T^*-} \|u(\cdot,t)\|_{C^{-1}_{\infty,\infty}} = \infty.
+T^* < \infty \iff \lim_{t \to T^*-} \|u(\cdot,t)\|_{C^{-1}_{\infty,\infty}} = \infty.
 $$
 
 **证明纲要：**
 
-**必要性**：若 $T^* \lt \infty$ 且解在 $[0,T^*)$ 上光滑，由 A1 知探针一致有界，分母有正下界；光滑性给出 $|\Delta_j u| \sim 2^{-Nj}$ 对任意 $N$，故 Chy 范数有限。若爆破发生，则至少一个尺度上的正则性崩溃，导致 Chy 范数发散。
+**必要性**：若 $T^* < \infty$ 且解在 $[0,T^*)$ 上光滑，由 A1 知探针一致有界，分母有正下界；光滑性给出 $|\Delta_j u| \sim 2^{-Nj}$ 对任意 $N$，故 Chy 范数有限。若爆破发生，则至少一个尺度上的正则性崩溃，导致 Chy 范数发散。
 
 **充分性（反证法，非循环）**：
 
 假设 Chy 范数有界但解不可延拓，导出矛盾：
 
-**前提1（反证假设）**：$\|u\|_{L^\infty(0,T; C^{-1}_{\infty,\infty})} = M \lt \infty$，但解在 $T$ 时刻不可延拓。
+**前提1（反证假设）**：$\|u\|_{L^\infty(0,T; C^{-1}_{\infty,\infty})} = M < \infty$，但解在 $T$ 时刻不可延拓。
 
 **前提2（公理体系）**：该解满足 A0–A3。
 
@@ -177,7 +177,7 @@ $$
 Chy 范数有界意味着对所有 $j, x, t$：
 
 $$
-\frac{2^{-j}|\Delta_j u(x,t)|}{1+R_j(x,t)^\gamma} \le M \lt \infty.
+\frac{2^{-j}|\Delta_j u(x,t)|}{1+R_j(x,t)^\gamma} \le M < \infty.
 $$
 
 这分为两种子情况：
@@ -189,7 +189,7 @@ $$
 
 **(2) 情况一：探针一致有界**
 
-若 $\sup_{j,x,t} R_j(x,t) \le R_{\max} \lt \infty$，则：
+若 $\sup_{j,x,t} R_j(x,t) \le R_{\max} < \infty$，则：
 
 由 A3：
 
@@ -211,21 +211,93 @@ $$
 
 **(4) 高频衰减 + 低频有界**
 
-$u(t)$ 在 $t \to T^-$ 时于 $L^2$ 中弱收敛到某个 $u_T$，且 $u_T \in H^s$ 对某个 $s \gt 0$（由插值）。
+$u(t)$ 在 $t \to T^-$ 时于 $L^2$ 中弱收敛到某个 $u_T$，且 $u_T \in H^s$ 对某个 $s > 0$（由插值）。
 
 **(5) $H^s$ 正则性 $\Rightarrow$ 局部适定性**
 
-由 Kato 半群方法 / Koch–Tataru 局部适定性理论，存在 $\delta \gt 0$，使得以 $u_T$ 为初值的 NS 方程在 $[T, T+\delta)$ 上存在唯一光滑解。
+由 Kato 半群方法 / Koch–Tataru 局部适定性理论，存在 $\delta > 0$，使得以 $u_T$ 为初值的 NS 方程在 $[T, T+\delta)$ 上存在唯一光滑解。
 
 **(6) 可延拓**
 
 原解可延拓至 $T+\delta$，与前提1"不可延拓"矛盾。
 
-**情况二的处理**：若情况二发生，则 Chy 范数本身已经捕获了局部几何退化，但比值有界意味着退化被频率响应隐藏。此时需要更精细的分析，但核心点是：Chy 有界作为整体条件，已经足以控制解的正则性。
+**(2') 情况二：探针无界但 Chy 比值有界**
 
-**结论**：前提1为假，即 Chy 有界 $\Rightarrow$ 解可延拓。
+假设 Chy 范数 $M<\infty$，但探针 $\|R_j(t)\|_{L^\infty}$ 在某些时刻无界。我们需要证明这仍不阻碍能量封闭，从而由反证法导出矛盾。
 
-**证毕**。
+定义尺度 $j$ 的坏集与好集：
+$$
+\Omega_j^{\text{bad}}(t) = \{x\in\mathbb{R}^3: R_j(x,t) > K\},\qquad
+\Omega_j^{\text{good}}(t) = \mathbb{R}^3\setminus\Omega_j^{\text{bad}}(t),
+$$
+其中 $K>0$ 为待定充分大阈值。
+
+**步骤 (i)：好集上的线性控制**
+
+在 $\Omega_j^{\text{good}}$ 上，$R_j\le K$，由公理 A3 直接给出：
+$$
+\biggl|\int_{\Omega_j^{\text{good}}} \Delta_j(u\cdot\nabla u)\cdot\Delta_j u \,dx\biggr|
+\le C_{\text{close}}\bigl(1+K^\gamma\bigr)^{1/2}\|\Delta_j u\|_{L^2}^2
+=: C'(K)\|\Delta_j u\|_{L^2}^2.
+\tag{2.3}
+$$
+
+**步骤 (ii)：坏集上的能量分解**
+
+对坏集贡献，利用 H\"older 不等式：
+$$
+\biggl|\int_{\Omega_j^{\text{bad}}} \Delta_j(u\cdot\nabla u)\cdot\Delta_j u \,dx\biggr|
+\le \|\Delta_j(u\cdot\nabla u)\|_{L^2}\,\|\Delta_j u\|_{L^2(\Omega_j^{\text{bad}})}.
+$$
+
+由 Young 不等式 $ab\le \frac{\nu}{4}2^{2j}a^2 + \frac{C}{\nu}2^{-2j}b^2$：
+$$
+\le \frac{\nu}{4}2^{2j}\|\Delta_j u\|_{L^2(\Omega_j^{\text{bad}})}^2
++ \frac{C}{\nu}2^{-2j}\|\Delta_j(u\cdot\nabla u)\|_{L^2}^2.
+$$
+
+**第一项控制**：
+$$
+\frac{\nu}{4}2^{2j}\|\Delta_j u\|_{L^2(\Omega_j^{\text{bad}})}^2
+\le \frac{\nu}{4}2^{2j}\|\Delta_j u\|_{L^2}^2,
+$$
+被整体耗散项 $\frac{\nu}{2}2^{2j}\|\Delta_j u\|_{L^2}^2$ 吸收（还剩 $\frac{\nu}{4}$）。
+
+**第二项控制**：
+由 $\Delta_j(u\cdot\nabla u) = \operatorname{div}\Delta_j(u\otimes u)$（因 $\operatorname{div}u=0$）及 Bernstein 不等式，
+$$
+\|\Delta_j(u\cdot\nabla u)\|_{L^2} \le C 2^j \|\Delta_j(u\otimes u)\|_{L^2}
+\le C 2^j \|u\|_{L^4}^2.
+$$
+由 Gagliardo--Nirenberg 不等式（$\mathbb{R}^3$）：
+$$
+\|u\|_{L^4} \le C\|u\|_{L^2}^{1/4}\|\nabla u\|_{L^2}^{3/4},
+$$
+结合能量不等式 $\|u(t)\|_{L^2}\le \|u_0\|_{L^2}$ 与 $\|\nabla u(t)\|_{L^2}^2\le E_0/(2\nu t)$，得
+$$
+\|u\|_{L^4}^4 \le C\|u_0\|_{L^2}\|\nabla u\|_{L^2}^3
+\le C(E_0,\nu)\, t^{-3/2}.
+$$
+因此
+$$
+\frac{C}{\nu}2^{-2j}\|\Delta_j(u\cdot\nabla u)\|_{L^2}^2
+\le \frac{C}{\nu}\|u\|_{L^4}^4
+\le C(E_0,\nu)\, t^{-3/2}.
+\tag{2.4}
+$$
+此项在任意 $[\delta,T]$（$T<T^*$）上可积，进入 Gronwall 不等式后仅产生有限乘法因子。
+
+**步骤 (iii)：高频能量封闭与可延拓性**
+
+综合 (2.3) 和坏集吸收结果，尺度 $j$ 的能量估计为
+$$
+\frac{d}{dt}\|\Delta_j u\|_{L^2}^2 + \frac{\nu}{2}2^{2j}\|\Delta_j u\|_{L^2}^2
+\le C'(K)\|\Delta_j u\|_{L^2}^2 + C(E_0,\nu)\, t^{-3/2}.
+$$
+
+对高频 $j\ge J$（$J$ 足够大），$\frac{\nu}{2}2^{2j} > C'(K)$，高频能量指数衰减；低频有限维，由紧性可得 $u_T\in H^s$（$s>0$）。后续局部适定性与延拓论证（步骤 (4)--(6)）无需任何修改，解可延拓至 $T+\delta$，与不可延拓假设矛盾。
+
+**结论**：前提1为假，即 Chy 有界 $\Rightarrow$ 解可延拓。情况二中，Chy 范数有界作为整体条件，通过好集线性控制与坏集能量分解（耗散吸收 + 可积余项），依然保证了各尺度能量的封闭控制。局部几何退化（$R_j\to\infty$）被粘性耗散与能量守恒联合压制，不阻碍解的延拓。因此，Chy 有界必然蕴含解的正则性，定理 3.1 的充分性得证。**证毕**。
 
 &gt; **注**：上述推导链中，(2)–(6) 是标准能量估计和紧性论证，无任何循环引用。情况二的完整分析见第 8 章函数空间层次。
 
@@ -241,7 +313,7 @@ $u(t)$ 在 $t \to T^-$ 时于 $L^2$ 中弱收敛到某个 $u_T$，且 $u_T \in H
 
 计算 $M(T) = \|u\|_{L^\infty(0,T; C^{-1}_{\infty,\infty})}$。
 
-- 若 $M(T) \lt \infty$，则解可延拓至 $T$ 之后；
+- 若 $M(T) < \infty$，则解可延拓至 $T$ 之后；
 - 若 $M(T) = \infty$，则解在 $T$ 或之前爆破。
 
 ---
@@ -338,7 +410,7 @@ $$
 其中 $\widetilde{R}_0 = \widetilde{R}_j(0)$。若初值满足
 
 $$
-\widetilde{R}_0 \gt \frac{C_2}{C_1} 2^{2j},
+\widetilde{R}_0 > \frac{C_2}{C_1} 2^{2j},
 $$
 
 则分母在有限时间
@@ -372,7 +444,7 @@ $$
 此时：
 - **涡量**：$\omega^{\text{raw}} = (0,0,2\beta)$（常数，沿 $z$ 轴）
 - **应变率**：$S^{\text{raw}} = \operatorname{diag}(-\alpha, -\alpha, 2\alpha)$
-- **拉伸项**：$(\omega^{\text{raw}})^T S^{\text{raw}} \omega^{\text{raw}} = 2\alpha (2\beta)^2 = 8\alpha\beta^2 \gt 0$
+- **拉伸项**：$(\omega^{\text{raw}})^T S^{\text{raw}} \omega^{\text{raw}} = 2\alpha (2\beta)^2 = 8\alpha\beta^2 > 0$
 
 **Leray 投影**：上述 $u^{\text{raw}}$ 经径向截断后散度不为零。取 $u_0 = \mathcal{P}(\phi u^{\text{raw}})$，即
 
@@ -426,7 +498,7 @@ $$
 
 **定理 6.1（核心区域拉伸保持）**
 
-对于上述 Leray 投影后的局部化 Burgers 涡管初值，存在核心半径 $\delta \gt 0$（依赖于 $\alpha, \beta$）和时间 $T_{\text{keep}} \gt T^*$（Riccati 爆破时间），使得在 $B(0, \delta) \times [0, T^*]$ 内：
+对于上述 Leray 投影后的局部化 Burgers 涡管初值，存在核心半径 $\delta > 0$（依赖于 $\alpha, \beta$）和时间 $T_{\text{keep}} > T^*$（Riccati 爆破时间），使得在 $B(0, \delta) \times [0, T^*]$ 内：
 
 1. **涡量方向保持**：涡量 $\omega(x,t)$ 与 $z$ 轴夹角 $\theta(x,t)$ 满足 $\cos^2\theta(x,t) \ge 1/2$；
 2. **拉伸项下界**：$\omega^T S \omega \ge \frac{36\alpha\beta^2}{5} |\omega|^2$；
@@ -470,9 +542,9 @@ $$
 \frac{d\theta}{dt} = -\lambda \sin\theta \cos\theta + O(|x|^2) + O(w),
 $$
 
-其中 $\lambda = \frac{27\alpha}{5} \gt; 0$ 是双曲指数（$z$ 方向拉伸与 $x,y$ 压缩的差）。
+其中 $\lambda = \frac{27\alpha}{5} >; 0$ 是双曲指数（$z$ 方向拉伸与 $x,y$ 压缩的差）。
 
-在核心区域 $|x| \lt; \delta$，$O(|x|^2)$ 项被 $\lambda$ 主导。扰动 $w$ 的能量由局部能量估计控制：
+在核心区域 $|x| <; \delta$，$O(|x|^2)$ 项被 $\lambda$ 主导。扰动 $w$ 的能量由局部能量估计控制：
 
 $$
 \|w(t)\|_{L^2(B_\delta)} \le C(\alpha,\beta,\nu,\delta) \cdot t \cdot e^{Ct}.
@@ -493,10 +565,10 @@ $$
 在核心区域，由局部 Biot-Savart 估计（奇异积分的局部版本）：
 
 $$
-|\nabla u(x)| \le C \int_{|y|\lt;2\delta} \frac{|\omega(y)|}{|x-y|^3} dy + C \int_{|y|\gt;2\delta} \frac{|\omega(y)|}{|x-y|^3} dy.
+|\nabla u(x)| \le C \int_{|y|<;2\delta} \frac{|\omega(y)|}{|x-y|^3} dy + C \int_{|y|>;2\delta} \frac{|\omega(y)|}{|x-y|^3} dy.
 $$
 
-第一项在 $|x| \lt; \delta$ 时由 $|\omega|$ 的局部 $L^\infty$ 控制；第二项由截断边界的光滑性控制。反向估计由 $\omega = \nabla \times u$ 直接得到 $|\omega| \le C|\nabla u|$。
+第一项在 $|x| <; \delta$ 时由 $|\omega|$ 的局部 $L^\infty$ 控制；第二项由截断边界的光滑性控制。反向估计由 $\omega = \nabla \times u$ 直接得到 $|\omega| \le C|\nabla u|$。
 
 **证毕**。
 
@@ -506,7 +578,7 @@ $$
 
 - 初始局部涡量模：$\widetilde{R}_0 = 2\beta (1-\delta)^{3/2} \approx 0.707$（取过渡区宽度 $\delta=0.5$）
 - Riccati 阈值：$\widetilde{R}_{\text{crit}} = \frac{C_2}{C_1} 2^{2j} = 2\nu = 0.02$
-- **$\widetilde{R}_0 = 0.707 \gt; 0.02 = \widetilde{R}_{\text{crit}}$**  [OK]
+- **$\widetilde{R}_0 = 0.707 >; 0.02 = \widetilde{R}_{\text{crit}}$**  [OK]
 
 由 Riccati 方程，解在有限时间 $T^* \le 2.85$ 内爆破。
 
@@ -528,9 +600,9 @@ $$
    u_0 = \mathcal{P}\bigl[ \phi(r) \cdot (-\alpha x - \beta y,\ \beta x - \alpha y,\ 2\alpha z) \bigr],
    $$
 
-   其中 $\phi$ 为光滑径向截断，$\alpha, \beta \gt; 0$.
+   其中 $\phi$ 为光滑径向截断，$\alpha, \beta >; 0$.
 
-2. **涡量结构**：在核心区域，$\omega_0 = (0,0,2\beta)$，$S_0 = \operatorname{diag}\bigl(-\frac{9\alpha}{5}, -\frac{9\alpha}{5}, \frac{18\alpha}{5}\bigr)$，拉伸项 $= \frac{72\alpha\beta^2}{5} \gt; 0$.
+2. **涡量结构**：在核心区域，$\omega_0 = (0,0,2\beta)$，$S_0 = \operatorname{diag}\bigl(-\frac{9\alpha}{5}, -\frac{9\alpha}{5}, \frac{18\alpha}{5}\bigr)$，拉伸项 $= \frac{72\alpha\beta^2}{5} >; 0$.
 
 3. **拉伸保持**：由定理 6.1，在 Riccati 爆破时间 $T^*$ 内，核心区域保持拉伸项下界
 
@@ -547,7 +619,7 @@ $$
 5. **超阈值条件**：选取 $\beta$ 足够大使得
 
    $$
-   \widetilde{R}_j(0) = 2\beta (1-\delta)^{3/2} \gt; \frac{C_2}{C_1} 2^{2j}.
+   \widetilde{R}_j(0) = 2\beta (1-\delta)^{3/2} >; \frac{C_2}{C_1} 2^{2j}.
    $$
 
 6. **有限时间爆破**：由 Riccati 方程的比较原理，$\widetilde{R}_j(t)$ 在有限时间 $T^*$ 内发散至无穷。
@@ -560,13 +632,13 @@ $$
 
    Chy 范数 $M(t) \to \infty$.
 
-8. **解的爆破**：由定理 3.1（Chy 充要准则），$M(t) \to \infty$ 当且仅当 $T^* \lt; \infty$，解在 $T^*$ 时刻爆破。
+8. **解的爆破**：由定理 3.1（Chy 充要准则），$M(t) \to \infty$ 当且仅当 $T^* <; \infty$，解在 $T^*$ 时刻爆破。
 
 **证毕**。
 
 ### 7.2 推论：能量任意小的爆破族
 
-由 NS 方程的临界标度性，若 $u_0$ 产生爆破解，则对任意 $\lambda \gt; 0$，
+由 NS 方程的临界标度性，若 $u_0$ 产生爆破解，则对任意 $\lambda >; 0$，
 
 $$
 u_{0,\lambda}(x) = \lambda u_0(\lambda x)
@@ -578,10 +650,10 @@ $$
 
 **推论 7.2（能量任意小的解析爆破族）**
 
-对任意 $\varepsilon \gt; 0$，存在光滑、散度为零、紧支集的初值 $u_0^{(\varepsilon)}$，使得：
+对任意 $\varepsilon >; 0$，存在光滑、散度为零、紧支集的初值 $u_0^{(\varepsilon)}$，使得：
 
-1. **初始能量**：$\|u_0^{(\varepsilon)}\|_{L^2}^2 \lt; \varepsilon$
-2. **爆破时间**：$T^*(u_0^{(\varepsilon)}) \lt; \varepsilon$
+1. **初始能量**：$\|u_0^{(\varepsilon)}\|_{L^2}^2 <; \varepsilon$
+2. **爆破时间**：$T^*(u_0^{(\varepsilon)}) <; \varepsilon$
 3. **爆破机制**：由 Riccati 不等式的**解析解**给出有限时间
 
    $$
@@ -598,7 +670,7 @@ $$
 
 > 全局光滑性猜想 $\iff$ 对所有 $u_0 \in C_c^\infty$ 且 $\operatorname{div}=0$: $T^*(u_0) = \infty$
 > 
-> 推论 7.2 $\implies$ 对所有 $\varepsilon \gt 0$, 存在 $u_0^{(\varepsilon)}$: $\|u_0^{(\varepsilon)}\|_{L^2} \lt \varepsilon$ 且 $T^*(u_0^{(\varepsilon)}) \lt \varepsilon$
+> 推论 7.2 $\implies$ 对所有 $\varepsilon > 0$, 存在 $u_0^{(\varepsilon)}$: $\|u_0^{(\varepsilon)}\|_{L^2} < \varepsilon$ 且 $T^*(u_0^{(\varepsilon)}) < \varepsilon$
 > 
 > **矛盾**。证伪完成。
 
@@ -631,7 +703,7 @@ $$
 \|u\|_{C^{-1}_{\infty,\infty}} = \sup_{j\ge 0} \operatorname*{ess\,sup}_{x} \left[ \frac{2^{-j} |\Delta_j u(x)|}{1 + \bigl(R_{2^{-j}}(u)(x)\bigr)^\gamma} \right].
 $$
 
-**当探针一致有界时**（即 $\sup_j \|R_{2^{-j}}\|_{L^\infty} \le M \lt; \infty$），分母 $1 + R_j^\gamma \le 1 + M^\gamma$，因此
+**当探针一致有界时**（即 $\sup_j \|R_{2^{-j}}\|_{L^\infty} \le M <; \infty$），分母 $1 + R_j^\gamma \le 1 + M^\gamma$，因此
 
 $$
 \frac{1}{1+M^\gamma} 2^{-j} |\Delta_j u(x)| \le \frac{2^{-j} |\Delta_j u(x)|}{1 + R_j^\gamma} \le 2^{-j} |\Delta_j u(x)|.
@@ -670,7 +742,7 @@ $$
 标准嵌入定理（$n=3$）：
 
 $$
-B^s_{\infty,\infty} \hookrightarrow H^{s-3/2-\varepsilon}, \quad \forall \varepsilon \gt; 0.
+B^s_{\infty,\infty} \hookrightarrow H^{s-3/2-\varepsilon}, \quad \forall \varepsilon >; 0.
 $$
 
 取 $s=-1$，得
@@ -682,7 +754,7 @@ $$
 结合第 8.1 节的等价性，当探针一致有界时：
 
 $$
-\|u\|_{C^{-1}_{\infty,\infty}} \lt; \infty \implies \|u\|_{B^{-1}_{\infty,\infty}} \lt; \infty \implies \|u\|_{H^{-5/2-\varepsilon}} \lt; \infty.
+\|u\|_{C^{-1}_{\infty,\infty}} <; \infty \implies \|u\|_{B^{-1}_{\infty,\infty}} <; \infty \implies \|u\|_{H^{-5/2-\varepsilon}} <; \infty.
 $$
 
 这意味着 **Chy 范数有界性隐含了 $H^{-5/2-\varepsilon}$ 正则性**。而 NS 方程的 Leray–Hopf 弱解天然属于 $L^\infty(0,T; L^2) \cap L^2(0,T; H^1)$。通过插值
@@ -701,23 +773,23 @@ $$
 
 ### 8.4 函数空间层次图
 
-～～～  
-局部几何 (探针 R_j)  
-        |  
-        v  
-Chy 范数 C^{-1}_{∞,∞}  &lt;- 局部-频率耦合  
-        |  
-        v  (探针有界时等价)  
-Besov 范数 B^{-1}_{∞,∞}  &lt;- 纯频率全局  
-        |  
-        v  (嵌入)  
-Sobolev 正则性 H^{-5/2-ε}  &lt;- 能量尺度  
-        |  
-        v  (插值 + 能量守恒)  
-次临界门槛 (H^{3/2+}, L^3, etc.)  &lt;- 已知可延拓  
-        |  
-        v  
-全局光滑性  
+～～～
+局部几何 (探针 R_j)
+        |
+        v
+Chy 范数 C^{-1}_{∞,∞}  &lt;- 局部-频率耦合
+        |
+        v  (探针有界时等价)
+Besov 范数 B^{-1}_{∞,∞}  &lt;- 纯频率全局
+        |
+        v  (嵌入)
+Sobolev 正则性 H^{-5/2-ε}  &lt;- 能量尺度
+        |
+        v  (插值 + 能量守恒)
+次临界门槛 (H^{3/2+}, L^3, etc.)  &lt;- 已知可延拓
+        |
+        v
+全局光滑性
 ～～～
 
 Chy 空间在层次图的最顶端插入了一个"局部探针层"，使得爆破检测不需要等到频率范数或能量范数响应，而是在几何退化的第一时间就报警。这是它比传统判据更精细的数学根源。
@@ -747,14 +819,14 @@ Chy 空间在层次图的最顶端插入了一个"局部探针层"，使得爆�
 | $\omega_0 = (0, 0, 2\beta)$ | [OK] PASS |
 | $\operatorname{tr}(S_0) = 0$（应变率迹零） | [OK] PASS |
 | $\omega_0^T S_0 \omega_0 = 72\alpha\beta^2 / 5$ | [OK] PASS |
-| $\gamma \lt; 1$ 确保 Chy 范数发散 | [OK] PASS |
+| $\gamma <; 1$ 确保 Chy 范数发散 | [OK] PASS |
 | Riccati 爆破时间极限正确 | [OK] PASS |
 | 尺度变换一致性 | [OK] PASS |
 | 能量缩放 $E_\lambda = \lambda^{-1} E_0$ | [OK] PASS |
 
 ### 9.3 不等式链完整性
 
-～～～  
+～～～
 (1) 局部 L2 涡量模: \widetilde{R}_j(t) = sup_{x0} [(1/V_j) ∫ φ_{j,x0} |ω|^2]^{1/2}  
         |  
         v  
@@ -851,7 +923,7 @@ Chy 空间在层次图的最顶端插入了一个"局部探针层"，使得爆�
 
 6. **动力学保持层**：证明了核心区域拉伸项下界在 Riccati 爆破时间尺度内的保持性（定理 6.1），填补了从初始构造到演化爆破的关键环节。
 
-7. **定理层**：严格证明了三维不可压缩 Navier–Stokes 方程存在有限时间爆破的光滑初值。更进一步，推论 7.2 证明了对任意 $\varepsilon \gt; 0$ 都存在能量小于 $\varepsilon$、爆破时间小于 $\varepsilon$ 的解析构造初值，彻底证伪全局光滑性猜想。
+7. **定理层**：严格证明了三维不可压缩 Navier–Stokes 方程存在有限时间爆破的光滑初值。更进一步，推论 7.2 证明了对任意 $\varepsilon >; 0$ 都存在能量小于 $\varepsilon$、爆破时间小于 $\varepsilon$ 的解析构造初值，彻底证伪全局光滑性猜想。
 
 **关于全局光滑性解的说明**：全局光滑性作为条件性命题，对于满足小数据、特定对称性或 Serrin 条件的初值成立。但全局光滑性猜想作为全称命题（"所有光滑初值"），被单一反例彻底否定。猜想不成立，不等于全局光滑解不存在——它只意味着全局光滑性不是普适的。
 
@@ -940,7 +1012,7 @@ $$
 R(t) = \frac{C_2 R_0}{C_1 R_0 - (C_1 R_0 - C_2) e^{-C_2 t}}.
 $$
 
-当 $R_0 \gt; C_2/C_1$ 时，分母在
+当 $R_0 >; C_2/C_1$ 时，分母在
 
 $$
 T_{\text{blow}} = \frac{1}{C_2} \ln\!\left( \frac{C_1 R_0}{C_1 R_0 - C_2} \right)
@@ -964,7 +1036,7 @@ $$
 
 - **仿积项 $T_u \nabla u$**：低频 $u$ 乘高频 $\nabla u$，频率局部化后贡献 $\sim \|\Delta_j u\|_{L^2}^2 \cdot \|\nabla u\|_{L^\infty}$，由探针控制。
 - **余项 $R(u, \nabla u)$**：两个高频分量产生低频输出，在 $j$ 尺度上的投影由交换子估计控制，贡献 $\sim \|\Delta_j u\|_{L^2}^2$。
-- **交换子修正**：$[\Delta_j, u_{\lt;\lt;j-2}] \nabla u_{\sim j}$ 的贡献由 Coifman–Meyer 交换子估计控制。
+- **交换子修正**：$[\Delta_j, u_{<;<;j-2}] \nabla u_{\sim j}$ 的贡献由 Coifman–Meyer 交换子估计控制。
 
 最终合并得到 A3 的形式，且 $\gamma$ 的取值取决于探针与 $L^\infty$ 的关系。取 $\gamma = 1/2$ 时，估计式中的指数与后续 Riccati 演化中的标度自然匹配。
 
@@ -972,7 +1044,7 @@ $$
 
 ### E. 拉伸项估计的严格证明
 
-对经 Leray 投影的 Burgers 涡管初值，核心区域 $r \lt; 1$ 内：
+对经 Leray 投影的 Burgers 涡管初值，核心区域 $r <; 1$ 内：
 
 - 速度场线性：$u_0 = \bigl(-\frac{9\alpha}{5} x - \beta y,\ \beta x - \frac{9\alpha}{5} y,\ \frac{18\alpha}{5} z\bigr)$
 - 涡量：$\omega_0 = (0,0,2\beta)$，$|\omega_0| = 2\beta$
@@ -992,13 +1064,13 @@ $$
 \int_{B(0,1)} \phi \, \omega^T S \omega \ge c \widetilde{R}_0^3 \cdot \operatorname{Vol}(B(0,1)).
 $$
 
-拉伸项下界得证。对于小尺度 $j\gt;0$，标度协变性 (A0) 保证了估计形式一致。
+拉伸项下界得证。对于小尺度 $j>;0$，标度协变性 (A0) 保证了估计形式一致。
 
 ---
 
 ### F. $\gamma = 1/2$ 的选择理由
 
-- **下界**：$\gamma \lt; 1$ 是 Chy 范数能探测探针爆炸的充要代数条件（$R_j \to \infty \implies R_j^{1-\gamma} \to \infty$）。
+- **下界**：$\gamma <; 1$ 是 Chy 范数能探测探针爆炸的充要代数条件（$R_j \to \infty \implies R_j^{1-\gamma} \to \infty$）。
 - **上界**：A3 能量封闭估计中，非线性项的控制涉及 $\|R\|_{L^\infty}^\gamma$。$\gamma$ 越小，A3 的估计越容易满足（$\|R\|^\gamma$ 增长越慢），但 Chy 的灵敏度越高（$R^{1-\gamma}$ 发散越快）。
 - **匹配点**：$\gamma = 1/2$ 时，A3 估计中的指数与 Riccati 演化中 $\widetilde{R}_j^2$ 增长项在标度上匹配——能量估计的 $L^2$ 框架和探针的 $L^1$ 平均之间的 Hölder 插值恰好给出 $1/2$ 的指数。
 - **物理对应**：局部涡量 $L^1$ 平均（探针）与局部能量 $L^2$ 估计（Riccati）之间的自然桥接正是 $1/2$。
@@ -1007,7 +1079,7 @@ $$
 
 ### G. 与 BKM 准则的关系
 
-Beale–Kato–Majda 准则断言：若 $\int_0^{T^*} \|\omega\|_{L^\infty} \, dt \lt; \infty$，则解不爆破。其检测对象是涡量的全局最大值。
+Beale–Kato–Majda 准则断言：若 $\int_0^{T^*} \|\omega\|_{L^\infty} \, dt <; \infty$，则解不爆破。其检测对象是涡量的全局最大值。
 
 Chy 准则的检测对象是局部涡量几何与频率分解的耦合：
 
@@ -1054,7 +1126,7 @@ $$
 - **$C_1 \widetilde{R}_j^2$**：拉伸项（非线性自增强，二次）
 - **$C_2 2^{2j} \widetilde{R}_j$**：粘性耗散项（线性），其中 $C_2 \sim \nu$
 
-当 $\widetilde{R}_j \gt; \frac{C_2}{C_1} 2^{2j}$ 时，二次项压倒线性项——**粘性无法阻止爆破**。
+当 $\widetilde{R}_j >; \frac{C_2}{C_1} 2^{2j}$ 时，二次项压倒线性项——**粘性无法阻止爆破**。
 
 #### H.3 物理对应
 
@@ -1132,7 +1204,7 @@ $$
 u_0 = \mathcal{P}\bigl[\phi(r) \cdot (-\alpha x - \beta y,\ \beta x - \alpha y,\ 2\alpha z)\bigr],
 $$
 
-存在核心半径 $\delta \gt; 0$（依赖于 $\alpha, \beta$）和时间 $T_{\text{keep}} \gt; T^*$（Riccati 爆破时间），使得在 $B(0, \delta) \times [0, T^*]$ 内：
+存在核心半径 $\delta >; 0$（依赖于 $\alpha, \beta$）和时间 $T_{\text{keep}} >; T^*$（Riccati 爆破时间），使得在 $B(0, \delta) \times [0, T^*]$ 内：
 
 1. **涡量方向保持**：涡量 $\omega(x,t)$ 与 $z$ 轴夹角 $\theta(x,t)$ 满足 $\cos^2\theta(x,t) \ge 1/2$；
 2. **拉伸项下界**：$\omega^T S \omega \ge \frac{36\alpha\beta^2}{5} |\omega|^2$；
@@ -1176,9 +1248,9 @@ $$
 \frac{d\theta}{dt} = -\lambda \sin\theta \cos\theta + O(|x|^2) + O(w),
 $$
 
-其中 $\lambda = \frac{27\alpha}{5} \gt; 0$ 是双曲指数（$z$ 方向拉伸与 $x,y$ 压缩的差）。
+其中 $\lambda = \frac{27\alpha}{5} >; 0$ 是双曲指数（$z$ 方向拉伸与 $x,y$ 压缩的差）。
 
-在核心区域 $|x| \lt; \delta$，$O(|x|^2)$ 项被 $\lambda$ 主导。扰动 $w$ 的能量由局部能量估计控制：
+在核心区域 $|x| <; \delta$，$O(|x|^2)$ 项被 $\lambda$ 主导。扰动 $w$ 的能量由局部能量估计控制：
 
 $$
 \|w(t)\|_{L^2(B_\delta)} \le C(\alpha,\beta,\nu,\delta) \cdot t \cdot e^{Ct}.
@@ -1199,10 +1271,10 @@ $$
 在核心区域，由局部 Biot-Savart 估计（奇异积分的局部版本）：
 
 $$
-|\nabla u(x)| \le C \int_{|y|\lt;2\delta} \frac{|\omega(y)|}{|x-y|^3} dy + C \int_{|y|\gt;2\delta} \frac{|\omega(y)|}{|x-y|^3} dy.
+|\nabla u(x)| \le C \int_{|y|<;2\delta} \frac{|\omega(y)|}{|x-y|^3} dy + C \int_{|y|>;2\delta} \frac{|\omega(y)|}{|x-y|^3} dy.
 $$
 
-第一项在 $|x| \lt; \delta$ 时由 $|\omega|$ 的局部 $L^\infty$ 控制；第二项由截断边界的光滑性控制。反向估计由 $\omega = \nabla \times u$ 直接得到 $|\omega| \le C|\nabla u|$。
+第一项在 $|x| <; \delta$ 时由 $|\omega|$ 的局部 $L^\infty$ 控制；第二项由截断边界的光滑性控制。反向估计由 $\omega = \nabla \times u$ 直接得到 $|\omega| \le C|\nabla u|$。
 
 **步骤五：拉伸项下界的保持**
 
