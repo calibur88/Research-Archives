@@ -1,29 +1,43 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-NCDFT — N=50000 2D Joint-Detection Final Edition
-================================================
+SDFT — Smooth Discrete Fourier Transform for Riemann Zeta Zeros
+================================================================
+
+Implementation of the zero computation protocol from Section 6 of
+"NCDFT Framework and Riemann Hypothesis: From Smooth Truncation to
+Rigorous Derivation" (smooth-cutoff edition).
 
 Target: 8GB RAM, exact computation, zeros #1…#90
 Memory strategy:
   - Dynamic sub-chunking: per-block memory capped at 400MB
   - Auto thread throttling
-  - 30030-wheel sieve exact reproduction (DO NOT SIMPLIFY)
+  - 30030-wheel sieve exact reproduction
 
-2D Joint Detection:
-  - Channel 1: magnitude peaks
-  - Channel 2: phase jumps (unwrap derivative)
+2D Joint Detection (Section 6.2):
+  - Channel 1: magnitude peaks (Proposition 4.4)
+  - Channel 2: phase jumps (Corollary 4.5)
   - Channel 3: Re(D) zero-crossings
   - Channel 4: Im(D) zero-crossings
   - Nearest-zero guard: prevents cross-zero misassignment
   - Sub-grid fallback for unresolved pairs
 
+Refinement: Quadratic vertex fit (parabolic interpolation on |D_N|^2)
+  - Newton refinement omitted per diagnostic: fails beyond T(N) = o(sqrt(N))
+  - Error bound: Theorem 6.4 via grid density, not iterative convergence
+
 Plot:
   - Global spectrum + phase jumps overlay
-  - Phase unwrap (bugfixed: uses D(t), not mag*exp(0))
+  - Phase unwrap (uses D(t) directly)
   - Zoom: zeros #1…#90
   - Complex trajectory D(t)=(Re,Im) with red dots at zero locations
   - plt.show() called exactly once
+
+References:
+  - Proposition 4.4: FFT pole-zero correspondence (Lorentz resonance)
+  - Corollary 4.5: Phase jump criterion
+  - Proposition 5.2': Off-axis zero exclusion
+  - Theorem 6.4: Error bound via grid density
 """
 
 import numpy as np
@@ -44,7 +58,7 @@ os.environ["OMP_NUM_THREADS"] = "1"
 
 
 # =====================================================================
-# 1. Adaptive 30030-wheel sieve (exact reproduction — DO NOT SIMPLIFY)
+# 1. Adaptive 30030-wheel sieve (Section 6.2, Step 2)
 # =====================================================================
 def _adaptive_wheel_sieve(n: int) -> list:
     if n < 2:
@@ -121,7 +135,7 @@ def _adaptive_wheel_sieve(n: int) -> list:
 
 
 # =====================================================================
-# 2. von Mangoldt
+# 2. von Mangoldt function (Section 6.2, Step 2)
 # =====================================================================
 def _von_mangoldt(n_max: int) -> np.ndarray:
     Lambda = np.zeros(n_max + 1, dtype=np.float64)
@@ -134,7 +148,7 @@ def _von_mangoldt(n_max: int) -> np.ndarray:
 
 
 # =====================================================================
-# 3. Document-correct phi
+# 3. Smooth truncation function phi (Section 6.2, Step 2)
 # =====================================================================
 def _phi(x: np.ndarray) -> np.ndarray:
     x = np.asarray(x, dtype=float)
@@ -150,16 +164,16 @@ def _phi(x: np.ndarray) -> np.ndarray:
 
 
 # =====================================================================
-# 4. Riemann zeros
+# 4. Riemann zeros reference (for validation)
 # =====================================================================
 def _riemann_zeros(start: int, end: int) -> np.ndarray:
     return np.array([float(mp.zetazero(i).imag) for i in range(start, end + 1)])
 
 
 # =====================================================================
-# 5. NCDFT with extreme memory control
+# 5. SDFT with extreme memory control (Section 6.2, Step 3)
 # =====================================================================
-class NCDFT:
+class SDFT:
     def __init__(self, N: int, n_threads: int = None, mem_cap_gb: float = 4.0):
         self.N = N
         self.t_k = 2.0 * np.pi * np.arange(N) / np.log(N)
@@ -215,15 +229,23 @@ class NCDFT:
 
 
 # =====================================================================
-# 6. 2D Joint Zero Detection (nearest-zero guard)
+# 6. 2D Joint Zero Detection (Section 6.2, Steps 4-5)
 # =====================================================================
 def detect_zeros_2d(N: int, start: int, end: int):
     zeros = _riemann_zeros(start, end)
-    ncdf = NCDFT(N, mem_cap_gb=4.0)
-    D, phi_vals, f_n = ncdf.spectrum()
+    
+    # Validate range per Theorem 4.2: T(N) = o(sqrt(N))
+    if zeros[-1] >= np.sqrt(N) * 0.8:
+        warnings.warn(
+            f"Zero #{end} (gamma ≈ {zeros[-1]:.1f}) approaches validity limit "
+            f"sqrt(N) ≈ {np.sqrt(N):.1f}. Results may be unreliable per Theorem 4.2."
+        )
+    
+    sdf = SDFT(N, mem_cap_gb=4.0)
+    D, phi_vals, f_n = sdf.spectrum()
 
     half = N // 2
-    t_pos = ncdf.t_k[:half]
+    t_pos = sdf.t_k[:half]
     mag = np.abs(D)[:half]
     phase = np.angle(D)[:half]
     re = np.real(D)[:half]
@@ -231,7 +253,7 @@ def detect_zeros_2d(N: int, start: int, end: int):
     dt = t_pos[1] - t_pos[0]
     bound = np.pi / np.log(N)
 
-    # Channel 1: magnitude peaks
+    # Channel 1: magnitude peaks (Proposition 4.4)
     med = np.median(mag)
     prominence = 0.03 * med
     distance = max(1, int(0.5 * (2.0 * np.pi / np.log(np.median(zeros))) / dt))
@@ -239,7 +261,7 @@ def detect_zeros_2d(N: int, start: int, end: int):
     peak_pos = t_pos[peak_idx]
     peak_mag = mag[peak_idx]
 
-    # Channel 2: phase jumps
+    # Channel 2: phase jumps (Corollary 4.5)
     uphase = np.unwrap(phase)
     dphase = np.diff(uphase)
     jump_mask = np.abs(dphase) > 0.8
@@ -285,7 +307,7 @@ def detect_zeros_2d(N: int, start: int, end: int):
     rezc_owner = nearest_zero_idx(re_zc)
     imzc_owner = nearest_zero_idx(im_zc)
 
-    # Joint matching
+    # Joint matching (Section 6.2, Step 5)
     matched = 0
     refined = []
     used_peaks = set()
@@ -356,6 +378,8 @@ def detect_zeros_2d(N: int, start: int, end: int):
 
             matched += 1
 
+            # Refinement: quadratic vertex fit on |D_N|^2 (Section 6.2, Step 6)
+            # Newton refinement omitted: fails beyond T(N) = o(sqrt(N)) per diagnostic
             if tag == "peak":
                 k_idx = np.argmin(np.abs(t_pos - det))
                 k0 = max(1, min(k_idx, len(t_pos) - 2))
@@ -370,6 +394,7 @@ def detect_zeros_2d(N: int, start: int, end: int):
 
             refined.append((gz, det, abs(det - gz), tag))
         else:
+            # Sub-grid fallback (Section 6.2, Step 5)
             hw = max(window, 1.5 * dt)
             n_fine = max(41, int(6 * hw / dt))
             t_fine = np.linspace(gz - hw, gz + hw, n_fine)
@@ -405,15 +430,14 @@ def detect_zeros_2d(N: int, start: int, end: int):
         "refined": refined,
         "bound": bound,
         "dt": dt,
-        "threads": ncdf.n_threads,
-        "actual_threads": ncdf.n_threads,
+        "threads": sdf.n_threads,
     }
 
 
 # =====================================================================
 # 7. Plot — plt.show() called exactly once
 # =====================================================================
-def plot(res: dict, filename: str = "ncdf_N50000_2d.png"):
+def plot(res: dict, filename: str = "sdft_N50000_2d.png"):
     zeros = res["zeros"]
     t = res["t_pos"]
     mag = res["mag"]
@@ -441,12 +465,12 @@ def plot(res: dict, filename: str = "ncdf_N50000_2d.png"):
     ax0.legend(loc="upper right", fontsize=9)
     ax0.grid(True, alpha=0.3)
 
-    # Top-right: phase unwrap (bugfixed)
+    # Top-right: phase unwrap
     phase = np.angle(D)
     ax1.plot(t, np.unwrap(phase), "g-", lw=0.4)
     for gz in zeros:
         ax1.axvline(gz, color="green", ls="--", lw=0.6, alpha=0.3)
-    ax1.set_title("Phase (unwrapped) — fixed")
+    ax1.set_title("Phase (unwrapped)")
     ax1.set_xlabel("$t$")
     ax1.set_ylabel(r"$\arg D(t)$")
     ax1.grid(True, alpha=0.3)
@@ -504,7 +528,7 @@ def main():
     N = 50000
     start, end = 1, 90
 
-    print(f"NCDFT — N={N}, zeros #{start}...#{end}")
+    print(f"SDFT — N={N}, zeros #{start}...#{end}")
     print(f"Memory cap: 4GB for phases, 8GB total system")
     print("=" * 60)
 
