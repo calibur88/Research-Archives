@@ -1,0 +1,534 @@
+[
+  {
+    "name": "B1855+09_PINT_20220301.nb",
+    "RA": 284.4016246087026,
+    "DEC": 9.721430158586776,
+    "n_mutations": 10,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "B1937+21ao_PINT_20220304.nb",
+    "RA": 294.9106699785674,
+    "DEC": 21.583079471746565,
+    "n_mutations": 10,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "B1937+21gbt_PINT_20220304.nb",
+    "RA": 294.9106699687482,
+    "DEC": 21.583079509517805,
+    "n_mutations": 19,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "B1937+21_PINT_20220306.nb",
+    "RA": 294.9106699722392,
+    "DEC": 21.58307949491673,
+    "n_mutations": 12,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "B1953+29_PINT_20220301.nb",
+    "RA": 298.86614401588633,
+    "DEC": 29.14538881496753,
+    "n_mutations": 5,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J0023+0923_PINT_20220301.nb",
+    "RA": 5.820315797556236,
+    "DEC": 9.389959763764107,
+    "n_mutations": 55,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J0030+0451_PINT_20220302.nb",
+    "RA": 7.614277728410677,
+    "DEC": 4.861032516717341,
+    "n_mutations": 26,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J0340+4130_PINT_20220302.nb",
+    "RA": 55.09702753959092,
+    "DEC": 41.5125870332564,
+    "n_mutations": 13,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J0406+3039_PINT_20220304.nb",
+    "RA": 61.63548844947351,
+    "DEC": 30.661784790562955,
+    "n_mutations": 3,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J0437-4715_PINT_20220301.nb",
+    "RA": 69.31672707527578,
+    "DEC": -47.2527149631249,
+    "n_mutations": 2,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J0509+0856_PINT_20220302.nb",
+    "RA": 77.34264940277707,
+    "DEC": 8.940292514365215,
+    "n_mutations": 8,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J0557+1551_PINT_20220302.nb",
+    "RA": 89.38103707104449,
+    "DEC": 15.835033089320543,
+    "n_mutations": 4,
+    "vmd_harmonic": false
+  },
+  {
+    "name": "J0605+3757_PINT_20220301.nb",
+    "RA": 91.27309535711947,
+    "DEC": 37.95999245012758,
+    "n_mutations": 5,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J0610-2100_PINT_20220301.nb",
+    "RA": 92.55667249010392,
+    "DEC": -21.00770534177478,
+    "n_mutations": 14,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J0613-0200_PINT_20220302.nb",
+    "RA": 93.43323366270836,
+    "DEC": -2.013115964842259,
+    "n_mutations": 9,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J0614-3329_PINT_20220301.nb",
+    "RA": 93.54311680460157,
+    "DEC": -33.498357516648845,
+    "n_mutations": 9,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J0636+5128_PINT_20220303.nb",
+    "RA": 99.02020164300662,
+    "DEC": 51.48333286068962,
+    "n_mutations": 14,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J0645+5158_PINT_20220302.nb",
+    "RA": 101.49617977241898,
+    "DEC": 51.9708161083291,
+    "n_mutations": 11,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J0709+0458_PINT_20220302.nb",
+    "RA": 107.28485572586773,
+    "DEC": 4.980982062691249,
+    "n_mutations": 12,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J0740+6620_PINT_20220302.nb",
+    "RA": 115.19080812131058,
+    "DEC": 66.3426476994532,
+    "n_mutations": 12,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J0931-1902_PINT_20220301.nb",
+    "RA": 142.8296509437649,
+    "DEC": -19.048614389458482,
+    "n_mutations": 8,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1012+5307_PINT_20220305.nb",
+    "RA": 153.13934055916204,
+    "DEC": 53.11728951398582,
+    "n_mutations": 53,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1012-4235_PINT_20220301.nb",
+    "RA": 153.05390569307627,
+    "DEC": -42.59816521860496,
+    "n_mutations": 4,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1022+1001_PINT_20220304.nb",
+    "RA": 155.74166255480242,
+    "DEC": 10.031427584068037,
+    "n_mutations": 13,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1024-0719_PINT_20220302.nb",
+    "RA": 156.16109118756404,
+    "DEC": -7.322134684020388,
+    "n_mutations": 33,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1125+7819_PINT_20220304.nb",
+    "RA": 171.49950333352623,
+    "DEC": 78.33019942036806,
+    "n_mutations": 11,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1312+0051_PINT_20220303.nb",
+    "RA": 198.19430017292402,
+    "DEC": 0.850006649060619,
+    "n_mutations": 11,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1453+1902_PINT_20220302.nb",
+    "RA": 223.4405001976077,
+    "DEC": 19.03668680334521,
+    "n_mutations": 6,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1455-3330_PINT_20220301.nb",
+    "RA": 223.9498765770525,
+    "DEC": -33.51289307877389,
+    "n_mutations": 7,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1600-3053gbt_PINT_20220302.nb",
+    "RA": 240.21625907797045,
+    "DEC": -30.897067565956117,
+    "n_mutations": 37,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1600-3053_PINT_20220302.nb",
+    "RA": 240.21625907151213,
+    "DEC": -30.89706761680764,
+    "n_mutations": 33,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1614-2230_PINT_20220301.nb",
+    "RA": 243.6521144971764,
+    "DEC": -22.508714821261563,
+    "n_mutations": 15,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1630+3734_PINT_20220302.nb",
+    "RA": 247.65196526331866,
+    "DEC": 37.57832030679552,
+    "n_mutations": 6,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1640+2224_PINT_20220305.nb",
+    "RA": 250.06977396743628,
+    "DEC": 22.402434166581454,
+    "n_mutations": 16,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1643-1224gbt_PINT_20220305.nb",
+    "RA": 250.9090104553469,
+    "DEC": -12.416306255475162,
+    "n_mutations": 18,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1643-1224_PINT_20220305.nb",
+    "RA": 250.9090104760811,
+    "DEC": -12.416306276703596,
+    "n_mutations": 38,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1705-1903_PINT_20220307.nb",
+    "RA": 256.4327033243685,
+    "DEC": -19.061510340736994,
+    "n_mutations": 24,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1713+0747ao_PINT_20220306.nb",
+    "RA": 258.4563933238396,
+    "DEC": 7.79373279889728,
+    "n_mutations": 20,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1713+0747gbt_PINT_20220302.nb",
+    "RA": 258.4563937845896,
+    "DEC": 7.793732432473601,
+    "n_mutations": 35,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1713+0747_PINT_20220309.nb",
+    "RA": 258.45639326866973,
+    "DEC": 7.793732840498131,
+    "n_mutations": 71,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1719-1438_PINT_20220302.nb",
+    "RA": 259.7919812129343,
+    "DEC": -14.633621350954794,
+    "n_mutations": 22,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1730-2304_PINT_20220301.nb",
+    "RA": 262.59033939617575,
+    "DEC": -23.075340831679878,
+    "n_mutations": 8,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1738+0333_PINT_20220302.nb",
+    "RA": 264.72487138651223,
+    "DEC": 3.553016440317184,
+    "n_mutations": 28,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1741+1351_PINT_20220302.nb",
+    "RA": 265.3797639711093,
+    "DEC": 13.862239671680602,
+    "n_mutations": 15,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1744-1134_PINT_20220302.nb",
+    "RA": 266.12254702433665,
+    "DEC": -11.58187888694999,
+    "n_mutations": 26,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1745+1017_PINT_20220302.nb",
+    "RA": 266.3909926669772,
+    "DEC": 10.297892683886902,
+    "n_mutations": 6,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1747-4036_PINT_20220302.nb",
+    "RA": 266.9529839244042,
+    "DEC": -40.61523055497761,
+    "n_mutations": 16,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1751-2857_PINT_20220301.nb",
+    "RA": 267.8862002811238,
+    "DEC": -28.962944866604804,
+    "n_mutations": 6,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1802-2124_PINT_20220302.nb",
+    "RA": 270.52222739192257,
+    "DEC": -21.40103526254932,
+    "n_mutations": 20,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1811-2405_PINT_20220301.nb",
+    "RA": 272.83272634884565,
+    "DEC": -24.08846271828592,
+    "n_mutations": 14,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1832-0836_PINT_20220302.nb",
+    "RA": 278.11496573508407,
+    "DEC": -8.61530537809062,
+    "n_mutations": 19,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1843-1113_PINT_20220302.nb",
+    "RA": 280.92192009594964,
+    "DEC": -11.22531608655963,
+    "n_mutations": 7,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1853+1303_PINT_20220302.nb",
+    "RA": 283.48882464332627,
+    "DEC": 13.062224771676528,
+    "n_mutations": 4,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1903+0327ao_PINT_20220302.nb",
+    "RA": 285.7741335948525,
+    "DEC": 3.4553143828744295,
+    "n_mutations": 19,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1903+0327_PINT_20220304.nb",
+    "RA": 285.77413359577514,
+    "DEC": 3.4553143477610533,
+    "n_mutations": 12,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1909-3744gbt_PINT_20220303.nb",
+    "RA": 287.44763238849146,
+    "DEC": -37.73740701268704,
+    "n_mutations": 39,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1909-3744_PINT_20220303.nb",
+    "RA": 287.44763235163157,
+    "DEC": -37.73740712112114,
+    "n_mutations": 52,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1910+1256_PINT_20220301.nb",
+    "RA": 287.5404223000293,
+    "DEC": 12.940391240296771,
+    "n_mutations": 10,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1911+1347_PINT_20220302.nb",
+    "RA": 287.98001238155956,
+    "DEC": 13.792865524547386,
+    "n_mutations": 16,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1918-0642_PINT_20220302.nb",
+    "RA": 289.70013240429023,
+    "DEC": -6.709707570270638,
+    "n_mutations": 28,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1923+2515_PINT_20220301.nb",
+    "RA": 290.843712563537,
+    "DEC": 25.261257014221176,
+    "n_mutations": 18,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1944+0907_PINT_20220302.nb",
+    "RA": 296.0388803550744,
+    "DEC": 9.123044716707494,
+    "n_mutations": 7,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J1946+3417_PINT_20220302.nb",
+    "RA": 296.60470118920017,
+    "DEC": 34.28740718884604,
+    "n_mutations": 8,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J2010-1323_PINT_20220302.nb",
+    "RA": 302.69134155048727,
+    "DEC": -13.398926032884793,
+    "n_mutations": 26,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J2017+0603_PINT_20220302.nb",
+    "RA": 304.3446058566615,
+    "DEC": 6.051537405066435,
+    "n_mutations": 6,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J2033+1734_PINT_20220304.nb",
+    "RA": 308.36462668050075,
+    "DEC": 17.582894238882318,
+    "n_mutations": 7,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J2043+1711_PINT_20220302.nb",
+    "RA": 310.8370010065148,
+    "DEC": 17.191348862938295,
+    "n_mutations": 8,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J2124-3358_PINT_20220301.nb",
+    "RA": 321.18266265233575,
+    "DEC": -33.979278610798865,
+    "n_mutations": 10,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J2145-0750_PINT_20220302.nb",
+    "RA": 326.4602458783742,
+    "DEC": -7.838483186772062,
+    "n_mutations": 40,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J2214+3000_PINT_20220302.nb",
+    "RA": 333.6618971026654,
+    "DEC": 30.010603417524184,
+    "n_mutations": 31,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J2229+2643_PINT_20220301.nb",
+    "RA": 337.4620128090386,
+    "DEC": 26.732672554083628,
+    "n_mutations": 13,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J2234+0611_PINT_20220304.nb",
+    "RA": 338.59615736296496,
+    "DEC": 6.19130535104914,
+    "n_mutations": 14,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J2234+0944_PINT_20220302.nb",
+    "RA": 338.69522720905655,
+    "DEC": 9.74171079325929,
+    "n_mutations": 28,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J2302+4442_PINT_20220302.nb",
+    "RA": 345.6957337386376,
+    "DEC": 44.706128759613314,
+    "n_mutations": 13,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J2317+1439_PINT_20220306.nb",
+    "RA": 349.28848176757646,
+    "DEC": 14.658683221984706,
+    "n_mutations": 13,
+    "vmd_harmonic": true
+  },
+  {
+    "name": "J2322+2057_PINT_20220302.nb",
+    "RA": 350.5930131735705,
+    "DEC": 20.950706310843387,
+    "n_mutations": 6,
+    "vmd_harmonic": true
+  }
+]
