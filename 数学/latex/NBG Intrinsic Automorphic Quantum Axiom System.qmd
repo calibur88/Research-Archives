@@ -40,7 +40,7 @@ format:
 
 **Author**: CH.HY | **Affiliation**: Independent Researcher
 
-**Email**: jiuxin303@gmail.com
+**Email**: jiuxin303@qq.com
 
 **ORCID**: 0009-0003-6134-3736 | https://orcid.org/0009-0003-6134-3736
 :::
