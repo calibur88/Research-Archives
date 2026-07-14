@@ -1,0 +1,185 @@
+---
+# ==================== 基础信息 ====================
+title: "NBG Intrinsic Automorphic Quantum Axiom System"
+subtitle: "A Pure Algebraic Origin of Quantumness without External Parameters"
+author:
+  - name: "CH.HY"
+    affiliations:
+      - name: "Independent Researcher"
+        department: ""
+date: "2026-07-14"
+
+# ==================== 交叉引用 ====================
+crossref:
+  fig-title: Figure
+  tbl-title: Table
+  fig-prefix: Figure
+  tbl-prefix: Table
+
+# ==================== PDF 输出配置 ====================
+format:
+  pdf:
+    pdf-engine: xelatex
+    documentclass: article
+    include-in-header:
+      text: |
+        \usepackage{amsmath,amssymb,amsthm}
+        \usepackage{hyperref}
+    geometry: margin=2.5cm
+    fontsize: 12pt
+    linestretch: 1.5
+    fig-pos: 'H'
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    colorlinks: true
+---
+
+::: {.callout-note appearance="minimal"}
+**Author Contact**
+
+**Author**: CH.HY | **Affiliation**: Independent Researcher
+
+**Email**: jiuxin303@gmail.com
+
+**ORCID**: 0009-0003-6134-3736 | https://orcid.org/0009-0003-6134-3736
+:::
+
+# Abstract
+
+We present a complete axiomatic foundation for quantum theory within the framework of von Neumann–Bernays–Gödel (NBG) class theory. Quantumness is not imposed through a fixed Planck constant or measurement postulate, but emerges from the breakdown of recursive rigidity across all ordinal levels of class Fourier transforms acting on automorphic forms. The Cauchy–Schwarz equality is identified with global recursive compatibility, forcing the commutator of basic variables to vanish and the spectrum to be purely point-like (compact). A single failure of recursive proportionality at any ordinal level immediately triggers strict inequality, a non‑zero commutator, continuous spectrum, and non‑compactness. The algebraic Planck constant is geometrically identified as a running first Chern class of the automorphic line bundle, decomposing into a bare integer topological invariant and a scale‑dependent vacuum fluctuation correction, directly matching the QCD topological susceptibility and chiral symmetry breaking order parameter. The system admits no intermediate states; the classical/quantum dichotomy is logically deduced from the ordinal recursion law.
+
+---
+
+# Axiom 0: Base Space and Objects
+
+Let $\Gamma$ be a class discrete group in NBG, and $X$ a class symmetric space.  
+The quantum state space is defined as the generalized automorphic space:
+
+$$\mathcal{A}\!ut(\Gamma \backslash X, k)$$
+
+The intrinsic variable classes $\mathfrak{X}, \mathfrak{Y}$ are automorphic forms of weight $k$, satisfying
+
+$$\mathfrak{X}(\gamma z) = j(\gamma, z)^k \mathfrak{X}(z), \quad \forall \gamma \in \Gamma.$$
+
+They generate an operator ring $\mathcal{A}$. The fundamental bilinear inner product on classes is defined by class summation $\langle \cdot, \cdot \rangle := \sum$, with induced norm $\|\cdot\|$.
+
+*Remark.* The class summation is well‑defined on automorphic classes. In Case A (compact operator, pure point spectrum) the sum converges countably; in Case B we introduce a scale‑weighted inner product $\langle \cdot, \cdot \rangle_\mu$ to regularize the long‑range divergent class sum.
+
+---
+
+# Axiom I: NBG Recursive Cauchy Rigidity Criterion (Fundamental Law)
+
+## Cauchy Inequality on Class Space
+
+$$\|\mathfrak{X}\|^2 \|\mathfrak{Y}\|^2 \ge |\langle \mathfrak{X}, \mathfrak{Y} \rangle|^2$$
+
+## Definition of Recursive Equality
+
+Let $\mathcal{F}$ be the class Fourier transform, and $\mathcal{F}^n$ the $n$‑th recursive Fourier map at ordinal level $n$. The scale‑dependent recursive equality is defined as
+
+$$\mathfrak{X} \stackrel{\text{rec},\mu}{=} \mathfrak{Y} \iff \forall n \in \text{Ord}: \mathcal{F}^n[\mathfrak{X}] = \lambda_n(\mu) \mathcal{F}^n[\mathfrak{Y}],$$
+
+where $\lambda_n(\mu)$ is the linear proportionality coefficient at ordinal level $n$ and energy scale $\mu$.
+
+**Core Rule.** The Cauchy inequality becomes an equality **iff** the rigid linear dependence holds across all ordinal levels. If there exists any ordinal $n$ where the proportionality breaks, the inequality is strict.
+
+---
+
+# Axiom II: Spectral Rigidity Dichotomy (Core Judgement)
+
+Based on Axiom I, the system admits a strict dichotomy with no intermediate regime.
+
+## Case A: Recursive Rigidity (Cauchy Equality)
+
+$$\boxed{
+\mathfrak{X} \stackrel{\text{rec},\mu}{=} \mathfrak{Y}
+\iff [\mathfrak{X}, \mathfrak{Y}] = 0
+\iff \mathcal{F} \text{ recursively invertible}
+\iff \sigma(\mathfrak{X}) \text{ compact}
+\iff \text{self‑adjoint compact operator}
+\iff \mathrm{Tr}_\omega(\cdot |D|^{-p}) = 0
+}$$
+
+1. The spectral projection $E_D([R, \infty))$ tends to a compact set as $R \to \infty$.
+2. The system is in a classically compatible state; the intrinsic variables are fully resolvable and commute.
+
+## Case B: Recursive Breakdown (Strict Cauchy Inequality)
+
+$$\boxed{
+\mathfrak{X} \stackrel{\text{rec},\mu}{\neq} \mathfrak{Y}
+\iff [\mathfrak{X}, \mathfrak{Y}] = i \cdot \mathbf{C}(\mu) \; (\mathbf{C}(\mu) \neq 0)
+\iff \mathcal{F} \text{ recursively non‑invertible (non‑trivial kernel)}
+\iff \sigma(\mathfrak{X}) \text{ non‑compact}
+\iff \text{non‑compact operator}
+\iff \mathrm{Tr}_\omega(\cdot |D|^{-p}) \neq 0
+}$$
+
+1. The evolution operator escapes the compact ideal; the spectrum is unbounded and contains a continuous essential spectrum.
+2. The system is an intrinsically non‑commutative quantum state. Uncertainty originates purely from the geometric structure of automorphic classes, without any measurement‑disturbance hypothesis.
+
+## Recursive Rigidity Theorem
+
+- Recursive compatibility + Cauchy equality $\implies$ spectrum is compact with only discrete point spectrum.
+- Existence of a continuous essential spectrum $\implies$ the recursive Fourier map has a non‑zero kernel $\implies$ recursive relation breaks down.
+
+There exists **no** system simultaneously satisfying “global recursive compatibility, Cauchy equality, and non‑compact operator”.
+
+---
+
+# Axiom III: Algebraic Topological Running Scalar $\mathbf{C}(\mu)$
+
+## 1. Scale‑Dependent Topological Average
+
+$$\mathbf{C}(\mu) := \langle [\mathfrak{X}, \mathfrak{Y}] \rangle_\mu = c_1^{\text{eff}}(\mathcal{L}_{\text{aut}}, \mu)$$
+
+$\mathcal{L}_{\text{aut}}$ is the automorphic line bundle associated with the weight‑$k$ automorphic forms, and $c_1^{\text{eff}}$ is the effective first Chern scalar.
+
+## 2. Topological Decomposition Theorem
+
+$$c_1^{\text{eff}}(\mu) = c_1^{\text{bare}} + \delta c_1(\mu)$$
+
+- $c_1^{\text{bare}} \in \mathbb{Z}$: the bare first Chern class, an absolute integer topological invariant independent of scale;
+- $\delta c_1(\mu)$: the running correction induced by ordinal recursive layering and vacuum topological fluctuations, equivalent to the QCD topological susceptibility $\chi_{\text{top}}(\mu)$.
+
+## 3. Gauge‑Field Physical Correspondence
+
+$\mathbf{C}(\mu)$ acts as the order parameter for the breaking strength of QCD chiral symmetry and the axial $U(1)_A$ symmetry:
+
+1. $\mathbf{C}(\mu) \to 0$: chiral/axial symmetry restored phase, commutator vanishes, spectrum returns to compactness;
+2. $\mathbf{C}(\mu) > 0$: spontaneously broken, confining phase, significant non‑commutative effects;
+3. The QCD $\theta$‑vacuum phase linearly superimposes onto the correction $\delta c_1(\mu)$, endowing the effective topological scalar with a periodic topological structure that naturally accommodates strong CP effects.
+
+---
+
+# Axiom IV: Spectral Triple Scaling Law (Adapted to Running $\mathbf{C}(\mu)$)
+
+Based on the Dixmier spectral triple $(\mathcal{A}, \mathcal{H}, D)$ and the non‑commutative central limit theorem, four characteristic spectral‑geometry parameters are defined:
+
+| Parameter | Definition | Physical/Geometric Interpretation |
+|-----------|-----------|-----------------------------------|
+| $r^*$ | $\sup\{r : \mathrm{Tr}_\omega(a D^{-r}) < \infty\}$ | Short‑range repulsion: critical exponent where the Dixmier trace becomes definable |
+| $r^+$ | $\inf\{R : E_D([R, \infty)) \text{ non‑compact}\}$ | Long‑range spectral cutoff: energy scale from which spectral projections lose compactness |
+| $dx$ | $\Re(d_{\text{spectral}})$ | Transverse fractal spectral dimension (real part) |
+| $dy$ | $\Im(d_{\text{spectral}})$ | Longitudinal oscillatory spectral dimension (imaginary part) |
+
+## Unified Limit Relation for the Topological Scalar
+
+$$\mathbf{C}(\mu) = \lim_{\substack{r^* \to 0 \\ r^+ \to \mu^{-1}}} \left[ \frac{\mathrm{Vol}_{\mathrm{Dixmier}}(r^*, r^+)}{\mathrm{Vol}_{\mathrm{classical}}(dx, dy)} \right]$$
+
+1. $\mathrm{Vol}_{\mathrm{Dixmier}}$: non‑commutative geometric measure volume; $\mathrm{Vol}_{\mathrm{classical}}$: classical automorphic measure volume.
+2. The limit exists and is non‑zero **iff** the system belongs to Case B (non‑compact spectrum, quantum non‑commutative phase); in Case A the limit is identically zero.
+3. The infrared cutoff satisfies $r^+ \sim 1/\mu$, making the limit vary continuously with energy scale $\mu$ and generating the renormalisation flow $\mu \mapsto \mathbf{C}(\mu)$.
+
+---
+
+# Final Theorem (Holographic Compression): NBG Quantum Dichotomy Law
+
+The classical/quantum phase of intrinsic variable classes is determined solely by the equality condition of the recursive Cauchy inequality; the two phases admit no continuous interpolation.
+
+1. **Cauchy equality** $\iff$ global recursive rigidity $\iff$ class Fourier recursively invertible $\iff$ spectrum compact with only discrete point spectrum $\iff$ self‑adjoint compact operator $\iff$ $\mathbf{C}(\mu) \equiv 0$ at all scales.
+2. **Strict Cauchy inequality** $\iff$ existence of an ordinal level with recursive breakdown $\iff$ class Fourier has non‑trivial kernel $\iff$ spectrum non‑compact with continuous essential spectrum $\iff$ non‑compact operator $\iff$ there exists a scale such that $\mathbf{C}(\mu) = c_1^{\text{bare}} + \delta c_1(\mu) \neq 0$.
+
+## Core Conclusion of the Framework
+
+Quantum non‑commutativity, continuous spectra, and gauge‑field topological symmetry breaking are all pure algebraic consequences of the loss of global ordinal recursive linear dependence of automorphic classes within the NBG framework. The theory requires no externally imposed Planck constant, measurement hypothesis, or semi‑classical approximation. $\blacksquare$
