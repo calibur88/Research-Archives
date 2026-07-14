@@ -76,7 +76,9 @@ $$\|\mathfrak{X}\|^2 \|\mathfrak{Y}\|^2 \ge |\langle \mathfrak{X}, \mathfrak{Y} 
 
 ## Definition of Recursive Equality
 
-Let $\mathcal{F}$ be the class Fourier transform, and $\mathcal{F}^n$ the $n$‑th recursive Fourier map at ordinal level $n$. The scale‑dependent recursive equality is defined as
+Let $\mathcal{F}$ be the class Fourier transform, and $\mathcal{F}^n$ the $n$‑th recursive Fourier map at ordinal level $n$. For a limit ordinal $\lambda = \sup_{\alpha<\lambda} \alpha$, define the projective limit $\mathcal{F}^\lambda := \varprojlim_{\alpha<\lambda} \mathcal{F}^\alpha$, and assume that this limit exists in the class $\mathcal{A}$ (its strict closure is guaranteed by Supplementary Axiom V).
+
+The scale‑dependent recursive equality is defined as
 
 $$\mathfrak{X} \stackrel{\text{rec},\mu}{=} \mathfrak{Y} \iff \forall n \in \text{Ord}: \mathcal{F}^n[\mathfrak{X}] = \lambda_n(\mu) \mathcal{F}^n[\mathfrak{Y}],$$
 
@@ -123,7 +125,7 @@ $$\boxed{
 - Recursive compatibility + Cauchy equality $\implies$ spectrum is compact with only discrete point spectrum.
 - Existence of a continuous essential spectrum $\implies$ the recursive Fourier map has a non‑zero kernel $\implies$ recursive relation breaks down.
 
-There exists **no** system simultaneously satisfying “global recursive compatibility, Cauchy equality, and non‑compact operator”.
+There exists **no** system simultaneously satisfying "global recursive compatibility, Cauchy equality, and non‑compact operator".
 
 ---
 
@@ -131,9 +133,13 @@ There exists **no** system simultaneously satisfying “global recursive compati
 
 ## 1. Scale‑Dependent Topological Average
 
-$$\mathbf{C}(\mu) := \langle [\mathfrak{X}, \mathfrak{Y}] \rangle_\mu = c_1^{\text{eff}}(\mathcal{L}_{\text{aut}}, \mu)$$
+The scale‑dependent topological average is defined as the expectation of the commutator:
 
-$\mathcal{L}_{\text{aut}}$ is the automorphic line bundle associated with the weight‑$k$ automorphic forms, and $c_1^{\text{eff}}$ is the effective first Chern scalar.
+$$\mathbf{C}(\mu) := \langle [\mathfrak{X}, \mathfrak{Y}] \rangle_\mu = c_1^{\text{bare}} + \delta c_1(\mu)$$
+
+where $\mathcal{L}_{\text{aut}}$ is the automorphic line bundle associated with the weight‑$k$ automorphic forms. To ensure the global periodicity constraint (Appendix A.1), the decomposition is subject to the irreducibility condition:
+
+$$c_1^{\text{bare}} \in \mathbb{Z}, \quad \delta c_1(\mu) \in \mathbb{R}, \quad \text{and} \quad \delta c_1(\mu) \equiv 0 \pmod{\mathbb{Z}} \iff \text{Case A is restored}$$
 
 ## 2. Topological Decomposition Theorem
 
@@ -159,13 +165,13 @@ Based on the Dixmier spectral triple $(\mathcal{A}, \mathcal{H}, D)$ and the non
 | Parameter | Definition | Physical/Geometric Interpretation |
 |-----------|-----------|-----------------------------------|
 | $r^*$ | $\sup\{r : \mathrm{Tr}_\omega(a D^{-r}) < \infty\}$ | Short‑range repulsion: critical exponent where the Dixmier trace becomes definable |
-| $r^+$ | $\inf\{R : E_D([R, \infty)) \text{ non‑compact}\}$ | Long‑range spectral cutoff: energy scale from which spectral projections lose compactness |
-| $dx$ | $\Re(d_{\text{spectral}})$ | Transverse fractal spectral dimension (real part) |
-| $dy$ | $\Im(d_{\text{spectral}})$ | Longitudinal oscillatory spectral dimension (imaginary part) |
+| $r^+$ | $\inf\{R : E_D([R, \infty)) \text{ non‑compact}\} \sim \mu^{-1}$ | Long‑range spectral cutoff: energy scale from which spectral projections lose compactness |
+| $d_x$ | $\Re(d_{\text{spectral}})$ | Transverse fractal spectral dimension (real part) |
+| $d_y$ | $\Im(d_{\text{spectral}})$ | Longitudinal oscillatory spectral dimension (imaginary part) |
 
 ## Unified Limit Relation for the Topological Scalar
 
-$$\mathbf{C}(\mu) = \lim_{\substack{r^* \to 0 \\ r^+ \to \mu^{-1}}} \left[ \frac{\mathrm{Vol}_{\mathrm{Dixmier}}(r^*, r^+)}{\mathrm{Vol}_{\mathrm{classical}}(dx, dy)} \right]$$
+$$\mathbf{C}(\mu) = \lim_{\substack{r^* \to 0 \\ r^+ \to \mu^{-1}}} \left[ \frac{\mathrm{Vol}_{\mathrm{Dixmier}}(r^*, r^+)}{\mathrm{Vol}_{\mathrm{classical}}(d_x, d_y)} \right]$$
 
 1. $\mathrm{Vol}_{\mathrm{Dixmier}}$: non‑commutative geometric measure volume; $\mathrm{Vol}_{\mathrm{classical}}$: classical automorphic measure volume.
 2. The limit exists and is non‑zero **iff** the system belongs to Case B (non‑compact spectrum, quantum non‑commutative phase); in Case A the limit is identically zero.
@@ -173,12 +179,97 @@ $$\mathbf{C}(\mu) = \lim_{\substack{r^* \to 0 \\ r^+ \to \mu^{-1}}} \left[ \frac
 
 ---
 
+# Supplementary Axiom V (Ordinal Closure and Projective Limit Completeness, Optional)
+
+**Motivation**: Axiom I involves recursive maps $\mathcal{F}^n$ for all ordinals $n \in \text{Ord}$. The definition at a limit ordinal $\lambda$ depends on the inverse limit $\varprojlim_{\alpha<\lambda} \mathcal{F}^\alpha$. This axiom ensures that this object is well-defined and unique within the operator class $\mathcal{A}$. As an optional supplementary clause, this axiom does not participate in the dichotomy judgement of Axiom II; it merely ensures the set-theoretic legitimacy of the transfinite recursion steps.
+
+---
+
+**Axiom V.1 (Projective Closure of Class $\mathcal{A}$)**  
+Let $\lambda$ be any limit ordinal. If $\{A_\alpha\}_{\alpha<\lambda}$ is any inverse system in $\mathcal{A}$ whose transition morphisms $\pi_{\alpha,\beta}: A_\beta \to A_\alpha$ ($\alpha \leq \beta < \lambda$) are continuous in the strong class topology, then its projective limit:
+
+$$\varprojlim_{\alpha<\lambda} A_\alpha := \left\{ (a_\alpha)_{\alpha<\lambda} \in \prod_{\alpha<\lambda} A_\alpha \;\middle|\; \forall \alpha \leq \beta < \lambda,\; \pi_{\alpha,\beta}(a_\beta) = a_\alpha \right\}$$
+
+exists, is unique, and belongs to $\mathcal{A}$. That is, $\mathcal{A}$ is closed under projective limits of arbitrary length.
+
+---
+
+**Axiom V.2 (Limit Compatibility of the Recursive Fourier Transform)**  
+For a limit ordinal $\lambda = \sup_{\alpha<\lambda} \alpha$, define:
+
+$$\mathcal{F}^\lambda := \varprojlim_{\alpha<\lambda} \mathcal{F}^\alpha$$
+
+and require that this limit is compatible with the recursive maps at all lower levels, i.e., for all $\beta < \lambda$:
+
+$$\pi_{\beta} \circ \mathcal{F}^\lambda = \mathcal{F}^\beta \circ \pi_{\beta}$$
+
+where $\pi_{\beta}: \mathcal{F}^\lambda \to \mathcal{F}^\beta$ is the natural projection. This condition ensures that the judgement at $n = \lambda$ in Axiom I reduces to the collective behaviour of all levels $\alpha < \lambda$, introducing no extra degrees of freedom.
+
+---
+
+**Axiom V.3 (Ultrafilter Completeness, Optional Strengthening)**  
+If $\mathcal{A}$ is regarded as a class topological ring in NBG, we additionally require that $\mathcal{A}$ remains closed under inverse limits along the regular filter $\mathcal{U}$ containing all terminal segments $[\alpha, \lambda)$. This condition is equivalent to asserting the existence of a unique ultrafilter-compatible topology on $\mathcal{A}$ such that all projective limits at limit ordinals coincide with the categorical notion of limits.
+
+---
+
+**Supplementary Remark**: If only finite or countable recursion ($n \in \mathbb{N}$) is considered, this axiom can be entirely ignored without affecting the argument of the Final Theorem.
+
+---
+
 # Final Theorem (Holographic Compression): NBG Quantum Dichotomy Law
 
 The classical/quantum phase of intrinsic variable classes is determined solely by the equality condition of the recursive Cauchy inequality; the two phases admit no continuous interpolation.
 
-1. **Cauchy equality** $\iff$ global recursive rigidity $\iff$ class Fourier recursively invertible $\iff$ spectrum compact with only discrete point spectrum $\iff$ self‑adjoint compact operator $\iff$ $\mathbf{C}(\mu) \equiv 0$ at all scales.
-2. **Strict Cauchy inequality** $\iff$ existence of an ordinal level with recursive breakdown $\iff$ class Fourier has non‑trivial kernel $\iff$ spectrum non‑compact with continuous essential spectrum $\iff$ non‑compact operator $\iff$ there exists a scale such that $\mathbf{C}(\mu) = c_1^{\text{bare}} + \delta c_1(\mu) \neq 0$.
+1. **Cauchy equality (Classical Phase)**  
+   $$\iff \text{global recursive rigidity} \iff \text{spectrum compact with only discrete point spectrum} \iff \text{self‑adjoint compact operator} \iff \mathbf{C}(\mu) \equiv 0 \quad (\forall \mu)$$
+
+2. **Strict Cauchy inequality (Quantum Phase)**  
+   $$\iff \exists \text{ an ordinal level with recursive breakdown} \iff \text{spectrum non‑compact with continuous essential spectrum} \iff \text{non‑compact operator} \iff \exists \mu: \mathbf{C}(\mu) = c_1^{\text{bare}} + \delta c_1(\mu) \neq 0$$
+
+---
+
+# Appendix A: Topological Charge Integrality Constraint and Extended Boundary
+
+This appendix clarifies the topological charge integrality constraint enforced by the global periodicity of the complex exponential function, as well as the extended boundary mechanism of this constraint within the recursive framework.
+
+## A.1 Foundational Integrality Constraint
+
+The integrality of the topological charge is not an artificially imposed quantization condition, but a rigid fact enforced by the fundamental homomorphism property of the exponential map on the complex plane.
+
+Let $z_1, z_2 \in \mathbb{C}$. Then:
+
+$$\exp(z_1) = \exp(z_2) \iff z_1 - z_2 = 2k\pi i, \quad k \in \mathbb{Z}$$
+
+This property ensures that for any characteristic class defined by complex phase winding, the charge value must lie strictly in the discrete additive group $\mathbb{Z}$.
+
+**Framework Corollary**: On the automorphic line bundle, the取值 space of the bare first Chern class $c_1^{\text{bare}}$ is strictly restricted to $\mathbb{Z}$, rather than the continuous real field $\mathbb{R}$. This integer skeleton is a necessary algebraic consequence of the weight $k$ of the automorphic forms.
+
+## A.2 Rigid Constraints on the Running Scalar Decomposition
+
+The decomposition $\mathbf{C}(\mu) = c_1^{\text{bare}} + \delta c_1(\mu)$ in Axiom III is subject to the following irreducibility conditions:
+
+1. **Expectation Value Redefinition**: $\mathbf{C}(\mu)$ in Case B characterizes the "non-commutativity-induced effective curvature expectation value", rather than the strict global Chern class. The global topological charge $c_1^{\text{bare}}$ is strictly non-deformable continuously.
+2. **Restoration Criterion**: When the system returns to Case A (global recursive rigidity), $\delta c_1(\mu)$ must collapse to an integer value so that $\mathbf{C}(\mu) \equiv 0 \pmod{\mathbb{Z}}$, i.e., the running correction is completely absorbed into the integer renormalization without leaving a continuous tail.
+
+## A.3 Cutoff Boundary and Admissible Extensions
+
+Let $\Lambda$ be the cutoff scale of any class space:
+
+- **Regular Boundary**: When the cutoff tends to infinity ($\Lambda \to \infty$), bare integrality is strictly restored, corresponding to strictly compact spectrum.
+- **Discrete Boundary**: At finite cutoff ($\Lambda < \infty$), the effective topological charge $k_{\text{eff}}$ may be formally expressed as $k_{\text{eff}} \sim k / f(\Lambda)$. Integrality is then elevated to a congruence constraint on the cutoff parameter:
+  $$\Lambda \cdot k_{\text{eff}} \equiv 0 \pmod{\text{integer period}}$$
+
+## A.4 Quantitative Criterion for the Imaginary Spectral Dimension and Integrality Breakdown
+
+When the system attempts to break bare integrality on the extended boundary, the imaginary part $d_y$ of the spectral dimension in Axiom IV must satisfy a precise renormalization group equation to absorb the phase shift.
+
+Let the effective phase winding at boundary cutoff $\Lambda$ be $\Theta(\Lambda) = 2\pi c_1^{\text{bare}} + \phi(\Lambda)$. If $\phi(\Lambda)$ is non-zero (fractional shift), then the imaginary spectral dimension $d_y$ is strictly equal to:
+
+$$d_y = \frac{1}{2\pi} \frac{d}{d\ln \Lambda} \arg\left( \phi(\Lambda) \right)$$
+
+**Judgement Theorem**: $d_y \neq 0$ is the necessary and sufficient geometric condition that permits "integer overflow" or "renormalization group tunnelling" of the topological charge on the extended boundary. If $d_y = 0$, then $\phi(\Lambda)$ decays along the flow, fractional shifts are forbidden, and the system must return to the discrete spectrum of Case A.
+
+---
 
 ## Core Conclusion of the Framework
 
