@@ -1,0 +1,536 @@
+---
+# ==================== 基础信息 ====================
+title: "NBG Intrinsic Automorphic Quantum Axiom System"
+subtitle: "A Pure Algebraic Origin of Quantumness without External Parameters"
+author:
+  - name: "CH.HY"
+    affiliations:
+      - name: "Independent Researcher"
+        department: ""
+date: "2026-07-15"
+
+# ==================== 交叉引用 ====================
+crossref:
+  fig-title: Figure
+  tbl-title: Table
+  fig-prefix: Figure
+  tbl-prefix: Table
+
+# ==================== PDF 输出配置 ====================
+format:
+  pdf:
+    pdf-engine: xelatex
+    documentclass: article
+    include-in-header:
+      text: |
+        \usepackage{amsmath,amssymb,amsthm}
+        \usepackage{hyperref}
+    geometry: margin=2.5cm
+    fontsize: 12pt
+    linestretch: 1.5
+    fig-pos: 'H'
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    colorlinks: true
+---
+
+::: {.callout-note appearance="minimal"}
+**Author Contact**
+
+**Author**: CH.HY | **Affiliation**: Independent Researcher
+
+**Email**: jiuxin303@qq.com
+
+**ORCID**: 0009-0003-6134-3736 | https://orcid.org/0009-0003-6134-3736
+:::
+
+# Abstract
+
+We present a complete axiomatic foundation for quantum theory within the framework of von Neumann–Bernays–Gödel (NBG) class theory. Quantumness is not imposed through a fixed Planck constant or measurement postulate, but emerges from the breakdown of recursive rigidity across all ordinal levels of class Fourier transforms acting on automorphic forms. The Cauchy–Schwarz equality is identified with global recursive compatibility, forcing the commutator of basic variables to vanish and the spectrum to be purely point-like (compact). A single failure of recursive proportionality at any ordinal level immediately triggers strict inequality, a non‑zero commutator, continuous spectrum, and non‑compactness. The algebraic Planck constant is geometrically identified as a running first Chern class of the automorphic line bundle, decomposing into a bare integer topological invariant and a scale‑dependent vacuum fluctuation correction, directly matching the QCD topological susceptibility and chiral symmetry breaking order parameter. The system admits no intermediate states; the classical/quantum dichotomy is logically deduced from the ordinal recursion law. All traditional Euclidean QFT axioms are recovered as special limit cases of this framework at the classical fixed point. We further demonstrate that the discrete–continuous spectrum structure of the hydrogen atom is the physical prototype of an ordinal phase transition, the Stern–Gerlach experiment is the decisive demonstration of the non-commutativity of projective geometry, wave–particle duality is the two-sided manifestation of a representation phase transition, and the trace anomaly is the algebraic residue of the inverse Mellin transform under finite cutoff.
+
+---
+
+# 0. Foundational Definitions (The Sole Underlying Language)
+
+## 0.1 Spatial Base
+
+Take the positive real multiplicative group $\mathbb{R}_+^\times$, equipped with the Haar invariant measure:
+
+$$d^\times x = \frac{dx}{x}$$
+
+The square-integrable space is:
+
+$$\mathcal{H} = L^2(\mathbb{R}_+^\times, d^\times x)$$
+
+The logarithmic unitary transformation $X = \log x$ yields the unitary equivalence:
+
+$$\mathcal{H} \cong L^2(\mathbb{R}, dX)$$
+
+## 0.2 Core Canonical Operator
+
+Define the scale-symmetry generating operator:
+
+$$A = -(xp + px)$$
+
+Using the canonical identity $px = xp - i$, the operator identity holds strictly:
+
+$$xp + px = 2xp - i$$
+
+## 0.3 Mellin Representation (The Standard Representation of This System)
+
+Define the Mellin transform:
+
+$$\mathcal{M}[f](s) = \int_0^\infty x^{s-1} f(x) \, dx$$
+
+The elementary operators have fixed images:
+
+- $\mathcal{M}[xp](s) = is$
+- $\mathcal{M}[px](s) = i(s-1)$
+
+Both are pure multiplication operators in Mellin space.
+
+**Key Identity (The Cornerstone of This System):**
+
+$$[px, \; xp] = [xp - i, \; xp] = 0$$
+
+**Conclusion:** Under the Mellin representation, the position and momentum composite operators commute naturally. The non-commutativity in the time domain is a projection residual of the inverse Mellin transform, not an intrinsic property of the operators.
+
+---
+
+# Axiom 0: Base Space and Objects
+
+Let $\Gamma$ be a class discrete group in NBG, and $X$ a class symmetric space.  
+The quantum state space is defined as the generalized automorphic space:
+
+$$\mathcal{A}\!ut(\Gamma \backslash X, k)$$
+
+The intrinsic variable classes $\mathfrak{X}, \mathfrak{Y}$ are automorphic forms of weight $k$, satisfying
+
+$$\mathfrak{X}(\gamma z) = j(\gamma, z)^k \mathfrak{X}(z), \quad \forall \gamma \in \Gamma.$$
+
+They generate an operator ring $\mathcal{A}$. The fundamental bilinear inner product on classes is defined by class summation $\langle \cdot, \cdot \rangle := \sum$, with induced norm $\|\cdot\|$.
+
+*Remark.* The class summation is well‑defined on automorphic classes. In Case A (compact operator, pure point spectrum) the sum converges countably; in Case B we introduce a scale‑weighted inner product $\langle \cdot, \cdot \rangle_\mu$ to regularize the long‑range divergent class sum.
+
+---
+
+# Axiom I: NBG Recursive Cauchy Rigidity Criterion (Fundamental Law)
+
+## Cauchy Inequality on Class Space
+
+$$\|\mathfrak{X}\|^2 \|\mathfrak{Y}\|^2 \ge |\langle \mathfrak{X}, \mathfrak{Y} \rangle|^2$$
+
+## Definition of Recursive Equality
+
+Let $\mathcal{F}$ be the class Fourier transform, and $\mathcal{F}^n$ the $n$‑th recursive Fourier map at ordinal level $n$. For a limit ordinal $\lambda = \sup_{\alpha<\lambda} \alpha$, define the projective limit $\mathcal{F}^\lambda := \varprojlim_{\alpha<\lambda} \mathcal{F}^\alpha$, and assume that this limit exists in the class $\mathcal{A}$ (its strict closure is guaranteed by Supplementary Axiom V).
+
+The scale‑dependent recursive equality is defined as
+
+$$\mathfrak{X} \stackrel{\text{rec},\mu}{=} \mathfrak{Y} \iff \forall n \in \text{Ord}: \mathcal{F}^n[\mathfrak{X}] = \lambda_n(\mu) \mathcal{F}^n[\mathfrak{Y}],$$
+
+where $\lambda_n(\mu)$ is the linear proportionality coefficient at ordinal level $n$ and energy scale $\mu$.
+
+**Core Rule.** The Cauchy inequality becomes an equality **iff** the rigid linear dependence holds across all ordinal levels. If there exists any ordinal $n$ where the proportionality breaks, the inequality is strict.
+
+---
+
+# Axiom II: Spectral Rigidity Dichotomy (Core Judgement)
+
+Based on Axiom I, the system admits a strict dichotomy with no intermediate regime.
+
+## Case A: Recursive Rigidity (Cauchy Equality)
+
+$$\boxed{
+\mathfrak{X} \stackrel{\text{rec},\mu}{=} \mathfrak{Y}
+\iff [\mathfrak{X}, \mathfrak{Y}] = 0
+\iff \mathcal{F} \text{ recursively invertible}
+\iff \sigma(\mathfrak{X}) \text{ compact}
+\iff \text{self‑adjoint compact operator}
+\iff \mathrm{Tr}_\omega(\cdot |D|^{-p}) = 0
+}$$
+
+1. The spectral projection $E_D([R, \infty))$ tends to a compact set as $R \to \infty$.
+2. The system is in a classically compatible state; the intrinsic variables are fully resolvable and commute.
+
+## Case B: Recursive Breakdown (Strict Cauchy Inequality)
+
+$$\boxed{
+\mathfrak{X} \stackrel{\text{rec},\mu}{\neq} \mathfrak{Y}
+\iff [\mathfrak{X}, \mathfrak{Y}] = i \cdot \mathbf{C}(\mu) \; (\mathbf{C}(\mu) \neq 0)
+\iff \mathcal{F} \text{ recursively non‑invertible (non‑trivial kernel)}
+\iff \sigma(\mathfrak{X}) \text{ non‑compact}
+\iff \text{non‑compact operator}
+\iff \mathrm{Tr}_\omega(\cdot |D|^{-p}) \neq 0
+}$$
+
+1. The evolution operator escapes the compact ideal; the spectrum is unbounded and contains a continuous essential spectrum.
+2. The system is an intrinsically non‑commutative quantum state. Uncertainty originates purely from the geometric structure of automorphic classes, without any measurement‑disturbance hypothesis.
+
+## Recursive Rigidity Theorem
+
+- Recursive compatibility + Cauchy equality $\implies$ spectrum is compact with only discrete point spectrum.
+- Existence of a continuous essential spectrum $\implies$ the recursive Fourier map has a non‑zero kernel $\implies$ recursive relation breaks down.
+
+There exists **no** system simultaneously satisfying "global recursive compatibility, Cauchy equality, and non‑compact operator".
+
+---
+
+# Axiom III: Algebraic Topological Running Scalar $\mathbf{C}(\mu)$
+
+## 1. Scale‑Dependent Topological Average
+
+The scale‑dependent topological average is defined as the expectation of the commutator:
+
+$$\mathbf{C}(\mu) := \langle [\mathfrak{X}, \mathfrak{Y}] \rangle_\mu = c_1^{\text{bare}} + \delta c_1(\mu)$$
+
+where $\mathcal{L}_{\text{aut}}$ is the automorphic line bundle associated with the weight‑$k$ automorphic forms. To ensure the global periodicity constraint (Appendix A.1), the decomposition is subject to the irreducibility condition:
+
+$$c_1^{\text{bare}} \in \mathbb{Z}, \quad \delta c_1(\mu) \in \mathbb{R}, \quad \text{and} \quad \delta c_1(\mu) \equiv 0 \pmod{\mathbb{Z}} \iff \text{Case A is restored}$$
+
+## 2. Topological Decomposition Theorem
+
+$$c_1^{\text{eff}}(\mu) = c_1^{\text{bare}} + \delta c_1(\mu)$$
+
+- $c_1^{\text{bare}} \in \mathbb{Z}$: the bare first Chern class, an absolute integer topological invariant independent of scale;
+- $\delta c_1(\mu)$: the running correction induced by ordinal recursive layering and vacuum topological fluctuations, equivalent to the QCD topological susceptibility $\chi_{\text{top}}(\mu)$.
+
+## 3. Gauge‑Field Physical Correspondence
+
+$\mathbf{C}(\mu)$ acts as the order parameter for the breaking strength of QCD chiral symmetry and the axial $U(1)_A$ symmetry:
+
+1. $\mathbf{C}(\mu) \to 0$: chiral/axial symmetry restored phase, commutator vanishes, spectrum returns to compactness;
+2. $\mathbf{C}(\mu) > 0$: spontaneously broken, confining phase, significant non‑commutative effects;
+3. The QCD $\theta$‑vacuum phase linearly superimposes onto the correction $\delta c_1(\mu)$, endowing the effective topological scalar with a periodic topological structure that naturally accommodates strong CP effects.
+
+---
+
+# Axiom IV: Spectral Triple Scaling Law (Adapted to Running $\mathbf{C}(\mu)$)
+
+Based on the Dixmier spectral triple $(\mathcal{A}, \mathcal{H}, D)$ and the non‑commutative central limit theorem, four characteristic spectral‑geometry parameters are defined:
+
+| Parameter | Definition | Physical/Geometric Interpretation |
+|-----------|-----------|-----------------------------------|
+| $r^*$ | $\sup\{r : \mathrm{Tr}_\omega(a D^{-r}) < \infty\}$ | Short‑range repulsion: critical exponent where the Dixmier trace becomes definable |
+| $r^+$ | $\inf\{R : E_D([R, \infty)) \text{ non‑compact}\} \sim \mu^{-1}$ | Long‑range spectral cutoff: energy scale from which spectral projections lose compactness |
+| $d_x$ | $\Re(d_{\text{spectral}})$ | Transverse fractal spectral dimension (real part) |
+| $d_y$ | $\Im(d_{\text{spectral}})$ | Longitudinal oscillatory spectral dimension (imaginary part) |
+
+## Unified Limit Relation for the Topological Scalar
+
+$$\mathbf{C}(\mu) = \lim_{\substack{r^* \to 0 \ r^+ \to \mu^{-1}}} \left[ \frac{\mathrm{Vol}_{\mathrm{Dixmier}}(r^*, r^+)}{\mathrm{Vol}_{\mathrm{classical}}(d_x, d_y)} \right]$$
+
+1. $\mathrm{Vol}_{\mathrm{Dixmier}}$: non‑commutative geometric measure volume; $\mathrm{Vol}_{\mathrm{classical}}$: classical automorphic measure volume.
+2. The limit exists and is non‑zero **iff** the system belongs to Case B (non‑compact spectrum, quantum non‑commutative phase); in Case A the limit is identically zero.
+3. The infrared cutoff satisfies $r^+ \sim 1/\mu$, making the limit vary continuously with energy scale $\mu$ and generating the renormalisation flow $\mu \mapsto \mathbf{C}(\mu)$.
+
+---
+
+# Supplementary Axiom V (Ordinal Closure and Projective Limit Completeness, Optional)
+
+**Motivation**: Axiom I involves recursive maps $\mathcal{F}^n$ for all ordinals $n \in \text{Ord}$. The definition at a limit ordinal $\lambda$ depends on the inverse limit $\varprojlim_{\alpha<\lambda} \mathcal{F}^\alpha$. This axiom ensures that this object is well-defined and unique within the operator class $\mathcal{A}$. As an optional supplementary clause, this axiom does not participate in the dichotomy judgement of Axiom II; it merely ensures the set-theoretic legitimacy of the transfinite recursion steps.
+
+---
+
+**Axiom V.1 (Projective Closure of Class $\mathcal{A}$)**  
+Let $\lambda$ be any limit ordinal. If $\{A_\alpha\}_{\alpha<\lambda}$ is any inverse system in $\mathcal{A}$ whose transition morphisms $\pi_{\alpha,\beta}: A_\beta \to A_\alpha$ ($\alpha \leq \beta < \lambda$) are continuous in the strong class topology, then its projective limit:
+
+$$\varprojlim_{\alpha<\lambda} A_\alpha := \left\{ (a_\alpha)_{\alpha<\lambda} \in \prod_{\alpha<\lambda} A_\alpha \;\middle|\; \forall \alpha \leq \beta < \lambda,\; \pi_{\alpha,\beta}(a_\beta) = a_\alpha \right\}$$
+
+exists, is unique, and belongs to $\mathcal{A}$. That is, $\mathcal{A}$ is closed under projective limits of arbitrary length.
+
+---
+
+**Axiom V.2 (Limit Compatibility of the Recursive Fourier Transform)**  
+For a limit ordinal $\lambda = \sup_{\alpha<\lambda} \alpha$, define:
+
+$$\mathcal{F}^\lambda := \varprojlim_{\alpha<\lambda} \mathcal{F}^\alpha$$
+
+and require that this limit is compatible with the recursive maps at all lower levels, i.e., for all $\beta < \lambda$:
+
+$$\pi_{\beta} \circ \mathcal{F}^\lambda = \mathcal{F}^\beta \circ \pi_{\beta}$$
+
+where $\pi_{\beta}: \mathcal{F}^\lambda \to \mathcal{F}^\beta$ is the natural projection. This condition ensures that the judgement at $n = \lambda$ in Axiom I reduces to the collective behaviour of all levels $\alpha < \lambda$, introducing no extra degrees of freedom.
+
+---
+
+**Axiom V.3 (Ultrafilter Completeness, Optional Strengthening)**  
+If $\mathcal{A}$ is regarded as a class topological ring in NBG, we additionally require that $\mathcal{A}$ remains closed under inverse limits along the regular filter $\mathcal{U}$ containing all terminal segments $[\alpha, \lambda)$. This condition is equivalent to asserting the existence of a unique ultrafilter-compatible topology on $\mathcal{A}$ such that all projective limits at limit ordinals coincide with the categorical notion of limits.
+
+---
+
+**Supplementary Remark**: If only finite or countable recursion ($n \in \mathbb{N}$) is considered, this axiom can be entirely ignored without affecting the argument of the Final Theorem.
+
+---
+
+# Final Theorem (Holographic Compression): NBG Quantum Dichotomy Law
+
+The classical/quantum phase of intrinsic variable classes is determined solely by the equality condition of the recursive Cauchy inequality; the two phases admit no continuous interpolation.
+
+1. **Cauchy equality (Classical Phase)**  
+   $$\iff \text{global recursive rigidity} \iff \text{spectrum compact with only discrete point spectrum} \iff \text{self‑adjoint compact operator} \iff \mathbf{C}(\mu) \equiv 0 \quad (\forall \mu)$$
+
+2. **Strict Cauchy inequality (Quantum Phase)**  
+   $$\iff \exists \text{ an ordinal level with recursive breakdown} \iff \text{spectrum non‑compact with continuous essential spectrum} \iff \text{non‑compact operator} \iff \exists \mu: \mathbf{C}(\mu) = c_1^{\text{bare}} + \delta c_1(\mu) \neq 0$$
+
+---
+
+# Correspondence of OS Euclidean QFT Axioms in the NBG Limit
+
+All traditional Euclidean QFT axioms are special limit cases of this framework:
+
+| OS Axiom | Case A (Strong Limit) | Case B (Weakened Legitimate Form) |
+|----------|----------------------|-----------------------------------|
+| Reflection positivity | Strict positive definiteness | Dixmier-class functional weak positivity, scale-dependent |
+| Euclidean covariance | Full continuous isometry group | Automorphic quotient-modular symmetry, residual covariance |
+| Correlator permutation symmetry | Global permutation invariance | $d_y$ phase interference destroys global symmetry |
+| Cluster decomposition | Complete exponential decay in the infrared | Scale-controlled weak clustering, topological long-range correlation residuals |
+
+**Core Conclusion:** The OS axiomatic system equals the NBG framework at the classical fixed point $\Lambda \to \infty,\; d_y \to 0,\; \mathbf{C} \to 0$.
+
+---
+
+# Hydrogen Atom: Physical Prototype of the Ordinal Phase Transition
+
+In standard quantum mechanics, the hydrogen atom is often described as a "coexistence of discrete and continuous spectra." Within the NBG framework, this description is strictly corrected: **the hydrogen atom is the phase-transition interface from Case A (bound states) to Case B (scattering states); there is no intermediate mixed state.**
+
+## Physical Correspondence of Ordinal Levels
+
+The Coulomb energy-level structure $E_n = -\frac{13.6\,\text{eV}}{n^2}$ acquires a precise ordinal interpretation under the NBG framework:
+
+| Physical Region | Energy Relation | Ordinal Level | NBG Phase |
+|-----------------|----------------|---------------|-----------|
+| Bound states | $E_n < 0$, $n \in \mathbb{N}$ | Finite ordinal $n$ | **Case A**: recursive rigidity, compact spectrum, pure point spectrum |
+| Ionisation threshold | $E_n \to 0^-$, $n \to \infty$ | Limit ordinal $\lambda = \sup_{n\in\mathbb{N}} n = \omega$ | **Phase-transition critical point** |
+| Scattering states | $E > 0$ | Ordinal levels beyond $\lambda$ | **Case B**: recursive breakdown, non-compact spectrum, continuous essential spectrum |
+
+**Core Mechanism:** As the principal quantum number $n$ traverses finite ordinals and approaches the limit ordinal $\lambda$, the recursive proportionality of bound states reaches the projective limit defined in Axiom V at $E = 0$. Once the energy scale crosses this limit, the kernel of the class Fourier transform suddenly becomes non-zero (Axiom II), and the spectral projection $E_D([R,\infty))$ collapses from a compact state to a non-compact state—this is the algebraic origin of the hydrogen atom's continuous scattering spectrum.
+
+## Geometric Characteristics at the Critical Point ($E = 0$)
+
+At the phase-transition point $\mu_c$ (corresponding to $E = 0$), the topological scalar $\mathbf{C}(\mu)$ exhibits critical behaviour:
+
+$$\mathbf{C}(\mu_c) = \lim_{\substack{r^* \to r^+ \ r^+ \sim \mu_c^{-1}}} \left[ \frac{\mathrm{Vol}_{\mathrm{Dixmier}}(r^*, r^+)}{\mathrm{Vol}_{\mathrm{classical}}(d_x, d_y)} \right] \neq 0, \quad \text{yet finite}$$
+
+At this point:
+- **The imaginary spectral dimension $d_y$ oscillates violently**: corresponding to the long-range $1/r$ tail of the Coulomb potential, producing sustained phase interference at the phase-transition interface;
+- **The real spectral dimension $d_x$ crosses the threshold**: the transverse fractal dimension reaches exactly the critical value, causing the system to escape the compact ideal;
+- **The topological scalar is finite and non-zero**: the system has already sensed the "entrance" to the non-commutative phase, but has not yet penetrated deep into the interior of Case B.
+
+## NBG Interpretation of the Coulomb Scattering Phase Shift
+
+The Coulomb scattering phase shift $\delta_l(k)$ of the hydrogen atom is, in standard treatments, a by-product of special functions (confluent hypergeometric functions). Under the NBG framework, it is re-identified as the **physical realisation of the Judgement Theorem in Appendix A.4**:
+
+At the boundary cutoff $\Lambda$ (here corresponding to the impact parameter or inverse momentum $1/k$), the effective phase winding is:
+
+$$\Theta(\Lambda) = 2\pi c_1^{\text{bare}} + \phi(\Lambda)$$
+
+where $\phi(\Lambda)$ is the fractional phase offset induced by the long-range Coulomb potential. According to the Judgement Theorem of Appendix A.4, the imaginary spectral dimension is strictly equal to:
+
+$$d_y = \frac{1}{2\pi} \frac{d}{d\ln \Lambda} \arg\left( \phi(\Lambda) \right)$$
+
+The logarithmic singularity of the Coulomb scattering phase shift ($\arg \phi(\Lambda) \sim \ln \Lambda$) is precisely the explicit solution for $d_y \neq 0$—it permits "integer overflow" of the topological charge at the extended boundary of $E = 0$, thereby enabling the existence of scattering states (continuous spectrum). If $d_y = 0$ (as in short-range potentials), the fractional offset is forbidden, and the system cannot produce a continuous scattering spectrum; it must return to a pure discrete spectrum (Case A).
+
+## Verdict
+
+> **The hydrogen atom is not a "mixture" of two spectra, but a phase-transition monument of the ordinal recursion law in the physical world. $E = 0$ is the laboratory coordinate of the limit ordinal $\lambda$; the long-range $1/r$ tail is the geometric cause that forces recursive proportionality to break down at the limit; and the Coulomb scattering phase shift is merely the absorption record of fractional phase offset by the imaginary spectral dimension $d_y$ at the critical point.**
+
+---
+
+# Stern–Gerlach Experiment: Decisive Demonstration of Projective Geometry
+
+Standard quantum mechanics interprets the Stern–Gerlach experiment as the textbook demonstration of "spin-state collapse." Within the NBG framework, this experiment is re-identified as the **decisive demonstration of the non-commutativity of projective geometry**.
+
+## NBG Correspondence of Experimental Steps
+
+Let $\mathcal{M}$ be the Mellin transform (Case A, globally commutative). Then:
+
+- $z$-direction magnetic field: inverse Mellin transform with $z$-direction cutoff, $\mathcal{P}_z = \mathcal{F}_z^{-1} \circ \mathcal{M}$
+- $x$-direction magnetic field: inverse Mellin transform with $x$-direction cutoff, $\mathcal{P}_x = \mathcal{F}_x^{-1} \circ \mathcal{M}$
+
+Since $\mathcal{P}_z$ and $\mathcal{P}_x$ are both **non-isometric projections** (Axiom 0.3: the inverse transform is not an isometric isomorphism), their composition satisfies:
+
+$$[\mathcal{P}_z, \mathcal{P}_x] \neq 0$$
+
+This directly corresponds to the standard QM relation $[S_z, S_x] = i\hbar S_y$, but under the NBG framework this is not an intrinsic non-commutativity of operators, but rather the **non-commutativity of inverse-transform wrinkles in two projection directions**.
+
+## Information Geometry of the Three-Step Cycle
+
+| Step | Operation | NBG Interpretation |
+|------|-----------|-------------------|
+| Step 1: $z$ filter | Silver atoms pass through $z$ magnetic field, split into two beams; take $\uparrow_z$ | Projection $\mathcal{P}_z$ retains $z$-direction information, compressing $x, y$ dimensions into wrinkles |
+| Step 2: $x$ re-split | $\uparrow_z$ passes through $x$ magnetic field, splits again | Projection $\mathcal{P}_x$ direction differs from $\mathcal{P}_z$; $z$ information is geometrically compressed, $x$ information exposed |
+| Step 3: $z$ return | Take $\uparrow_x$, pass through $z$ magnetic field again, splits again | Projection cycle $\mathcal{P}_z \circ \mathcal{P}_x \circ \mathcal{P}_z$: wrinkles re-expose previously compressed dimensions in the cycle |
+
+**Core Conclusion:** Silver atoms always possess a definite spin state in Mellin space; the $z$ and $x$ magnetic fields are merely two different projection windows, each with different and non-commuting perspective distortions. "Information loss" is not state collapse, but geometric compression of projection wrinkles; "information reappearance" is not quantum magic, but re-exposure of wrinkles in the projection cycle.
+
+---
+
+# Wave–Particle Duality as Representation Phase Transition
+
+Standard quantum mechanics regards wave–particle duality as an essential contradiction of the quantum world. Within the NBG framework, duality is strictly reconstructed as the **two-sided manifestation of a representation phase transition**.
+
+## Pure Particle Character in the Mellin Representation
+
+In Mellin space (Case A):
+- Operators are pure multiplication operators, $[px, xp] = 0$
+- Spectrum is purely discrete point spectrum, spectral projections compact
+- $\mathbf{C}(\mu) \equiv 0$, $\delta c_1(\mu) = 0$
+- **Particle character exclusively**: discrete, localised, determinate
+
+## Emergence of Wave Character under Inverse Mellin Projection
+
+When the inverse Mellin transform is forced (introducing finite cutoff $r^+ \sim \mu^{-1}$):
+- Continuous spectrum emerges (scattering-state background)
+- $d_y \neq 0$, phase interference produces diffraction patterns
+- $\delta c_1(\mu) \neq 0$, topological scalar finite
+- **Wave character emerges automatically as a projection residual**
+
+## Verdict
+
+> **Wave is not an intrinsic attribute of the electron, but an interference pattern of the projective geometry of the inverse Mellin transform. In the Mellin representation there are only particles; in the time-domain projection, wave character is the necessary output of projection wrinkles. Wave–particle duality is not an unsolved mystery of the quantum world, but a mathematical necessity of representation transformation.**
+
+---
+
+# Trace Anomaly as Algebraic Residue
+
+Standard quantum field theory interprets the trace anomaly (conformal anomaly) as "quantum fluctuations breaking scale invariance." Within the NBG framework, the trace anomaly is re-identified as the **algebraic residue of the inverse Mellin transform under finite cutoff**.
+
+## Comparison of Standard and NBG Pictures
+
+| Feature | Standard QFT | NBG Framework |
+|---------|-------------|---------------|
+| Classical limit | $T^\mu_{\;\mu} = 0$ (scale invariant) | **Case A**: Mellin space, $\mathbf{C}(\mu) \equiv 0$, trace strictly zero |
+| Quantum correction | $\langle T^\mu_{\;\mu} \rangle \neq 0$ (anomalous) | **Case B**: inverse Mellin projection, $\delta c_1(\mu) \neq 0$, cutoff residual |
+| Source of correction | "Quantum fluctuations" (ontologically vague) | Geometric measure of inverse-transform incompleteness |
+| Magnitude of coefficient | $\frac{1}{1920\pi^2}$ etc., small quantities | Second-order effect of projection wrinkles, bounded by inverse cutoff |
+
+## Limiting Behaviour
+
+As cutoff $\Lambda \to \infty$ (complete inverse transform):
+
+$$\delta c_1(\mu) \to 0, \quad \mathbf{C}(\mu) \to c_1^{\text{bare}} \in \mathbb{Z}, \quad \langle T^\mu_{\;\mu} \rangle_{\text{anomaly}} \to 0$$
+
+The trace anomaly automatically vanishes, and the strict tracelessness of Case A is restored. The predicament in standard QFT where the anomaly "sticks" at a finite value is dissolved in the NBG framework into **cutoff dependence of projective geometry**.
+
+## Core Equation
+
+The non-zero value of the trace anomaly directly corresponds to the running scalar of Axiom III:
+
+$$\langle T^\mu_{\;\mu} \rangle_{\text{anomaly}} \;\longleftrightarrow\; \delta c_1(\mu) = \chi_{\text{top}}(\mu)$$
+
+> **The trace anomaly is not an intrinsic disease of quantum field theory, but the projective cost paid by the inverse Mellin transform under finite cutoff. Its magnitude is precisely measured by $\delta c_1(\mu)$; when the cutoff tends to infinity and the inverse transform is complete, the anomaly automatically vanishes.**
+
+---
+
+# Resolution of the Harmonic Oscillator Counterexample
+
+The old paradigm employs the harmonic oscillator as a constructive counterexample, attempting to negate the universality of "linear spectrum implies commutativity." Its logic is:
+
+$$\text{Harmonic oscillator linear spectrum} + \text{time-domain non-commutativity} \;\Longrightarrow\; \text{denial of ``linear spectrum implies commutativity"}$$
+
+**NBG Final Judgement: Invalid Counterexample.**
+
+1. The linearity of the harmonic oscillator energy levels is a natural result of the linear spectrum of the Mellin multiplication operator.
+2. Time-domain non-commutativity is a projection residual of the representation.
+3. Under the Mellin representation, $px$ and $xp$ commute entirely.
+
+The harmonic oscillator no longer constitutes any counterexample; rather, it proves that the old paradigm erroneously extrapolated a "time-domain representation conclusion" into a "universal quantum axiom."
+
+---
+
+# Falsifiability Mechanism
+
+Define proposition $P$:
+
+> There exists a quantum system whose first $N$ discrete eigenvalues, under a pure real-number linear/polynomial fit without correction, can be perfectly extrapolated to infinitely high orders with zero systematic deviation and full agreement for $n \to \infty$.
+
+**NBG Rigidity Inference Chain:**
+
+$$P \;\Longrightarrow\; \text{global recursive rigidity holds} \;\Longrightarrow\; [\mathfrak{X}, \mathfrak{Y}] \equiv 0$$
+
+**Paradigm-Level Falsifiability Differences:**
+
+| Paradigm | Consequence if $P$ holds |
+|----------|-------------------------|
+| Old Quantum Mechanics | Fatal falsification. The canonical commutation relation $[x,p] \neq 0$ is overturned; the non-commutative basis must be rewritten. |
+| NBG Framework | Boundary correction. Case A is already a phase accommodated by the framework; only the phase-distribution boundary is corrected, with no damage to the axiomatic structure. |
+
+---
+
+# Epistemological Final Judgement and Theoretical Positioning
+
+## Epistemological Final Judgement
+
+1. **Falsifiability is an admission condition for scientific theories, not an observational epitaph.** Falsifiability only requires the existence of a logically overthrowable experimental or mathematical channel; it does not require that a counterexample has already been observed.
+
+2. **Mathematical constructibility does not equal speculative theory.** Proposition $P$ is logically feasible, mathematically self-consistent, and representationally existent, possessing complete scientific status.
+
+3. **Current observations only favour non-commutative theory; they cannot constitute a logical falsification of the commutative representation.** No experiment, mathematics, or logic prohibits a Case A global linear extrapolation system.
+
+4. **This framework has extremely low theoretical elasticity.** Compared with the string-theory $10^{500}$ vacuum free parameters, the NBG framework contains only two phases A and B, which are unique, rigid, numerically verifiable, and computationally falsifiable right now.
+
+## Theoretical Positioning
+
+1. The NBG axiomatic quantum framework encompasses but is not identical to standard quantum mechanics, Euclidean QFT, and gauge field theory.
+2. Traditional quantum non-commutativity is a representation effect, no longer a cosmic foundational axiom.
+3. Linear extrapolation of the commutative phase and non-linear breakdown of the non-commutative phase achieve a representation-dependent unification of quantum algebra.
+4. This framework possesses the strongest falsifiability, the lowest theoretical elasticity, and the strictest mathematical closure among all current quantum paradigms.
+
+---
+
+# Appendix A: Topological Charge Integrality Constraint and Extended Boundary
+
+## A.1 Foundational Integrality Constraint
+
+The integrality of the topological charge is not an artificially imposed quantization condition, but a rigid fact enforced by the fundamental homomorphism property of the exponential map on the complex plane:
+
+$$\exp(z_1) = \exp(z_2) \iff z_1 - z_2 = 2k\pi i, \quad k \in \mathbb{Z}$$
+
+This property ensures that for any characteristic class defined by complex phase winding, the charge value must lie strictly in the discrete additive group $\mathbb{Z}$.
+
+**Framework Corollary**: On the automorphic line bundle, the value space of the bare first Chern class $c_1^{\text{bare}}$ is strictly restricted to $\mathbb{Z}$, rather than the continuous real field $\mathbb{R}$. This integer skeleton is a necessary algebraic consequence of the weight $k$ of the automorphic forms.
+
+## A.2 Rigid Constraints on the Running Scalar Decomposition
+
+The decomposition $\mathbf{C}(\mu) = c_1^{\text{bare}} + \delta c_1(\mu)$ in Axiom III is subject to the following irreducibility conditions:
+
+1. **Expectation Value Redefinition**: $\mathbf{C}(\mu)$ in Case B characterizes the "non-commutativity-induced effective curvature expectation value", rather than the strict global Chern class. The global topological charge $c_1^{\text{bare}}$ is strictly non-deformable continuously.
+2. **Restoration Criterion**: When the system returns to Case A (global recursive rigidity), $\delta c_1(\mu)$ must collapse to an integer value so that $\mathbf{C}(\mu) \equiv 0 \pmod{\mathbb{Z}}$, i.e., the running correction is completely absorbed into the integer renormalization without leaving a continuous tail.
+
+## A.3 Cutoff Boundary and Admissible Extensions
+
+Let $\Lambda$ be the cutoff scale of any class space:
+
+- **Regular Boundary**: When the cutoff tends to infinity ($\Lambda \to \infty$), bare integrality is strictly restored, corresponding to strictly compact spectrum.
+- **Discrete Boundary**: At finite cutoff ($\Lambda < \infty$), the effective topological charge $k_{\text{eff}}$ may be formally expressed as $k_{\text{eff}} \sim k / f(\Lambda)$. Integrality is then elevated to a congruence constraint on the cutoff parameter:
+  $$\Lambda \cdot k_{\text{eff}} \equiv 0 \pmod{\text{integer period}}$$
+
+## A.4 Quantitative Criterion for the Imaginary Spectral Dimension and Integrality Breakdown
+
+When the system attempts to break bare integrality on the extended boundary, the imaginary part $d_y$ of the spectral dimension in Axiom IV must satisfy a precise renormalization group equation to absorb the phase shift.
+
+Let the effective phase winding at boundary cutoff $\Lambda$ be $\Theta(\Lambda) = 2\pi c_1^{\text{bare}} + \phi(\Lambda)$. If $\phi(\Lambda)$ is non-zero (fractional shift), then the imaginary spectral dimension $d_y$ is strictly equal to:
+
+$$d_y = \frac{1}{2\pi} \frac{d}{d\ln \Lambda} \arg\left( \phi(\Lambda) \right)$$
+
+**Judgement Theorem**: $d_y \neq 0$ is the necessary and sufficient geometric condition that permits "integer overflow" or "renormalization group tunnelling" of the topological charge on the extended boundary. If $d_y = 0$, then $\phi(\Lambda)$ decays along the flow, fractional shifts are forbidden, and the system must return to the discrete spectrum of Case A.
+
+---
+
+# Core Conclusion of the Framework
+
+Quantum non‑commutativity, continuous spectra, gauge‑field topological symmetry breaking, wave–particle duality, the trace anomaly, and the non-commutative features of the Stern–Gerlach experiment are all pure algebraic consequences of the loss of global ordinal recursive linear dependence of automorphic classes within the NBG framework. The theory requires no externally imposed Planck constant, measurement hypothesis, or semi‑classical approximation.
+
+$$\boxed{\text{Quantum non-commutativity is not a fundamental axiom of nature, but an observational projection of ordinal recursive breakdown in the time-domain representation; the true quantum substrate is automorphic geometry and recursive rigidity dichotomy.}}$$
+
+---
+
+# References
+
+1. Bender, C. M., & Boettcher, S. (1998). Real spectra in non-Hermitian Hamiltonians having PT symmetry. *Physical Review Letters*, 80(24), 5243.
+2. Dixmier, J. (1969). *Les C*-algèbres et leurs représentations*. Gauthier-Villars.
+3. Gödel, K. (1940). *The Consistency of the Continuum Hypothesis*. Princeton University Press.
+4. Osterwalder, K., & Schrader, R. (1973). Axioms for Euclidean Green's functions. *Communications in Mathematical Physics*, 31(2), 83–112.
+5. Titchmarsh, E. C. (1948). *Introduction to the Theory of Fourier Integrals*. Oxford University Press.
+6. von Neumann, J. (1932). *Mathematische Grundlagen der Quantenmechanik*. Springer.
