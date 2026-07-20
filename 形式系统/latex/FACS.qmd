@@ -1,0 +1,729 @@
+---
+# ==================== Basic Information ====================
+title: "FACS: Formalized Adjudication Calculus System"
+subtitle: "A Self-Bootstrapping Formal System with Provable L1 Consistency"
+author:
+  - name: "CH.HY"
+    affiliations:
+      - name: "Independent Researcher"
+        department: ""
+date: "2026-07-20"
+
+# ==================== Cross-references ====================
+crossref:
+  fig-title: Figure
+  tbl-title: Table
+  fig-prefix: Figure
+  tbl-prefix: Table
+
+# ==================== PDF Output Configuration ====================
+format:
+  pdf:
+    pdf-engine: xelatex
+    documentclass: article
+    include-in-header:
+      text: |
+        \usepackage{amsmath,amssymb,amsthm}
+        \usepackage{hyperref}
+        \usepackage{bm}
+    geometry: margin=2.5cm
+    fontsize: 12pt
+    linestretch: 1.5
+    fig-pos: 'H'
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    colorlinks: true
+---
+
+::: {.callout-note appearance="minimal"}
+**Author Contact**
+
+**Author**: CH.HY | **Affiliation**: Independent Researcher
+
+**Email**: jiuxin303@qq.com
+
+**ORCID**: 0009-0003-6134-3736 | https://orcid.org/0009-0003-6134-3736
+:::
+
+# Abstract
+
+FACS (Formalized Adjudication Calculus System) is a self-bootstrapping formal system that defines its own terms, operations, and boundaries without presuming any external meta-system as arbiter. It provides a rigid three-layer architecture (L0/L1/L2) where L1 is decidable and internally provably consistent via six meta-theorems: CTR (Contradiction Traceability), DCC (Dual Collision Completeness), EIT (Extension-Intension Trichotomy), LIT (Layer Isolation Theorem), CCT (Conditional Credit Theorem), and TCT (Term Coherence Theorem). The system handles infinity by distinguishing operational (K2-step traversable) from non-operational infinity, and enforces term closure to block semantic suspension and self-referential paradoxes. FACS does not guarantee semantic truth in the objective world; it guarantees coherent truth-value relative to the submitted axiom system—contradictions are traceable, localizable, and isolatable.
+
+**Keywords:** Formal system, self-bootstrapping, consistency proof, layer isolation, contradiction traceability, term coherence, dual collision completeness, operational infinity
+
+---
+
+# Statement
+
+This document is a **self-bootstrapping adjudication system**. It defines all of its own terms, operations, and boundaries, and presupposes no external meta-system as arbiter. All concepts used herein—including but not limited to "state," "operator," "dependency," "consistency," "anchoring," "contradiction reduction," "collision completeness," "layer isolation," "conditional credit," "operational infinity," "non-operational infinity," and "term coherence"—have their referents strictly fixed within the framework of this document. Any external substitution of the extensions of the above terms is deemed illegal displacement and shall not be used as a logical weapon against this document.
+
+The consistency of the existence-layer (the overall existential presupposition of the system) is not decidable within the truth-value layer (L1). This document guarantees the decidability of the truth-value layer through rigid construction and layer isolation, rather than through an internal proof of the consistency of the existence-layer.
+
+---
+
+# 1. Scope of Application and Exclusions
+
+## 1.1 Scope of Application
+
+This document applies to all formal propositional systems that possess the following characteristics:
+
+- Propositions possess definable dependency relations among them;
+- The truth-value states of propositions can be qualitatively distinguished within finite steps;
+- The system accepts externally injected new propositions and performs internal state transitions on them.
+
+**FACS, as a meta-logical operating system, accepts arbitrary axiom extension sets (e.g., ZFC, PA, or any finite axiom fragment) and establishes independent DAGs rooted at those extension sets. FACS does not guarantee the semantic truth of propositions in the objective world; it guarantees coherent truth-value relative to the specified axiom system—whether a proposition is legitimately provable, consistent with its axiom set, and whether contradictions are traceable and isolatable.**
+
+Systems lacking the above characteristics—such as purely value-judgment propositions, non-translatable intuitive statements, or conjectures with non-localizable operational paths—fall outside the scope of this document.
+
+## 1.2 Exclusions
+
+This document is not applicable to:
+
+- Purely subjective value judgments (ethical, aesthetic, or other propositions not objectively translatable);
+- Isolated factual statements (lacking universal axiomatic structure);
+- Artificial institutional regulations (legal texts, administrative norms, and other texts possessing independent systems of validity).
+
+Misapplication of the criteria of this document to the above domains constitutes a category error.
+
+---
+
+# 2. Axiomatic Base
+
+The axiomatic layer of FACS consists of constants and postulates injected once at system startup. **This document does not prove these axioms; this document stipulates them.** They constitute the irreducible foundation of all derivations in FACS.
+
+## 2.1 Initial Postulates (K0–K2)
+
+Loaded and executed in L1 (the operational layer), marked as $\blacklozenge$. K0–K2 do not belong to L0 (the system layer). L0 carries no axioms and provides only static constants:
+
+| No. | Content |
+|:---|:---|
+| **K0** | The law of excluded middle is valid within L1 |
+| **K1** | The law of non-contradiction is the sole absolute prohibition within L1 |
+| **K2** | The length of any proof chain within L1 is $\leq$ a hardware-anchored finite maximum constant |
+
+## 2.2 Foundational Constants ($\Phi, \Xi, \Gamma, \Psi$)
+
+| Constant | Name | Content |
+|:---|:---|:---|
+| **$\Phi$** | Syntax Generator | Defines the syntactic normal forms of legitimate propositions within L1. Self-reference (propositional content referring to itself without constituting a dependency edge) is explicitly recognized as legitimate syntactic structure; circular dependency (the appearance of a directed cycle in the dependency graph) is flagged as illegal at the syntactic level. **All non-foundational terms must possess finite localizable operational definitions within the current context before participating in truth-value derivation; semantically suspended terms shall not serve as derivation nodes.** |
+| **$\Xi$** | Dependency Topology Axiom | Mandates that dependency relations among all confirmed propositions within L1 form a directed acyclic graph (DAG), prohibiting circular dependencies ($C \in \text{Dep}(C)$ or $C \rightarrow \dots \rightarrow C$). Self-referential propositions are not subject to this restriction as they do not constitute dependency edges. |
+| **$\Gamma$** | Self-Extension Meta-Rule | Stipulates that when a confirmed proposition within L1 introduces a new atomic predicate, that predicate automatically obtains legitimate term status within $\Phi$. The extension takes effect atomically at the moment of confirmation. **However, the new predicate must be accompanied by an operational definition clause within the proposition bundle in which it is introduced; otherwise $\Psi.\text{Consistency}$ will mark it as a non-localizable node.** |
+| **$\Psi$** | Black-Box Adjudication Interface | The sole channel through which L1 may issue queries to L0, defining the atomic semantics of all adjudicative operations. See 2.3 for details. |
+
+**Topological Infrastructure Function of $\Xi$:** The DAG structure renders truth-value propagation a one-way path-reachability problem—each derivation path necessarily terminates at L0 constants or the $\blacklozenge$ anchoring repository, thus endowing conflict localization with a deterministic finite traversal boundary. The "finite axiom subset" in CTR corresponds to a finite reachable path in the DAG from the conflict node to the base. Without the topological constraint of the DAG, that subset could lie in an infinite retrograde chain and would not be capturable by $\Psi.\text{Consistency}$.
+
+## 2.3 $\Psi$ Interface Definition
+
+$\Psi$ supports the following synchronous calls:
+
+- $\Psi.\text{Consistency}(prop, dep\_set)$ $\to$ Returns whether there is no explicit conflict with the current anchoring repository and confirmed set (including circular dependency detection, undefined term interdiction, self-referential convergence checking, and CTR reduction checking)
+- $\Psi.\text{Finalize}(prop)$ $\to$ Requests promotion of a confirmed-state proposition to permanent anchoring; returns accept or reject
+- $\Psi.\text{Classify}(term)$ $\to$ Queries whether a new term conforms to the extension rules of $\Phi$ and $\Gamma$, and whether it possesses an operational definition in the current context
+- $\Psi.\text{RetractionHistory}(prop)$ $\to$ Queries the retraction history of a proposition (including attribution trace logs)
+- $\Psi.\text{ValidateNewPrediction}(prop, new\_pred)$ $\to$ Verifies whether a new prediction is logically independent from an old one
+- $\Psi.\text{CollisionCheck}(P, N)$ $\to$ Executes Dual Collision Completeness (DCC) verification; returns orthogonal or contradictory verdict
+- $\Psi.\text{StructuralReview}(P)$ $\to$ Executes L2 $\to$ L1 promotion review, examining syntactic legality, domain delimitation, operational path localizability, term closure, and self-referential convergence
+
+**Existence-Layer Undecidability Declaration:** The consistency of L0 as the system layer does not belong to the decidability domain of L1. L0 carries no axioms; therefore, there exists no trace-back path for "L0 axiom contradiction"; any contradiction trace terminates at the axiom layer of L1.
+
+---
+
+# 3. Meta-Theorem Layer
+
+The following six meta-theorems are all derived from the above axiomatic base. Their proof chains are entirely traceable to the axiom layer and have **no circular dependencies**.
+
+| No. | Name | Dependent Axioms | Proof Status |
+|:---|:---|:---|:---|
+| **I** | CTR (Contradiction Traceability) | K2 (finiteness of proofs) + first-order monotonicity + explosion principle | Proved |
+| **II** | DCC (Dual Collision Completeness) | CTR + collision protocol definition + K0 (excluded middle) | Proved |
+| **III** | EIT (Extension-Intension Trichotomy) | $\Psi.\text{Consistency}$ ternary output + K0 + K2 | Proved |
+| **IV** | LIT (Layer Isolation Theorem) | Architectural definition (L0 read-only, L2 isolated) + $\Xi$ + proof by contradiction | Proved |
+| **V** | CCT (Conditional Credit Theorem) | LIT + external meta-system definition + credit propagation chain | Proved |
+| **VI** | TCT (Term Coherence Theorem) | K2 + $\Xi$ + $\Phi$ syntactic constraints + CTR | Proved |
+
+## 3.1 Meta-Theorem I: CTR (Contradiction Traceability)
+
+**Statement:**
+
+In any formal system $\mathcal{T}$, if its deductive closure $\text{Th}(\mathcal{T})$ contains both propositions $p$ and $\neg p$, then there necessarily exists a **finite subset** $\Gamma$ of the axiom set $\text{Ax}(\mathcal{T})$ of $\mathcal{T}$ such that $\Gamma \vdash \bot$.
+
+**Proof:**
+
+1. **Finiteness Anchoring (guaranteed by K2):** Since $p \in \text{Th}(\mathcal{T})$ and $\neg p \in \text{Th}(\mathcal{T})$, by the finiteness of first-order proofs, finite proof sequences exist. Thus there exist finite axiom subsets $\Gamma_1 \subseteq \text{Ax}(\mathcal{T})$ with $\Gamma_1 \vdash p$, and $\Gamma_2 \subseteq \text{Ax}(\mathcal{T})$ with $\Gamma_2 \vdash \neg p$.
+
+2. **Union Construction:** Let $\Gamma = \Gamma_1 \cup \Gamma_2$. $\Gamma$ remains a legitimate finite subset of $\text{Ax}(\mathcal{T})$.
+
+3. **Contradiction Reduction:** By monotonicity, $\Gamma \vdash p$ and $\Gamma \vdash \neg p$. Introducing conjunction and applying the principle of explosion (Ex Falso) directly yields $\Gamma \vdash p \land \neg p \vdash \bot$. QED.
+
+**Corollary:** The theorem contradiction necessarily collapses downward to the syntactic inconsistency of a finite subset of axioms. There is no logical space for "theorem contradiction but axioms consistent."
+
+## 3.2 Meta-Theorem II: DCC (Dual Collision Completeness)
+
+**Statement:**
+
+Let $\mathcal{P}$ and $\mathcal{N}$ be any two mutually dual formal systems. If FACS executes the collision protocol and completes K2-step exhaustive search, then:
+
+$$
+\text{Th}(\mathcal{P}) \cap \text{Th}(\mathcal{N}) \neq \varnothing \iff \exists \text{ finite axiom subset } \Gamma \subseteq \text{Ax}(\mathcal{P}) \cup \text{Ax}(\mathcal{N}) \text{ such that } \Gamma \vdash \bot
+$$
+
+**Proof (complete coverage via CTR dichotomy):**
+
+**Case A: Non-empty intersection** ($\exists \phi, \phi \in \text{Th}(\mathcal{P}) \land \neg\phi \in \text{Th}(\mathcal{N})$)
+
+By CTR, the contradiction reduces upward to a finite axiom subset. Based on the origin of axioms, this covers three subcases:
+
+1. **Originating within $\mathcal{P}$:** There exists $\Gamma_P \subseteq \text{Ax}(\mathcal{P}) \vdash \bot$. By explosion, $\Gamma_P$ proves any inverse proposition, leading to non-empty intersection.
+2. **Originating within $\mathcal{N}$:** Similarly, there exists $\Gamma_N \subseteq \text{Ax}(\mathcal{N}) \vdash \bot$.
+3. **Combined interaction (heterogeneous combination):** The union $\Gamma = \Gamma_1 \cup \Gamma_2$ with $\Gamma_1 \subseteq \text{Ax}(\mathcal{P})$ and $\Gamma_2 \subseteq \text{Ax}(\mathcal{N})$ derives $\bot$.
+
+**Case B: Empty intersection** ($\text{Th}(\mathcal{P}) \cap \text{Th}(\mathcal{N}) = \varnothing$)
+
+The system exhausts K2 steps without capturing any $A \land \neg A$. By the contrapositive of CTR: if within finite steps no finite axiom subset $\Gamma$ deriving $\bot$ can be found, then under the current proof-cutoff scale, no mutually negating proposition pair exists.
+
+**FACS Mechanical Response:**
+
+- Any subcase of Case A: Forcibly triggers $\bigcirc$ (revision lock), freezing all propositions that generate the contradictory axiom fragment.
+- Case B: Issues an immutable $\blacklozenge \text{META}$ orthogonality report.
+
+## 3.3 Meta-Theorem III: EIT (Extension-Intension Trichotomy)
+
+**Statement:**
+
+Let there be an arbitrary extensional definition $E$ that attempts to refer to some intensional definition $\text{Def}_{\mathcal{S}}$ within a system $\mathcal{S}$. Then according to the relation between $E$ and $\mathcal{S}$, within the FACS framework it necessarily and only can fall into one of the following three terminal states:
+
+**1. Extension ($\mathcal{S}'$)**
+
+If $E$ does not touch the original referential anchors of $\mathcal{S}$ and does not generate conflict, $E$ can be absorbed, and the system evolves into $\mathcal{S}' \supset \mathcal{S}$. $\mathcal{S}'$ as a new system must undergo existential validation anew, with its identity ID strictly distinguished from the original system.
+
+**2. Contradiction ($\bot$)**
+
+If $E$ attempts to replace or negate the internal reference of $\text{Def}_{\mathcal{S}}$, it immediately triggers CTR reduction, and the system outputs $\Gamma \vdash \bot$. FACS mechanical response:
+- If $E$ is not yet confirmed: $\Diamond E \to \bot E$ (direct falsification);
+- If $E$ is confirmed and repairable: $\Box E \to \bigcirc E$ (mandatory revision lock), requiring the submission of a new version with the contradictory axiom fragment removed for re-validation;
+- If $E$ is anchored: Triggers `AnchorGuard`, rejecting falsification (immutability of $\blacklozenge$).
+
+**3. Undecidable ($\mathcal{U}$)**
+
+If $E$ causes system $\mathcal{S}$ to be unable to localize its own reference within K2 steps, the problem lies beyond the finite-cutoff decidability domain of the FACS truth-value layer. The proposition is not classified as $\Box$ or $\bot$, but merely marked as $\nabla$ (maintained in L2 exploratory state) or rejected.
+
+**Completeness Argument:**
+
+For any $E$ that has passed $\Psi.\text{StructuralReview}$ admission, the output of $\Psi.\text{Consistency}$ within K2 steps exhaustively covers the following three:
+- `True` $\Rightarrow$ Extension;
+- `False` $\Rightarrow$ Contradiction;
+- `Timeout / non-localizable` $\Rightarrow$ Undecidable.
+
+By K0 (excluded middle valid in L1) and K2 (finiteness of proof chains), this trichotomy constitutes a complete partition of the truth-value layer decidability domain.
+
+## 3.4 Meta-Theorem IV: LIT (Layer Isolation Theorem)
+
+**Statement:**
+
+Let $\mathcal{F} = (\text{L0}, \text{L1}, \text{L2})$ be an instance of FACS. Then:
+
+1. **Truth-Value Layer Decidability:** $\forall C \in \text{L1}, \Psi.\text{Consistency}(C) \in \{\text{True}, \text{False}\}$ is computable within K2 steps. Consistency at this layer is a syntactic operation: bounded, local, fallible.
+
+2. **Existence-Layer Undecidability:** The consistency of $\mathcal{F}$ as a whole (i.e., why the set of postulates injected into L0 is this rather than that, whether the system's own existential presupposition is self-consistent) is **not** a proposition expressible within L1. Any attempt to determine L0 consistency from within L1 is architecturally impossible, as its dependency set would contain direct references to L0 constants, while L0 is read-only and non-introspectable to L1.
+
+3. **Non-Contagion of Undecidability:** Any proposition in L2 that remains in $\nabla$ due to existence-layer undecidability shall not contaminate the $\Box$ set or the $\blacklozenge$ repository of L1 through any operator. L2 serves as a buffer zone for undecidability, permanently isolating existence-layer residues.
+
+**Proof Outline:**
+- (1) Follows directly from K2 and the definition of $\Psi.\text{Consistency}$;
+- (2) Suppose existence-layer consistency could be decided within L1. Then one would need to construct a proposition $C_{\text{meta}}$ such that $\text{Dep}(C_{\text{meta}})$ contains L0 constants. But L0 is read-only and non-introspectable to L1 (architectural definition). Hence $C_{\text{meta}}$'s dependency set contains non-localizable nodes and is intercepted by $\Xi$ at the injection stage;
+- (3) Guaranteed by the unidirectionality of the L2-L1 promotion channel and the filtering mechanism of $\Psi.\text{StructuralReview}$.
+
+## 3.5 Meta-Theorem V: CCT (Conditional Credit Theorem)
+
+**Statement:**
+
+Let $\mathcal{F} = (\text{L0}, \text{L1}, \text{L2})$ be an instance of FACS, and let $\mathcal{T}$ be any external formal system satisfying the scope characteristics of 1.1. Then:
+
+**1. Forward Adjudication (FACS as Arbiter):**
+
+If $\mathcal{T}$ passes the Chapter 9 Rigorous Enforcement Protocol (or equivalent $\Psi.\text{Consistency}$ checks), FACS can issue a verdict report $\text{R}(\mathcal{T})$ attesting to $\mathcal{T}$'s consistency at the truth-value layer.
+
+**2. Reverse Undecidability (FACS Cannot Be Internally Arbitrated):**
+
+There exists no proposition $C_{\text{meta}}$ within $\mathcal{T}$ such that $\mathcal{T} \vdash \text{"L0 is consistent"}$ or $\mathcal{T} \vdash \text{"L0 is inconsistent"}$, and such that the proof is accepted by FACS L1 as legitimate input. Any such attempt is intercepted at injection by $\Xi$—because $\text{Dep}(C_{\text{meta}})$ contains non-localizable L0 constant nodes.
+
+**3. Cascade Nullification Condition:**
+
+If there exists an external meta-system $\mathcal{M}$ ($\mathcal{M} \not\subseteq \mathcal{F}$) such that $\mathcal{M} \vdash \text{"L0 is contradictory"}$, then:
+
+$$
+\forall \mathcal{T}: \text{R}(\mathcal{T}) \in \text{Th}(\mathcal{F}) \Rightarrow \text{R}(\mathcal{T}) \text{ credit nullified}
+$$
+
+That is: all consistency conclusions certified through FACS become void under the adjudication of $\mathcal{M}$. The **credit basis** of FACS as a consistency adjudication tool is the consistency of its L0, but the consistency of L0 is **not within FACS's own provability domain**.
+
+**Proof:**
+
+- **(1)** By the definition of $\Psi.\text{Consistency}$ and direct application of CTR and DCC. FACS's truth-value layer possesses a complete mechanism for adjudicating the consistency of external systems.
+- **(2)** Directly by LIT (Meta-Theorem IV). L0 is read-only and non-introspectable to L1; any proposition attempting to determine L0 from within has a dependency set containing non-localizable nodes and is flagged illegal by $\Xi$ at injection.
+- **(3)** Suppose $\mathcal{M} \vdash \text{"L0 is contradictory"}$. By CTR (Meta-Theorem I), this contradiction reduces upward to some finite subset $\Gamma_{\text{L0}} \vdash \bot$ of L0 postulates. If $\Gamma_{\text{L0}}$ indeed derives a contradiction, then L0 as FACS's foundation has collapsed. Since all L1 operators presuppose L0 constants ($\Phi$ defines syntax, $\Xi$ defines dependency topology, $\Psi$ performs consistency checks), L0's contradiction contaminates every output of L1 through all proof paths. Thus $\forall \mathcal{T}, \text{R}(\mathcal{T})$'s derivation chain contains the contaminated L0 premise, and its credit returns to zero. QED.
+
+**Corollary:**
+
+FACS's consistency adjudication is "credit lending from the belief-layer," not "self-contained mathematical guarantee." FACS may lend the credit of consistency adjudication to external systems; but FACS cannot issue a credit certificate for itself; once an external meta-system proves L0 contradictory, all lent credit is immediately frozen and cannot be restored through internal FACS mechanisms (as the restoration mechanism itself depends on L0).
+
+## 3.6 Meta-Theorem VI: TCT (Term Coherence Theorem)
+
+**Statement:**
+
+Let $C$ be any proposition that has passed $\Psi.\text{StructuralReview}$ and entered L1, and let $\mathcal{T}$ be the axiom system to which $C$ belongs. If the coherent truth-value decidability of $C$ holds within L1, then every non-foundational term $t$ occurring in $C$ must have at least one finite, localizable, acyclic operational definition path in the confirmed closure of $\mathcal{T}$ or the L0 anchoring repository, such that:
+
+1. **Definition Reachability:** The definition anchor $D_t$ of $t$ has a reachable path in the DAG to the dependency set $\text{Dep}(C)$ of $C$ (i.e., $D_t$ can be traversed along dependency edges from the root node to the use node of $t$).
+2. **Syntactic Operability:** There exists a finite syntactic operation sequence (including but not limited to rewriting, substitution, reduction, expansion, equivalence transformation) that reduces any expression containing $t$ to a base expression or a defined expression not containing $t$ within K2 steps; this operation sequence must be entirely driven by confirmed axioms or rules within $\mathcal{T}$.
+3. **Contradiction Traceability:** If the definition of $t$ leads to the appearance of $p \land \neg p$ in the DAG to which $C$ belongs, then CTR can trace that contradiction to the finite axiom subset containing the definition anchor $D_t$ of $t$.
+
+If any of the above conditions is not met, $C$ is deemed a semantically suspended term, and $\Psi.\text{Consistency}$ must return $\bot_{\text{Syn}}[\text{UNDEFINED\_TERM}]$ at the injection stage, prohibiting $C$ from obtaining $\Box$ or $\blacklozenge$ status.
+
+**Proof (Constructive):**
+
+1. **(Necessity, by contradiction)** Assume $C$ passed $\Psi.\text{StructuralReview}$ but there exists a term $t$ not satisfying the above three path conditions. By §7.8, $t$ is marked as a non-localizable node; but a non-localizable node has no outgoing edges in the DAG, and its truth-value propagation path is broken. If $t$ appears in the proof path of $C$, then the coherent truth-value of $C$ depends on an unreachable node, violating K2 (the hardware anchoring premise of finite proof chains). Hence $C$ cannot obtain $\Box$ status, contradicting the assumption.
+
+2. **(Sufficiency)** If $t$ satisfies definition reachability, syntactic operability, and contradiction traceability, then $t$ appears in the DAG as a well-defined node with clear dependency edges and a finite syntactic operation sequence. By $\Xi$ (Dependency Topology Axiom), the entire DAG is acyclic; by K2, all derivation paths of this node do not exceed the hardware-anchored upper bound. Hence the coherent truth-value of $C$ is decidable, and CTR can complete reduction within finite steps.
+
+3. **(Boundary Exemption)** If $t$ belongs to L0 foundational constants ($\Phi, \Xi, \Gamma, \Psi$) or terms already anchored by $\blacklozenge$, definition reachability is guaranteed by the L0 injection stage, syntactic operability is driven by system-internal rules, and contradiction traceability points directly to L1 initial anchored axioms. The above three conditions are automatically satisfied and require no repeated verification.
+
+**Corollary (Self-Referential Coherence):**
+
+If a self-referential dependency appears in the coherent truth-value determination of proposition $C$ (i.e., the truth condition of $C$ depends directly or indirectly on itself), then $C$ must be able to construct, within K2 steps, a finite syntactic operation sequence that converges to a unique fixed point. If the sequence does not converge or leads to an unsolvable fixed point of the form $P \leftrightarrow \neg P$, then $C$ is considered semantically suspended due to failure to satisfy TCT's syntactic operability condition, and $\Psi.\text{Consistency}$ returns $\bot_{\text{Syn}}[\text{SELF\_REF\_PARADOX}]$, barring entry into L1.
+
+**Proof (Direct Reduction):**
+
+Self-referential dependency means that the truth-value determination of $C$ requires executing a syntactic operation sequence that takes $C$ itself as input. If that sequence does not converge to a unique fixed point within K2 steps, then any expression containing $C$ cannot be reduced within finite steps to a base expression not containing $C$—this directly violates TCT's syntactic operability condition (condition 2). If the sequence leads to $P \leftrightarrow \neg P$, then truth-value determination oscillates infinitely between $\text{True}$ and $\text{False}$, and no finite reduction path exists, also violating syntactic operability. Therefore, self-referential propositions failing the convergence requirement are automatically classified as semantically suspended under the TCT framework, and may be determined non-admissible into L1 without requiring an independent meta-theorem.
+
+**Corollary:**
+
+TCT elevates term closure from an operational-level check (§7.8) to a meta-theorem-level rigid constraint. Any attempt to cut off contradiction chains and render CTR unreachable through semantic suspension (registering terms without assigning operational definitions) or paradoxical self-reference (truth-value determination failing to converge) is proved under TCT to be **impossible to obtain $\Box$ status**—not "no contradiction found," but "contradiction unreachable does not constitute coherent truth-value."
+
+---
+
+# 4. Three-Layer Vertical Isolation Architecture
+
+## 4.1 Architecture Overview
+
+The system adopts a three-layer vertical isolation architecture, with inter-layer communication through predefined black-box channels; lower layers are read-only constants to upper layers.
+
+| Layer | Name | Core Function | Accessibility |
+|------|------|----------|----------|
+| L0 | System Layer (Transcendental Foundation) | Outputs static delimitation rules and permanent anchoring storage; **carries no axioms** | Globally read-only, non-introspectable |
+| L1 | Operational Layer (Axiom-Loading Layer) | Loads and executes K0–K2 postulates; executes confirmation, revision, falsification, rollback, retraction review and other dynamic logic | Fully writable, constrained by L0 |
+| L2 | Extensional Layer (Pre-Theoretic Exploration Zone) | Temporarily stores unstructured conjectures, plausibility models, tentative frameworks | Isolated from L1, requires review for promotion |
+
+## 4.2 Layer Function Refinement
+
+**L1 (Truth-Value Layer):**
+
+L1 employs **cut-down finite set theory**, serving the following functions:
+- Logical qualitative determination;
+- Finite mathematical proofs;
+- Verifiability transformation of probabilistic propositions;
+- Screening of various logical paradoxes.
+
+**Fully constrained by K2**, all propositions have binary decidable truth values. L1 is the only layer in FACS that enjoys truth-value adjudicative authority.
+
+**L2 (Exploratory Layer):**
+
+L2 accommodates the following theoretical systems, for scholarly discussion, formal derivation, and theoretical comparison:
+- Standard ZFC;
+- Full Peano Arithmetic;
+- Many-valued logic;
+- Modal logic;
+- Continuous probability theory;
+- Various non-classical axiom systems.
+
+L2 **accommodates all theories that give rise to undecidable propositions**, but **cannot directly dominate FACS truth-value adjudication**. Any L2 proposition must pass $\Psi.\text{StructuralReview}$ review, undergo finite-cutdown transformation, and only then may be promoted to L1 to enter the truth-value adjudication process.
+
+**L1 vs L2 Dimensional Comparison:**
+
+| Dimension | L1 (Truth-Value Layer) | L2 (Exploratory Layer) |
+|:---|:---|:---|
+| **Objects of Processing** | Finite ZFC fragments + verifiable propositions | Full ZFC + full PA + non-classical logic |
+| **Adjudicative Capacity** | Binary decidable within K2 steps ($\Box$ / $\bot$) | Allows undecidability, allows infinite derivation |
+| **Output** | $\blacklozenge$ META anchored verdict | $\nabla$ exploratory state, scholarly comparison conclusions |
+| **Dependency Constraint** | Mandatory acyclic dependency graph ($\Xi$) | Retains original dependency structure (cycles permitted) |
+| **Relation to ZFC** | Can only prove DAG-rewritten, K2-cut propositions within ZFC | Can prove all propositions in ZFC (no truth-value verdict) |
+| **Gödel Incompleteness** | **Actively isolated** | **Internalized and accommodated** |
+
+## 4.3 L0: System Layer (Transcendental Foundation)
+
+L0 injects static constants ($\Phi, \Xi, \Gamma, \Psi$) once at system startup, then remains permanently silent. **L0 carries no axioms, performs no derivations, only outputs delimitation rules.** K0–K2 postulates are loaded in L1 (operational layer); any contradiction trace can only reach L1's axiom layer and cannot penetrate to L0's system layer.
+
+## 4.4 L2: Extensional Layer (Pre-Theoretic Exploration Zone)
+
+L2 stores original conjectures that have not yet acquired structured axiomatic systems. This layer enjoys no ontological commitment of any form.
+
+- Sole state: $\nabla P$ (exploratory state)
+- Operational restriction: $\nabla P$ may not be directly operated upon by any L1 operator
+- Promotion channel (L2 $\to$ L1): Must submit $\Psi.\text{StructuralReview}(P)$ to the foundation, reviewing five items:
+  1. Whether the core assertion has legitimate syntactic expression under $\Phi$ (including self-reference/circular dependency distinction check)
+  2. Whether a static domain delimitation is provided
+  3. Whether a finite-resource executable operational path is specified
+  4. **Term Closure:** All non-foundational terms in the proposition bundle must possess finite localizable operational definitions within the current context; unexplained dangling symbols are not permitted to participate in truth-value derivation
+  5. **Self-Referential Convergence:** If self-reference appears in the proposition, its truth-value determination process must converge to an explicit fixed point within K2 steps, and must not produce unsolvable cycles of the form $P \leftrightarrow \neg P$ (TCT Corollary)
+- After review passes, $\nabla P$ transitions to $\Diamond P$ (testable state) and enters L1. If review is rejected, $\nabla P$ remains in L2 and may be revised and resubmitted.
+
+**Existence-Layer Buffering Function:** L2 simultaneously accommodates propositions that, due to existence-layer undecidability, cannot be translated into truth-value-layer problems. Such propositions remain permanently in $\nabla$ and do not trigger any L1 operator, ensuring undecidability does not contaminate the verifiable calculus domain.
+
+---
+
+# 5. Core Concept Definitions
+
+## 5.1 Self-Reference
+
+Propositional content refers to itself, but does not constitute a dependency edge. Example: "This system contains proposition P" is a legitimate self-description. Self-reference is a legitimate feature of syntactic structure and does not constitute an invalidating reason.
+
+**Strict Distinction:** Syntactic-level self-reference (legitimate, recognized by $\Phi$) vs. truth-value-determination-level self-referential cycles (must satisfy the convergence requirement of the TCT Corollary). The former does not trigger dependency graph checks; the latter is constrained by the syntactic operability condition. See 5.2 and 3.6 TCT Corollary.
+
+## 5.2 Circular Dependency
+
+A directed cycle appears in the dependency graph: $C \in \text{Dep}(C)$ or $C \rightarrow \dots \rightarrow C$. Circular dependency constitutes an illegal closed loop of derivational structure and is prohibited as a legitimate derivation path in the testable domain.
+
+**These three are not to be confused:**
+- **Self-reference (§5.1):** Syntactic-level self-pointing, does not constitute a dependency edge, legitimate;
+- **Circular dependency:** Directed cycle in the dependency graph, intercepted by $\Xi$ at the topological level;
+- **Paradoxical self-reference:** Self-dependence in truth-value determination leading to $P \leftrightarrow \neg P$, intercepted by the TCT Corollary at the syntactic operability level.
+
+## 5.3 States
+
+Each proposition in L1 has, at any given time, exactly one of the following eight ground states:
+
+| Symbol | Name | Semantics |
+|------|------|------|
+| $\nabla$ | Exploratory State | Temporary storage from L2, L1 read-only reference |
+| $\Diamond$ | Testable State | Default initial state, not yet confirmed |
+| $\Box$ | Provisional Confirmed State | Passed consistency checks, may be referenced, subject to rollback risk |
+| $\blacklozenge$ | Permanently Anchored State | Irrevocable bedrock proposition, immune to all rollbacks and falsifications |
+| $\bigcirc$ | Revision Locked State | Under modification, external references suspended |
+| $\bullet$ | Rollback Trace | A revoked provisional confirmed state; historical fingerprint retained but no longer participates in derivation |
+| $\bot$ | Falsification Graveyard | Successfully derived negation and irreparable; permanently frozen |
+| $\circlearrowright$ | Awaiting Retraction Review | Falsified or voided, awaiting retraction review |
+
+## 5.4 Dependency
+
+The dependency set $\text{Dep}(C)$ of proposition $C$ is a finite set containing identifiers of other propositions on which $C$ directly depends in logic. Dependency relations form a directed graph. If $\text{Dep}(C)$ contains non-localizable nodes (e.g., $\bot$ or undefined IDs), the proposition is flagged as illegal at injection.
+
+## 5.5 Consistency and Coherent Truth-Value
+
+Within this framework, "consistency" means: given the content of a proposition and its dependency set, there is no explicit conflict with the current confirmed set and permanent anchoring repository, and its dependency graph contains no directed cycles. Consistency is a decidable syntactic property, not semantic truth.
+
+**Coherent Truth-Value:** FACS does not guarantee the semantic truth of propositions in the objective world. FACS guarantees that if a proposition is assigned a truth-value within a specified axiom system, that assignment is coherent with its dependency closure; if incoherent, the source of conflict can be localized within finite steps through the DAG topological structure. The state of a proposition in L1 ($\Diamond$ / $\Box$ / $\blacklozenge$, etc.) is the operational expression of its coherent truth-value.
+
+**Strict Distinction:** Truth-value-layer consistency (within L1, decidable) vs. existence-layer consistency (global existential presupposition of the system, undecidable). See 3.4 LIT.
+
+---
+
+# 6. Treatment of Infinity in L1
+
+L1's adjudication of infinitary propositions depends not on their "mathematical countability," but on whether their **proof path is traversable within K2 steps**.
+
+## 6.1 Operational Infinity
+
+Infinity that can be folded by inductive patterns or compressed by atomic anchoring into finite DAG paths. Its dependency graph can be fully traversed within K2 steps without triggering infinite branching. Examples: inductive proofs (dependency graph containing only Base and InductiveStep nodes), $\mathbb{N}$ injected as a $\blacklozenge$-state atomic constant, Cantor's diagonal argument (finite proof). The system directly admits them and issues verdicts ($\Diamond \to \Box$).
+
+## 6.2 Non-Operational Infinity
+
+Infinity that requires unbounded expansion or non-localizable universal instantiation, causing the dependency graph to be untraversable within K2 steps or to contain unreachable nodes. Examples: unbounded universal quantification ($\forall S \subseteq \mathbb{R}, P(S)$), full attempted proof of the Continuum Hypothesis, internal construction of inaccessible cardinals. Upon detecting such cases, $\Psi.\text{StructuralReview}$ immediately rejects them, returning them to L2's $\nabla$ state and preventing contamination of L1's decidability domain.
+
+## 6.3 Cardinal Comparison Protocol
+
+L1 completes the countable/uncountable distinction through a finite proof of Cantor's theorem. Once this proof passes confirmation $\Box$ and is anchored as $\blacklozenge$, it becomes a permanent delimitation criterion in L0. Thereafter, all newly injected propositions encountering the "countable/uncountable" boundary on dependency paths directly reference this anchored node without re-derivation. L1 does not adjudicate the "essential size" of sets; it only adjudicates whether propositions about set sizes **possess finite localizable proof paths**.
+
+---
+
+# 7. L1 Core Operational Operators (Dynamic Semantics)
+
+## 7.1 Confirmation Operator $\Box$
+
+**Preconditions:**
+
+- Current state is $\Diamond C$
+- Dependency set $\text{Dep}(C)$ is acyclic
+- $\Psi.\text{Consistency}$ returns True (including CTR reduction check)
+
+**Transition:** $\Diamond C \rightarrow \Box C$
+
+**Side Effects:**
+
+- If new predicates are introduced, trigger $\Gamma$ extension of $\Phi$
+- Update DAG
+
+## 7.2 Permanent Anchoring Operator $\blacklozenge$
+
+**Preconditions:**
+
+- Currently $\Box C$
+- $\text{Dep}(C)$ consists entirely of $\blacklozenge$ or initial foundational postulates
+- $\Psi.\text{Finalize}$ returns Accept
+
+**Transition:** $\Box C \rightarrow \blacklozenge C$, physically detached from dynamic DAG, copied into L0 read-only anchoring repository
+
+**Side Effect:** Rollback chains are forcibly interrupted at $\blacklozenge C$
+
+## 7.3 Revision Lock Operator $\bigcirc$
+
+**Preconditions:**
+
+- Currently $\Box C$ or $\Diamond C$, and not already locked
+
+**Transition:** Enter $\bigcirc C$ (locked), external references suspended. Upon revision completion, submit new version $C'$ or unlock and restore
+
+**Revision Constraints:**
+
+- If revision introduces substitute inference that contradicts the core assertion of the original proposition $\to$ disqualification, transition to $\bot C$
+- If revision results in loss of directionality or infinite expansion of operational path $\to$ likewise disqualification
+
+**Special Trigger Conditions (DCC Verdict):**
+
+- When dual collision protocol detects $\text{Th}(\mathcal{P}) \cap \text{Th}(\mathcal{N}) \neq \varnothing$, forcibly execute $\bigcirc$ on relevant propositions
+
+**Special Trigger Conditions (EIT Contradiction Case):**
+
+- When extensional definition $E$ and intensional definition $\text{Def}_{\mathcal{S}}$ produce irreconcilable conflict, forcibly enter $\bigcirc$ (if repairable) or $\bot$ (if irreparable) per 3.3.
+
+## 7.4 Cascade Rollback Operator $\bullet$
+
+**Preconditions:** Currently $\Box C$
+
+**Transition:** $\Box C \rightarrow \bullet C$; recursive closure `Revoke(C)`; throw `AnchorGuard` and interrupt upon encountering $\blacklozenge$
+
+**Side Effect:** Remove edges of revoked nodes from DAG
+
+## 7.5 Self-Falsification Operator $\neg\Diamond$
+
+**Preconditions:**
+
+- From $\{\Box C, \blacklozenge C\}$, derive $C \rightarrow \bot$ within finite steps
+- Derivation must not reference foundational syntactic rules
+
+**Transition:**
+
+- $\Diamond C \rightarrow \bot C$
+- $\Box C$: first force $\bullet C$ rollback, then transition to $\bot C$
+- $\blacklozenge C$: silently reject (ImmutabilityViolation)
+
+**Recoverability:** $\bot C$ is irreversible. To resubmit, must be filed as new clause $C^*$. Only when retraction conditions are met may one apply to transition $\bot C$ to $\circlearrowright C$.
+
+## 7.6 Retraction Review Operator $\circlearrowright$
+
+**Preconditions:** Current state is $\bot C$ or $\bullet C$
+
+**Three Review Items (Hard Checks, Each Must Pass):**
+
+1. **Logical Self-Audit and Error Elimination:** The petitioner must submit a self-audit report identifying and acknowledging the specific error that led to the previous retraction (logical error/data misinterpretation/execution deviation), and this attribution must be traceable to $\Psi.\text{RetractionHistory}$
+2. **New Independent Prediction Provision:** The petitioner must provide a new prediction that is logically independent from the old prediction and falsifiable, satisfying the three conditions of quantifiability/operability/directionality, and confirmed by $\Psi.\text{ValidateNewPrediction}$ to be non-equivalent to the old prediction
+3. **Attribution of Misjudgment Traceable:** The attribution of the retracted verdict must be traceable to a specific error, not to the passage of time, observational fluctuation, or a "look again" repeat request
+
+**Transition:**
+
+- All three pass $\to$ $\circlearrowright C \rightarrow \Diamond C$ (re-enter testable state; initial dependency set cleared, must be re-confirmed)
+- Any failure $\to$ $\circlearrowright C \rightarrow \bot C$ (permanently frozen; proposition ID voided)
+
+**Prohibited Scenarios (Automatic Rejection):**
+
+- Petition based solely on changed observational conditions, boundary condition re-examination, or restatement of old prediction
+- New prediction is not logically independent from old prediction
+
+## 7.7 Runtime Check of Self-Reference and Circular Dependency
+
+Upon injection of any new clause, $\Psi.\text{Consistency}$ executes:
+
+- Self-reference check: Does the propositional content refer to itself but without constituting a dependency edge? If not, allow
+- Circular dependency check: Does the dependency graph contain $C \in \text{Dep}(C)$ or a directed cycle $C \rightarrow \dots \rightarrow C$? If yes, reject and mark $\bot_{\text{Syn}}[\text{CIRCULAR\_DEP}]$
+- **Self-Referential Convergence Check (direct application of TCT Corollary):** If a self-referential dependency appears in the proposition's truth-value determination, check whether it converges to a unique fixed point within K2 steps; if it leads to $P \leftrightarrow \neg P$ or fails to converge, mark $\bot_{\text{Syn}}[\text{SELF\_REF\_PARADOX}]$
+
+## 7.8 Term Closure Enforcement
+
+**Upon injection of any new clause into L1, $\Psi.\text{Consistency}$ forcibly enforces the following checks (direct application of Meta-Theorem VI):**
+
+1. **Operational Definition Anchoring:** Every non-foundational term appearing in the proposition content (i.e., not an L0-injected constant and not a member of the $\blacklozenge$ anchoring repository) must possess a finite localizable operational definition in the current proposition bundle or confirmed set. The definition must specify the term's derivation path or reduction rules within K2 steps.
+2. **Semantic Suspension Interception:** If a term is registered (obtaining $\Phi$ legitimate term status through $\Gamma$ extension) but is not accompanied by an operational definition, it is treated as a non-localizable node in truth-value derivation. Propositions containing such terms are rejected at injection and marked $\bot_{\text{Syn}}[\text{UNDEFINED\_TERM}]$.
+3. **Derivation Participation Restriction:** Undefined terms shall not serve as derivation nodes in the DAG, shall not generate outgoing edges, and shall not be referenced by other propositions. Their sole legitimate state is L2's $\nabla$ exploratory state, until operational definitions are supplied and pass $\Psi.\text{StructuralReview}$ review.
+
+**Patch Rationale:** This clause prevents the construction of unfalsifiable syntactic structures through semantic suspension. If key symbols are undefined, the contradiction chain is artificially severed, and CTR cannot complete reduction within finite steps—this is not "absence of contradiction," but "contradiction unreachable." FACS refuses to mistake "contradiction unreachable" for "coherent truth-value."
+
+---
+
+# 8. Cumulative Protection Theorems (Core Invariants)
+
+1. **Foundation Inviolability:** No L1 operator may modify L0 constants; L0 carries no axioms; contradiction trace cannot penetrate to the system layer
+2. **Anchoring Irreversibility:** $\blacklozenge C$ is immune to all rollbacks and falsifications
+3. **Historical Irrevocability:** $\bullet$, $\bot$, and $\circlearrowright$ states are permanently recorded in the history log and are inerasable
+4. **Retraction Not Zero-Cost Recursive:** Each retraction must satisfy three conditions (self-audit + new independent prediction + attribution tracing), otherwise permanently frozen
+5. **Contradiction Reduction Rigidity (CTR):** Any theorem-layer contradiction necessarily reduces downward to syntactic inconsistency of a finite axiom subset; there is no grey zone of "theorem contradiction but axiom set consistent"
+6. **Collision Completeness (DCC):** The outcome (orthogonality or contradiction) of the dual-system collision protocol is equivalent to whether there exists a derivable $\bot$ from the union of their axioms
+7. **Layer Isolation Rigidity (LIT):** The decidability of the truth-value layer (L1) does not entail decidability of the existence-layer (L0-L2); existence-layer undecidability residues are permanently isolated in L2 and shall not contaminate L1's $\Box$ set or $\blacklozenge$ repository
+8. **Conditional Credit Rigidity (CCT):** FACS's consistency adjudication of external systems presupposes L0 consistency as credit basis; this basis is not self-provable within FACS; if an external meta-system proves L0 contradictory, all consistency verdicts issued through FACS have their credit nullified
+9. **Infinity Adjudication Rigidity:** L1's adjudication of infinitary propositions depends not on their "mathematical countability," but on whether their "proof path is traversable within K2 steps." Operational infinity admitted, non-operational infinity returned to L2
+10. **Term Closure Rigidity:** All terms participating in L1 truth-value derivation must possess finite localizable operational definitions; semantically suspended terms shall not serve as derivation nodes nor obtain $\Box$ or $\blacklozenge$ status
+11. **Term Coherence Rigidity (TCT):** The decidability of coherent truth-value is predicated on the three path conditions of term definition (definition reachability, syntactic operability, contradiction traceability); those not satisfying them may not enter the L1 truth-value layer
+12. **Self-Referential Convergence Rigidity (TCT Corollary):** Self-reference in truth-value determination must converge to a unique fixed point within K2 steps; self-reference producing unsolvable fixed points of the form $P \leftrightarrow \neg P$, due to violation of the syntactic operability condition, is treated as semantic suspension and prohibited from entering the L1 truth-value layer
+
+---
+
+# 9. Global Rigorous Enforcement Protocol (Collision Adjudication)
+
+This protocol is specifically designed for **any pair of mutually inverse propositional systems** $P$ and $\neg P$, executing a complete, non-appealable syntactic consistency adjudication. It employs the aforementioned axiom base, six meta-theorems, and L1 operational operators to complete the entire process from admission to final verdict within L1.
+
+## 9.1 Foundational Axioms
+
+This protocol anchors L0 constants $(\Phi, \Xi, \Gamma, \Psi)$ and the initial postulates K0-K2. CTR, DCC, EIT, LIT, CCT, and TCT serve as foundational lemmas for internal derivation within L1, and have been incorporated into the adjudication logic of $\Psi.\text{Consistency}$ at system startup.
+
+## 9.2 Phase 1: L2 Admission and Syntactic Review
+
+**Objective:** Establish the right of existence of propositions, ensuring they possess the qualifications to enter the calculus domain.
+
+**Step 1.1: Proposition Injection**
+
+- Store all axioms, inference rules, and static domain declarations of $P$ and $\neg P$ into L2 as independent proposition bundles.
+- Both initial states are exploratory $\nabla$.
+
+**Step 1.2: Structural Review ($\Psi.\text{StructuralReview}$)**
+
+- **Check Items:**
+  1. Syntactic legality ($\Phi$): Scan all content of $P$ and $\neg P$, intercept $\bot_{\text{Syn}}[\text{CIRCULAR\_DEP}]$, $\bot_{\text{Syn}}[\text{UNDEFINED\_TERM}]$, and $\bot_{\text{Syn}}[\text{SELF\_REF\_PARADOX}]$
+  2. Static domain delimitation: Check whether $P$ and $\neg P$ have locked their domains of application with non-slippable terms
+  3. Operational path localizability: Confirm that core assertions specify an executable qualitative distinction path within finite resources
+  4. Term closure: Confirm that all non-foundational terms possess finite localizable operational definitions in the current context (satisfying TCT's three conditions)
+  5. Self-referential convergence: Confirm that if self-reference appears in a proposition, its truth-value determination process converges to an explicit fixed point within K2 steps, and does not produce unsolvable cycles of the form $P \leftrightarrow \neg P$ (TCT Corollary)
+
+- **Verdict:**
+  - Pass: $\nabla(P) \rightarrow \Diamond(P)$, $\nabla(\neg P) \rightarrow \Diamond(\neg P)$
+  - Reject: Remain in L2, may be revised and resubmitted
+
+## 9.3 Phase 2: Independent Confirmation and Internal Consistency Verification
+
+**Objective:** Verify whether $P$ and $\neg P$ are self-consistent as independent systems.
+
+**Step 2.1: Dependency Topology Construction**
+
+- Resolve internal inter-axiom dependency relations for $\Diamond(P)$ and $\Diamond(\neg P)$ respectively, constructing DAGs.
+- $\Psi.\text{Consistency}$ verifies $\Xi$ axiom, term closure (TCT), self-referential convergence (TCT Corollary), and CTR reduction conditions, ensuring no directed cycles, no dangling terms, no paradoxical self-reference, and no internal contradictions.
+
+**Step 2.2: Independent Consistency Derivation**
+
+- Open two independent sandboxes within L1, executing confirmation $\Box$ on $\Diamond(P)$ and $\Diamond(\neg P)$ respectively.
+- Exhaustively expand all syntactic consequences within K2 steps, scanning for $A \land \neg A$ contradictions.
+
+- **Verdict:**
+  - No contradiction: $\Diamond(P) \rightarrow \Box(P)$; $\Diamond(\neg P) \rightarrow \Box(\neg P)$
+  - Contradiction detected: Trigger self-falsification $\neg\Diamond$; the system transitions to $\bot$; the process terminates for that system
+
+## 9.4 Phase 3: Relational Collision and Contradiction Diagnosis (DCC Execution)
+
+**Objective:** Adjudicate whether the two self-consistent systems $P$ and $\neg P$ can coexist logically.
+
+**Step 3.1: Temporary Merged Derivation**
+
+- Construct temporary merged dependency graph $\text{DAG}_{\text{merged}} = \text{DAG}_P \cup \text{DAG}_{\neg P}$
+- Initiate K2-step exhaustive derivation, with $\Psi.\text{CollisionCheck}$ daemon process scanning syntactic consequence space in real time
+
+**Step 3.2: Final Verdict (based on DCC Theorem)**
+
+**Case A – Adjudicated as Logical Contradiction** ($\text{Th}(P) \cap \text{Th}(\neg P) \neq \varnothing$)
+
+- By DCC theorem, there exists a finite axiom subset $\Gamma \subseteq \text{Ax}(P) \cup \text{Ax}(\neg P)$ such that $\Gamma \vdash \bot$
+- Forcibly trigger revision lock $\bigcirc$: $\Box(P) \rightarrow \bigcirc(P)$, $\Box(\neg P) \rightarrow \bigcirc(\neg P)$
+- Generate immutable syntactic event report, locking the target to $\Gamma$
+- Process pauses; supporters must submit new versions $P'$, $\neg P'$ with $\Gamma$ removed or axioms corrected, and re-verify from Phase 1
+
+**Case B – Adjudicated as Logical Orthogonality** ($\text{Th}(P) \cap \text{Th}(\neg P) = \varnothing$)
+
+- By contrapositive of DCC: No finite axiom subset deriving $\bot$ found within K2 steps
+- Release locks: $\bigcirc(P) \rightarrow \Box(P)$, $\bigcirc(\neg P) \rightarrow \Box(\neg P)$
+- Generate orthogonality report, declaring the two as non-interfering, independently self-consistent formal systems
+
+## 9.5 Phase 4: Post-Adjudication Procedures and Long-Term Criteria
+
+**Step 4.1: Metadata Anchoring**
+
+- Package the Phase 3 verdict report, DAG snapshot, and proof path of contradiction/orthogonality as meta-proposition bundle $\text{META}_{PvN}$
+- Apply for $\Psi.\text{Finalize}(META_PvN)$
+- If passed, $\text{META}_{PvN}$ obtains $\blacklozenge$ status and becomes part of the L0 read-only anchoring repository
+
+**Step 4.2: Rigorous Admission for Version Iteration**
+
+- Any modification to the axiom content of $P$ or $\neg P$ (addition, deletion, or term change) results in a change of identity ID
+- The new version $P'$ or $\neg P'$ is treated as a completely new, never-before-examined theory and must be re-verified from Phase 1
+- Attempts to cite the old version's $\text{META}_{PvN}$ verdict in defense of the new version will be recognized by $\Psi.\text{Consistency}$ as domain slippage or circular dependency and rejected
+
+---
+
+# 10. Operational Command Set
+
+The system accepts the following operational commands:
+
+- **INJECT L2 <proposition>** $\to$ Place in research layer
+- **PROMOTE <proposition>** $\to$ L2$\to$L1 existence-layer application
+- **CONFIRM <proposition>** $\to$ $\Diamond C \rightarrow \Box C$
+- **ANCHOR <proposition>** $\to$ $\Box C \rightarrow \blacklozenge C$
+- **FALSIFY <proposition>** $\to$ $\neg\Diamond C$
+- **RETRACT <proposition> [self-audit report] [new prediction]** $\to$ Submit $\circlearrowright C$ for review
+- **REVISE <proposition>** $\to$ Enter $\bigcirc C$ lock
+- **STATUS** $\to$ Display all current clauses and DAG
+- **HISTORY <proposition>** $\to$ Query retraction attribution log
+- **COLLIDE <P> <\neg P>** $\to$ Initiate the Chapter 9 Global Rigorous Enforcement Protocol (including DCC completeness adjudication)
+
+---
+
+# 11. Closure Rules
+
+All content referred to in this document, internally, either constitutes a **supplement** to the system (compatible extension), a **localizable refutation** of the system, or a **complete overthrow of this system and the complete negation of its referential definitions**.
+
+This document does not pursue completeness. It guarantees consistency through delimitation. Its consistency is not internally proved but is guaranteed through rigid construction: L0 constants immutable, DAG acyclic, non-contradiction as absolute prohibition, proof chains with hardware-anchored upper bounds, CTR guarantees theorem contradictions reducible to axiom layer, DCC guarantees dual collision verdicts equivalent to consistency of axiom union, LIT guarantees undecidability residues do not contaminate truth-value layer, CCT guarantees FACS's complete self-knowledge of its own credit boundary, infinity adjudication rigidity guarantees L1 processes only operational infinity, term closure rigidity guarantees semantically suspended terms cannot masquerade as coherent truth-value, TCT guarantees coherent truth-value decidability is predicated on the three path conditions of term definition, and the TCT Corollary guarantees self-dependence in truth-value determination must converge to a unique fixed point within K2 steps.
+
+Any attempt to question L0 from within the system is architecturally impossible—because L0 carries no axioms and thus provides no handle for internal questioning; any attempt to locally modify L0 can only be accomplished by completely overthrowing and restarting the system.
+
+---
+
+# Appendix: Term Index
+
+| Term | Internal Definition |
+|------|-------------|
+| Self-Reference | Propositional content refers to itself without constituting a dependency edge; syntactically legitimate; truth-value-level must satisfy TCT Corollary convergence requirement |
+| Circular Dependency | Directed cycle $C \in \text{Dep}(C)$ exists in dependency graph |
+| Consistency | Syntactic property of no explicit conflict and no cyclic dependency; strictly distinguishes truth-value-layer (decidable) from existence-layer (undecidable) |
+| Coherent Truth-Value | The legitimate provability status of a proposition within a specified axiom system; not semantic truth; expressed operationally by L1 state ($\Diamond$ / $\Box$ / $\blacklozenge$) |
+| Anchoring | $\Box C \rightarrow \blacklozenge C$, detached from DAG and written to L0 read-only repository |
+| Rollback | $\Box C \rightarrow \bullet C$, recursively revokes dependency closure |
+| Falsification | Derive $C \rightarrow \bot$ from confirmed set, resulting in $\bot C$ |
+| Retraction | $\bot C/\bullet C \rightarrow \circlearrowright C \rightarrow \Diamond C$ three-condition review channel |
+| CTR | Contradiction Traceability Theorem: theorem contradiction necessarily reduces to finite axiom subset $\vdash \bot$ |
+| DCC | Dual Collision Completeness Theorem: non-empty collision intersection iff axiom union derives $\bot$ |
+| EIT | Extension-Intension Trichotomy Theorem: any extensional definition referring to system intensional definition necessarily ends in extension/contradiction/undecidable |
+| LIT | Layer Isolation Theorem: architectural rigid isolation between truth-value-layer (L1) decidability and existence-layer (L0/L2) undecidability |
+| CCT | Conditional Credit Theorem: FACS's consistency adjudication of external systems presupposes L0 consistency; not self-provable; if external meta-system proves L0 contradictory, all credit nullified |
+| TCT | Term Coherence Theorem: coherent truth-value decidability is predicated on the three path conditions of term definition (definition reachability, syntactic operability, contradiction traceability); those not satisfying them may not enter L1 truth-value layer |
+| Operational Infinity | Infinity foldable by inductive patterns or compressible by atomic anchoring into finite DAG paths; traversable within K2 steps |
+| Non-Operational Infinity | Infinity requiring unbounded expansion or non-localizable universal instantiation; dependency graph untraversable within K2 steps |
+| Semantic Suspension | A state where a term is registered but not accompanied by an operational definition, or self-referential truth-value determination fails to converge, causing truth-value propagation chain breakage and contradiction unreachable; FACS prohibits such terms from entering L1 |
+| Unsolvable Fixed Point | Self-referential structure of the form $P \leftrightarrow \neg P$; truth-value determination process cannot converge within K2 steps; marked $\bot_{\text{Syn}}[\text{SELF\_REF\_PARADOX}]$ by $\Psi.\text{Consistency}$ |
+| Dynamic Evasion | Behavioral pattern of rendering translation rules ineffective through continuous revision of core definitions |
+| Semantic Self-Sufficiency | All term references locked within this document's framework |
+| Orthogonality | Two systems yield no contradiction when conjoined; mutually non-interfering |
+
+---
+
+# Revision History
+
+| Version | Date | Change Description |
+|:---|:---|:---|
+| v1.0 | 2026-07-17 | Initial version, establishing FACS core architecture and L0-L1-L2 three-layer isolation. |
+| v1.1 | 2026-07-17 | Supplemented L2 pre-theoretic exploration zone, promotion review mechanism, state transition diagram. |
+| v1.2 | 2026-07-17 | Supplemented Global Rigorous Enforcement Protocol (collision adjudication). |
+| v1.3 | 2026-07-19 | Integrated three-layer criterion system from "Method Game Theory," unified term definitions, refined operational command set. |
+| v1.4 | 2026-07-20 | Major theoretical upgrade: added CTR and DCC as foundational lemmas for L1 internal derivation; incorporated CTR into $\Psi.\text{Consistency}$ logic, established DCC as mathematical completeness basis for collision protocol; updated revision lock trigger conditions; updated term index, cumulative protection theorems, and closure rules. |
+| v1.5 | 2026-07-20 | Architecture upgrade and existence-layer closure: added EIT and LIT, fully characterized extension-intension interaction terminal outcomes and layer isolation; updated L0 statement, cumulative protection theorem (Item 7), closure rules, and term index. |
+| v1.6 | 2026-07-20 | Credit self-knowledge upgrade: added CCT, fully characterized credit structure of FACS as external system consistency adjudicator; updated cumulative protection theorem (Item 8), closure rules, term index, and protocol references. |
+| v1.7 | 2026-07-20 | Architecture refinement and dimension comparison: added L1/L2 function refinements and comparison table, clarified L1 uses cut-down finite set theory, L2 accommodates full ZFC and non-classical systems. |
+| v1.8 | 2026-07-20 | Infinity adjudication upgrade: added Chapter 6 "Treatment of Infinity in L1," establishing operational/non-operational infinity dichotomy and cardinal comparison protocol; added cumulative protection theorem Item 9. |
+| v1.9 | 2026-07-20 | Positioning refinement and length compression: clarified FACS as meta-logical OS accepting arbitrary axiom extension sets, only adjudicating coherent truth-value; introduced "coherent truth-value" concept; compressed Chapter 6. |
+| v1.10 | 2026-07-20 | Term closure rigidity patch: added §7.8 Term Closure Enforcement, mandating all terms participating in L1 truth-value derivation possess finite localizable operational definitions; plugged operational loophole of constructing unfalsifiable syntactic structures through undefined symbols. |
+| v2.0 | 2026-07-20 | Semantic review upgrade: elevated §7.8 operational-level check to Meta-Theorem VI (TCT), providing three precise path conditions (definition reachability, syntactic operability, contradiction traceability) with constructive proof; meta-theorem table extended to six; cumulative protection theorem added Item 11 (term coherence rigidity); §7.8 explicitly marked as direct application of Meta-Theorem VI; term index supplemented with TCT; closure rules updated. FACS formally entered semantic review version. |
+| v2.1 | 2026-07-20 | Self-referential convergence subsumed under TCT: appended "Corollary (Self-Referential Coherence)" with proof to Meta-Theorem VI, directly reducing self-referential convergence to a special case of TCT's syntactic operability condition; supplemented §5.1/5.2 with three-way distinction (self-reference/circular dependency/paradoxical self-reference); §7.7 marked self-referential convergence check as direct application of TCT Corollary; cumulative protection theorem Item 12 updated to TCT Corollary reference; term index adjusted accordingly. Eliminated independent §7.9, maintaining compactness of meta-theorem layer. |
+
+---
