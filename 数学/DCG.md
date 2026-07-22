@@ -147,7 +147,82 @@ DCG 中"维"一词具有两重截然不同的含义：
 
 ---
 
-### 2.5　与标准泛函分析的对照
+### 2.5 固有参数与派生参数
+
+**定义 2.5.1（固有参数，Intrinsic Parameter）**
+
+设 DCG 中已明确定义的实体层级为：
+
+$$
+\text{全域} \;\subset\; \text{空间域} \;\subset\; \text{子域} \;\subset\; \text{几何闭包} \;\subset\; \text{表示层}.
+$$
+
+对于任意实体 $E$ 属于上述层级之一，参数 $\xi$ 称为 $E$ 的**固有参数**，当且仅当 $\xi$ 满足以下条件之一：
+
+1. $\xi$ 直接参与 $E$ 的构造定义，改变 $\xi$ 会导致 $E$ 的几何结构发生改变；
+2. $\xi$ 是 $E$ 所属层级公理检验所需的内禀量。
+
+固有参数的全体记作 $\mathrm{Int}(E)$。
+
+**实例**：
+- 子域的固有参数：区间端点 $(a_X, b_X, a_Y, b_Y, a_Z, b_Z)$，边界函数；
+- 几何闭包的固有参数：曲率参数 $q$，填充斜率 $k_x, k_y$，递归深度 $n$；
+- 表示层的固有参数：等差参数 $d$，伽罗瓦表示 $[\rho]$。
+
+**定义 2.5.2（派生参数，Derived Parameter）**
+
+对于实体 $E$，参数 $\tau$ 称为 $E$ 的**派生参数**，当且仅当：
+
+1. $\tau$ 完全由 $E$ 的固有参数和 $E$ 上的构造操作（积分、度量、判定算法等）唯一确定；
+2. $\tau$ 不满足固有参数的条件——改变 $\tau$ 不会改变 $E$ 的几何结构。
+
+派生参数的全体记作 $\mathrm{Der}(E)$。
+
+**实例**：
+- 积分值 $\mathcal{Z}_q(\mathcal{O})$；
+- 散度 $\operatorname{Div}_{\mathfrak{D}}(\mathcal{D})$、旋度 $\operatorname{Curl}_{\mathfrak{D}}(\mathcal{D})$、流度 $\operatorname{Flux}_{\mathfrak{D}}(\mathcal{D})$；
+- 梅林生成函数 $\Phi_{\mathcal{O}}(s)$；
+- 障碍类 $\mathrm{Ob}_{12}$；
+- 互易性比值。
+
+**公设 2.5.3（本体论层级隔离原则）**
+
+设 $\tau \in \mathrm{Der}(E)$，其中 $E$ 属于层级 $\mathcal{L}$。则：
+
+$$
+\boxed{\tau \text{ 的语义解释域严格限定在 } \mathcal{L} \text{ 之内。}}
+$$
+
+即：
+
+1. $\tau$ **不得**被解释为任何其他层级实体的固有参数；
+2. $\tau$ **不得**反向参与 $E$ 的构造修改；
+3. $\tau$ **不得**跨级用于推导其他层级实体的本体属性。
+
+违反上述任意一条，均构成**范畴错误（category error）**，所得命题在 DCG 内无真值，归于未定义域。
+
+**推论 2.5.4（时间参数与构造性无关禁令）**
+
+设 $n$ 为几何闭包 $\mathcal{O}$ 的递归深度，满足 $n \in \mathrm{Int}(\mathcal{O})$。  
+设 $\{ \mathcal{O}_n \}$ 为由 $n$ 索引的递归构造序列，$\{\mathcal{D}_i\}$ 为空间域中由域变量索引的子域族。
+
+时间参数 $t$ 定义为外部观察者附加于序列 $\{ \mathcal{O}_n \}$ 或 $\{\mathcal{D}_i\}$ 的**描述性标签**，满足：
+
+1. $t \in \mathrm{Der}(\mathcal{O})$；
+2. $t$ 与 $n$ 之间**不存在任何构造性关联**：
+   $$
+   \boxed{\nexists\; f: \mathbb{N} \to \mathbb{R},\; f \in \mathrm{Aut}(\mathcal{O}),\; \text{使得 } t \equiv f(n).}
+   $$
+   $n$ 是 $\mathcal{O}$ 的内禀固有参数，$t$ 是观察者的事后赋值；
+3. $t$ 的引入不参与 $\mathcal{O}$ 的公理检验，不改变 $\mathcal{O}$ 的几何结构；
+4. 禁止由 $t$ 的存在推导 $\mathcal{O}$ 自身的流动性、膨胀性或收缩性：
+   $$
+   \text{流动性}(\mathcal{O}) \notin \{\text{真}, \text{假}\}, \quad \text{流动性}(\mathcal{O}) \in \text{未定义域}.
+   $$
+
+---
+
+### 2.6　与标准泛函分析的对照
 
 标准泛函分析中的"无穷维"具有如下特征：
 - 无穷维空间中的"点"是函数或序列，而非几何点。
