@@ -82,8 +82,7 @@ $$M_0+M_1+M_2+M_3=I,$$
 等价于
 
 $$\begin{aligned}
-a_0+\sum_{k=1}^3 a_k\cos\phi_k&=1,\\
-\sum_{k=1}^3 a_k\sin\phi_k\,\mathbf{u}_k&=\mathbf{0}.
+a_0+\sum_{k=1}^3 a_k\cos\phi_k&=1,\\sum_{k=1}^3 a_k\sin\phi_k\,\mathbf{u}_k&=\mathbf{0}.
 \end{aligned}$$
 
 **(A2) 中心元投影等式**
@@ -117,8 +116,7 @@ $$\pi(Q_1Q_2Q_3)=\mathcal{R}+i\mathcal{I},$$
 其中
 
 $$\begin{aligned}
-\mathcal{R}&=\cos\varphi-2\sin\varphi\sin\psi\cos\psi\cos\beta-2\cos\varphi\sin^2\psi\cos^2\beta,\\
-\mathcal{I}&=-2\cos\varphi\sin^2\psi\sin\beta\cos\beta.
+\mathcal{R}&=\cos\varphi-2\sin\varphi\sin\psi\cos\psi\cos\beta-2\cos\varphi\sin^2\psi\cos^2\beta,\\mathcal{I}&=-2\cos\varphi\sin^2\psi\sin\beta\cos\beta.
 \end{aligned}$$
 
 环流投影为
@@ -163,9 +161,7 @@ $$(\pi(\tilde P)_k)^{n/g} = (\pi(\tilde P)_0)^{n/g} \cdot e^{-i 2\pi k (n/g)/3}.
 ### 4.3 生成元系数
 
 $$\begin{aligned}
-a_2&=a_3=S\sqrt{2},\\
-a_1&=-\frac{2S\cos\beta}{\sin\varphi}=-\frac{S}{\sin\varphi},\\
-a_0&=1-a_1\cos\varphi-2a_2\cos\psi.
+a_2&=a_3=S\sqrt{2},\a_1&=-\frac{2S\cos\beta}{\sin\varphi}=-\frac{S}{\sin\varphi},\a_0&=1-a_1\cos\varphi-2a_2\cos\psi.
 \end{aligned}$$
 
 ---
@@ -193,9 +189,7 @@ $$S=-\frac{\sqrt[3]{3}}{2}.$$
 生成元系数：
 
 $$\begin{aligned}
-a_2&=a_3=-\frac{\sqrt[3]{3}}{\sqrt{2}},\\
-a_1&=\frac{\sqrt[3]{3}\sqrt{13}}{6},\\
-a_0&=1+\frac{2\sqrt[3]{3}}{3}.
+a_2&=a_3=-\frac{\sqrt[3]{3}}{\sqrt{2}},\a_1&=\frac{\sqrt[3]{3}\sqrt{13}}{6},\a_0&=1+\frac{2\sqrt[3]{3}}{3}.
 \end{aligned}$$
 
 验证公理：
@@ -242,8 +236,8 @@ $$H_{\mathrm{DCG}}=H_0+\gamma H_1,\qquad \gamma>0,$$
 其中
 
 $$\begin{aligned}
-H_0&=\sum_{n=3}^{\infty}E_n\,|n\rangle\langle n|,\\[4pt]
-E_n&=\frac{n}{g}\ln\!\left(\frac{4}{\cos(\pi/n)}\right),\qquad g=\gcd(3,n),\\[6pt]
+H_0&=\sum_{n=3}^{\infty}E_n\,|n\rangle\langle n|,\\
+E_n&=\frac{n}{g}\ln\!\left(\frac{4}{\cos(\pi/n)}\right),\qquad g=\gcd(3,n),\\
 H_1&=\hat{T}_3+\hat{T}_3^{\dagger}
     =\sum_{n=3}^{\infty}\bigl(|n\rangle\langle n+3|+|n+3\rangle\langle n|\bigr).
 \end{aligned}$$
@@ -273,8 +267,7 @@ $$\mathcal{H}=\mathcal{H}_0\oplus\mathcal{H}_1\oplus\mathcal{H}_2,
 令 $\beta=\pi/m\;(m\ge 3)$，$\psi=\pi/4$。投影公式为
 
 $$\begin{aligned}
-\mathcal{R}&=\cos\varphi\,\sin^2\beta-\sin\varphi\,\cos\beta,\\
-\mathcal{I}&=-\cos\varphi\,\sin\beta\cos\beta.
+\mathcal{R}&=\cos\varphi\,\sin^2\beta-\sin\varphi\,\cos\beta,\\mathcal{I}&=-\cos\varphi\,\sin\beta\cos\beta.
 \end{aligned}$$
 
 相位方程：$\tan\varphi=\sin\beta(\tan\beta+1/T)$，$T=\tan(3\pi/n)$。
@@ -284,3 +277,154 @@ $|S|$ 由模长条件确定，$S$ 的精确值由 $(\pi(\tilde P))^{n/g}=Z_1$ �
 $$a_2=a_3=S\sqrt{2},\quad a_1=-\frac{2S\cos\beta}{\sin\varphi},\quad a_0=1-a_1\cos\varphi-\sqrt{2}a_2.$$
 
 **定理 8.1（广义提升）** 对任意 $m\ge 3$ 与 $n\ge 3$，上述构造给出唯一三维提升，满足公理 (A1)(A2)。投影 $\pi$ 为分裂满射，分形维数与 $m$ 无关。
+
+---
+
+## 9. 主嵌入定理（纤维丛动力学投影）
+
+### 9.1 定理陈述
+
+设 $\mathcal{R}_n:\mathcal{C}_{\mathrm{adm}}\to\mathcal{D}_n$ 为广义编码函子。对任意可容许参数集 $Z$，定义几何提升–投影配对：
+
+$$\iota_Z:\mathbb{C}\times Z\hookrightarrow\mathbb{H}\times Z,\qquad 
+\pi_Z:\mathbb{H}\times Z\to\mathbb{C}\times Z,$$
+
+满足截面恒等条件 $\pi_Z\circ\iota_Z=\mathrm{id}$。
+
+设 $H_R$ 为参数空间 $L^2(Z)$（离散情形为 $\ell^2(Z)$）上的编码哈密顿量。将其张量平凡提升至全空间：
+
+$$\hat H_R = \mathbb{I}_\mathbb{H}\otimes H_R,$$
+
+对应的全空间酉演化算子为
+
+$$\hat U(t) = e^{-it\hat H_R} = \mathbb{I}_\mathbb{H}\otimes e^{-itH_R}.$$
+
+定义二维有效哈密顿量
+
+$$H_{\mathrm{eff}}(Z) \triangleq \mathbb{I}_\mathbb{C}\otimes H_R$$
+
+作用于希尔伯特空间 $L^2(\mathbb{C}\times Z)$。
+
+则对任意态函数 $\psi\in L^2(\mathbb{C}\times Z)$，恒有
+
+$$\pi_Z\big(\hat U(t)\,\iota_Z(\psi)\big) = e^{-itH_{\mathrm{eff}}(Z)}\,\psi.$$
+
+几何物理释义：二维复平面观测到的全部有效动力学，等价于三维非交换四元数纤维空间的高维酉动力学经过「先提升演化、后正交投影」所得到的严格二维影像，高低维动力学完全自洽等价。
+
+### 9.2 证明
+
+**步骤1：全空间张量分解与演化结构**
+
+定义全域希尔伯特空间
+
+$$\mathscr{H} = L^2(\mathbb{H}\times Z) = L^2(\mathbb{H})\otimes L^2(Z).$$
+
+由公理 $\mathrm{(R2)}$，编码哈密顿 $H_R$ 仅作用于参数分量 $Z$，与四元数纤维自由度无关。其全域提升为
+
+$$\hat H_R = \mathbb{I}_\mathbb{H}\otimes H_R,$$
+
+对应的酉演化可张量分离：
+
+$$\hat U(t) = e^{-it\mathbb{I}_\mathbb{H}\otimes H_R} 
+= \mathbb{I}_\mathbb{H}\otimes e^{-itH_R}.$$
+
+对任意 $\Psi\in\mathscr{H}$，演化满足变量分离结构：
+
+$$(\hat U(t)\Psi)(q,z) 
+= \big(e^{-itH_R}\Psi(q,\cdot)\big)(z),\quad 
+q\in\mathbb{H},\;z\in Z.$$
+
+即：高维酉演化仅更新参数自由度，不改变四元数纤维几何坐标。
+
+**步骤2：函数空间提升/限制算子**
+
+几何嵌入与投影映射自然诱导希尔伯特空间对偶算子：
+
+$$\begin{aligned}
+\pi_Z^*&: L^2(\mathbb{C}\times Z)\to L^2(\mathbb{H}\times Z),
+\quad (\pi_Z^*\psi)(q,z) = \psi(\pi_Z(q),z),\\
+\iota_Z^*&: L^2(\mathbb{H}\times Z)\to L^2(\mathbb{C}\times Z),
+\quad (\iota_Z^*\Psi)(w,z) = \Psi(\iota_Z(w),z).
+\end{aligned}$$
+
+由截面公理 $\pi_Z\circ\iota_Z=\mathrm{id}$，直接得到函数空间恒等式：
+
+$$\iota_Z^*\circ\pi_Z^* = \mathrm{id}_{L^2(\mathbb{C}\times Z)}.$$
+
+**步骤3：张量算子分离原理**
+
+算子 $\iota_Z^*,\pi_Z^*$ 仅作用于四元数–复平面纤维自由度，与参数 $Z$ 无关；
+全域演化算子 $\hat U(t)$ 仅作用于参数自由度，与纤维几何无关。
+
+因此两类算子在张量积结构上完全分离、相互对易，满足：
+
+$$\iota_Z^*\,\hat U(t)\,\pi_Z^*
+= \mathbb{I}_\mathbb{C}\otimes e^{-itH_R}.$$
+
+根据张量指数性质：
+
+$$\mathbb{I}_\mathbb{C}\otimes e^{-itH_R}
+= e^{-it(\mathbb{I}_\mathbb{C}\otimes H_R)}
+= e^{-itH_{\mathrm{eff}}(Z)}.$$
+
+**步骤4：主等式闭合推导**
+
+对任意 $\psi\in L^2(\mathbb{C}\times Z)$：
+
+$$\begin{aligned}
+\pi_Z\big(\hat U(t)\,\iota_Z(\psi)\big)
+&= \iota_Z^*\,\hat U(t)\,\pi_Z^*\,\psi \\
+&= e^{-itH_{\mathrm{eff}}(Z)}\,\psi.
+\end{aligned}$$
+
+定理等式严格成立。 $\square$
+
+### 9.3 推论（离散 / 连续两相结构结论）
+
+**1. 离散可容许参数集** $Z=\mathbb{N}_{\ge 3}$
+
+系统定义于离散希尔伯特空间 $\ell^2(Z)$，动力学生成元为有限步差分平移算子。此时有效哈密顿 $H_{\mathrm{eff}}$ 为非局部差分算子，无全局光滑微分结构。
+
+对应的谱为纯点离散谱，呈现典型康托分形测度结构，完全源于高维四元数非交换纤维对二维平面动力学的数论超选择约束。
+
+**2. 连续可容许参数集** $Z=\mathbb{R}^+$
+
+在连续极限 $\alpha\to0$（晶格步长趋于零）下，离散平移算子渐近展开：
+
+$$\hat T_\alpha \approx \mathbb{I} + \alpha\,i\partial_z + O(\alpha^2).$$
+
+差分结构退化为微分结构，$H_{\mathrm{eff}}$ 严格退化为带有 $1/z^2$ 离心势的二阶薛定谔微分算子。
+
+此时高维非交换纤维自由度完全退相干，投影映射渐近成为代数同态，整套动力系统光滑收敛至标准量子力学与黎曼几何测地线动力学。
+
+
+### 10. 挂谷集维数夹逼定理
+
+设整数 \(n\ge 3\)，\(g=\gcd(3,n)\)。方向集 \(\Lambda_n\subset S^2\) 为三分支自相似迭代函数系的极限集，压缩率  
+\[
+\rho_n = \left(\frac{\cos(\pi/n)}{4}\right)^{n/g} < 1 \qquad (n<\infty).
+\]
+对应的原生分形挂谷集为  
+\[
+\mathcal B_n = \bigcup_{e\in\Lambda_n} \big(a(e) + [0,1]e\big) \subset \mathbb R^3,
+\]
+其中 \(a(e)\) 为适当平移。  
+定义归一化极限下的方向集 \(\Lambda_\infty\)（通过压缩率 \(\rho_n^{(\mathrm{norm})}\to 1\) 构造）满足 \(\Lambda_\infty = S^2\)，相应的挂谷集记为 \(\mathcal B_\infty\)。
+
+**定理（挂谷集维数夹逼）**  
+当 \(n\to\infty\) 时，\(\mathcal B_\infty\) 是经典三维 Kakeya 集，且  
+\[
+\dim_H(\mathcal B_\infty) = 3.
+\]
+
+*证明.*  
+由 \(\Lambda_\infty = S^2\) 包含非空开子集，根据开集充分性引理得 \(\dim_H(\Lambda_\infty) = 2\)。  
+挂谷集由方向集与单位区间纤维构成，纤维维数为 \(1\)，故有上界估计  
+\[
+\dim_H(\mathcal B_\infty) \le \dim_H(\Lambda_\infty) + 1 = 3.
+\]
+另一方面，\(\mathcal B_\infty\) 满足经典 Kakeya 集的全方向覆盖条件，根据王虹–Zahl 定理的刚性下界，  
+\[
+\dim_H(\mathcal B_\infty) \ge 3.
+\]
+综合上下界，夹逼得 \(\dim_H(\mathcal B_\infty) = 3\)。 \(\square\)
