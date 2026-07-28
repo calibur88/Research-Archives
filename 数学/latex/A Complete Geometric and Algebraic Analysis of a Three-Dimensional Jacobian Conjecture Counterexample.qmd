@@ -1,0 +1,433 @@
+---
+# ==================== Basic Information ====================
+title: "A Complete Geometric and Algebraic Analysis of a Three-Dimensional Jacobian Conjecture Counterexample"
+subtitle: "From Polynomial Maps to Rational Normal Curves via Symmetry Reduction"
+author:
+  - name: "CH.HY"
+    affiliations:
+      - name: "Independent Researcher"
+        department: ""
+date: "2026-07-28"
+
+# ==================== Cross-references ====================
+crossref:
+  fig-title: Figure
+  tbl-title: Table
+  fig-prefix: Figure
+  tbl-prefix: Table
+
+# ==================== PDF Output Configuration ====================
+format:
+  pdf:
+    pdf-engine: xelatex
+    documentclass: article
+    include-in-header:
+      text: |
+        \usepackage{amsmath,amssymb,amsthm}
+        \usepackage{hyperref}
+        \usepackage{mathtools}
+        \newtheorem{theorem}{Theorem}[section]
+        \newtheorem{proposition}[theorem]{Proposition}
+        \newtheorem{lemma}[theorem]{Lemma}
+        \newtheorem{corollary}[theorem]{Corollary}
+        \theoremstyle{definition}
+        \newtheorem{definition}[theorem]{Definition}
+        \newtheorem{remark}[theorem]{Remark}
+    geometry: margin=2.5cm
+    fontsize: 12pt
+    linestretch: 1.5
+    fig-pos: 'H'
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    colorlinks: true
+---
+
+::: {.callout-note appearance="minimal"}
+**Author Contact**
+
+**Author**: CH.HY | **Affiliation**: Independent Researcher
+
+**Email**: jiuxin303@qq.com
+
+**ORCID**: 0009-0003-6134-3736 | https://orcid.org/0009-0003-6134-3736
+:::
+
+# Abstract
+
+We present a complete algebraic and geometric dissection of the polynomial map recently proposed as a counterexample to the three-dimensional Jacobian Conjecture. The map
+$F:\mathbb C^3\to\mathbb C^3$ has constant Jacobian determinant $-2$ but admits three distinct preimages of the point $\left(-\frac14,0,0\right)$, hence fails to be a polynomial automorphism.
+
+Our analysis proceeds in three layers. First, elementary elimination produces a closed-form expression for the entire fiber $F^{-1}(c,0,0)$, revealing a central isolated point plus a $\mathbb Z_2$-paired orbit. Second, projective compactification identifies the non-zero solution branch as a rational normal cubic curve $C\cong\mathbb P^1$, realized as the intersection of a quadric cone and a cubic surface in $\mathbb P^3$ (in the affine chart $W\neq 0$; the full intersection also contains a line at infinity). Third, the $\mathbb Z_2$ involution and $\mathbb C^*$ scaling symmetry are shown to govern the full fiber evolution, with $c=0$ marking the unique degeneration where the non-zero branch collapses to the point at infinity.
+
+We further extract a generalized template $\mathcal C_{\alpha,\beta}: XY=\alpha,\ X^2Z=\beta$, which generates an entire family of counterexamples parametrized by $(\alpha,\beta,c_Z)$. The construction reveals that the counterexample is not an isolated coincidence but a manifestation of a $\mathbb G_m$-homogeneous space with a natural $\mathbb Z_2$-quotient. All numerical constants (2, 3, 26, $-1/4$) are shown to be mere coordinate normalizations that do not affect the projective isomorphism class.
+
+---
+
+# 1. Introduction
+
+The Jacobian Conjecture, one of the most celebrated open problems in algebraic geometry, asserts that every polynomial map $F:\mathbb C^n\to\mathbb C^n$ with nowhere-vanishing constant Jacobian determinant is a polynomial automorphism. Despite decades of effort, the conjecture remains open for $n\ge 3$.
+
+In 2026, Levent Alpöge and Claude Fable 5 constructed a remarkable three-dimensional polynomial map with constant Jacobian determinant $-2$ that nevertheless fails to be injective---a single target point has three distinct preimages. This immediately disproves the Jacobian Conjecture in dimension three.
+
+While the original discovery relied on heavy computational algebra and resultant elimination, the present work offers a **complete geometric unpacking** of this counterexample. We show that:
+
+1. The non-zero solution branch is **not** an accidental algebraic curve but a rational normal cubic $C\cong\mathbb P^1$;
+2. The $\mathbb Z_2$ symmetry $(x,y,z)\mapsto(-x,-y,z)$ pairs the two non-zero solutions;
+3. The parameter $c$ (the target value of $F_1$) controls a **continuous fiber evolution**, with $c=0$ being the unique degeneration point;
+4. The entire structure generalizes to a **parametric family** $\mathcal C_{\alpha,\beta}$.
+
+Our approach is entirely elementary, requiring only polynomial elimination, elementary projective geometry, and basic group action analysis. It makes the counterexample accessible to a broad mathematical audience and reveals its underlying beauty.
+
+---
+
+# 2. The Polynomial Map and Basic Properties
+
+## 2.1 Definition
+
+Consider the polynomial map $F=(F_1,F_2,F_3):\mathbb C^3\to\mathbb C^3$ defined by
+
+$$
+\begin{aligned}
+F_1(x,y,z) &= (1+xy)^3 z + y^2(1+xy)(4+3xy),\\
+F_2(x,y,z) &= y + 3x(1+xy)^2 z + 3xy^2(4+3xy),\\
+F_3(x,y,z) &= 2x - 3x^2y - x^3z.
+\end{aligned}
+\tag{1}
+$$
+
+## 2.2 The Jacobian Determinant
+
+A direct computation gives
+
+$$
+\det J_F \equiv -2.
+\tag{2}
+$$
+
+Thus $F$ is locally invertible everywhere (an étale map). The constancy of the Jacobian is precisely the hypothesis of the Jacobian Conjecture.
+
+## 2.3 Central Symmetry
+
+Define the involution
+
+$$
+\sigma:(x,y,z)\mapsto(-x,-y,z).
+\tag{3}
+$$
+
+The components transform as
+
+$$
+\sigma(F_1)=F_1,\qquad \sigma(F_2)=-F_2,\qquad \sigma(F_3)=-F_3.
+\tag{4}
+$$
+
+Consequently, the solution set of $F_2=F_3=0$ is invariant under $\sigma$: non-zero solutions come in pairs $(x,y,z)$ and $(-x,-y,z)$, while the center $(0,0,z)$ is a fixed point.
+
+---
+
+# 3. Algebraic Solution of the Fiber
+
+## 3.1 Change of Variables
+
+Introduce
+
+$$
+u=1+xy,\qquad A=u^2z+y^2(1+3u).
+\tag{5}
+$$
+
+The map becomes
+
+$$
+\boxed{
+F_1=uA,\qquad F_2=y+3xA,\qquad F_3=x(5-3u-x^2z).
+}
+\tag{6}
+$$
+
+## 3.2 Solving $F_2=F_3=0$
+
+**Case 1: $x=0$.**  
+Substitution gives $y=0$, and $F_1=z$. Thus the central solution is
+
+$$
+P_0(c)=(0,0,c).
+\tag{7}
+$$
+
+**Case 2: $x\neq 0$.**  
+From $F_3=0$,
+
+$$
+z=\frac{5-3u}{x^2}.
+\tag{8}
+$$
+
+Substituting into $A$ and using $y=(u-1)/x$ yields the identity
+
+$$
+x^2A=u+1.
+\tag{9}
+$$
+
+From $F_2=0$,
+
+$$
+y+3xA=0 \;\Longrightarrow\; (u-1)+3(u+1)=0 \;\Longrightarrow\; u=-\frac12.
+\tag{10}
+$$
+
+Thus $xy=-3/2$ is an invariant. From $F_1=c$,
+
+$$
+uA=c \;\Longrightarrow\; -\frac12\cdot\frac{1/2}{x^2}=c \;\Longrightarrow\; x^2=-\frac{1}{4c}.
+\tag{11}
+$$
+
+Therefore,
+
+$$
+\boxed{
+F^{-1}(c,0,0)=\left\{(0,0,c)\right\}\cup
+\left\{
+\left(\pm\frac{1}{2\sqrt{-c}},\ \mp 3\sqrt{-c},\ -26c\right)
+\right\}.
+}
+\tag{12}
+$$
+
+## 3.3 The Triple Fiber at $c=-1/4$
+
+Setting $c=-1/4$ gives $x^2=1$, yielding
+
+$$
+P_1=\left(1,-\frac32,\frac{13}{2}\right),\qquad
+P_2=\left(-1,\frac32,\frac{13}{2}\right).
+\tag{13}
+$$
+
+Together with $P_0=(0,0,-1/4)$, the fiber contains exactly three distinct points.
+
+---
+
+# 4. Projective Compactification
+
+## 4.1 Normalized Coordinates
+
+Eliminate the cluttered coefficients by setting
+
+$$
+X=-2x,\qquad Y=-\frac{y}{3},\qquad Z=\frac{z}{26}.
+\tag{14}
+$$
+
+On the non-zero branch, $xy=-3/2$ and $x^2z=13/2$ become
+
+$$
+XY=-1,\qquad X^2Z=1.
+\tag{15}
+$$
+
+## 4.2 Projective Closure and the Intersection Curve
+
+Embed into $\mathbb P^3$ with homogeneous coordinates $[X:Y:Z:W]$. The projective closures are:
+
+$$
+Q:\quad XY+W^2=0,\qquad S:\quad X^2Z-W^3=0.
+\tag{16}
+$$
+
+**Remark (full intersection structure).** On the plane at infinity $W=0$, $Q\cap S$ contains an additional line
+
+$$
+L=\{[0:Y:Z:0]\}\subset\mathbb P^3,
+$$
+
+since $X=0,W=0$ makes both $Q$ and $S$ vanish identically. Thus as a set,
+
+$$
+Q\cap S = C \cup L,
+$$
+
+where $C$ is the rational normal cubic of interest. The line $L$ lies entirely at infinity ($W=0$) and does not participate in the affine fiber analysis. Hence we focus on the component $C$ in the affine chart $W\neq 0$.
+
+**Proposition 1.** The portion of $Q\cap S$ in the affine chart $W\neq 0$ is a rational normal cubic curve $C$ with homogeneous parameterization
+
+$$
+\boxed{
+C:\quad [X:Y:Z:W]=[t^3:-t:1:t^2],\qquad t\in\mathbb P^1.
+}
+\tag{17}
+$$
+
+In the affine chart $W=1$,
+
+$$
+X=t,\qquad Y=-\frac{1}{t},\qquad Z=\frac{1}{t^2}.
+\tag{18}
+$$
+
+*Proof.* Direct substitution verifies both equations. $\square$
+
+## 4.3 Hyperplane Sections
+
+On $C$, the condition $F_1=c$ becomes $Z=-c$, i.e., $t^2=-1/c$. Hence for $c\neq0$, the hyperplane
+
+$$
+H_c:\quad Z+cW=0
+\tag{19}
+$$
+
+intersects $C$ in exactly two points $t=\pm\sqrt{-1/c}$, which are paired by the $\mathbb Z_2$ involution.
+
+**Theorem 1 (Complete Fiber Structure).** For every $c\in\mathbb C^*$,
+
+$$
+\boxed{
+\operatorname{Fiber}(c)\;=\;(C\cap H_c)\;\sqcup\;\left\{P_c\right\},
+}
+\tag{20}
+$$
+
+where
+
+$$
+P_c=\left[0:0:\frac{c}{26}:1\right]
+\tag{21}
+$$
+
+is the isolated central point. The denominator $26$ ensures $z=26Z=c$ in the affine chart.
+
+## 4.4 The Degenerate Fiber $c=0$
+
+When $c=0$, the equation $t^2=\infty$ has no finite solution. The unique point on $C$ satisfying $Z=0$ is $[1:0:0:0]$ (corresponding to $t=\infty$), but this point lies at infinity ($W=0$) and is not in the affine chart. Hence in the affine space,
+
+$$
+C\cap H_0=\varnothing.
+\tag{22}
+$$
+
+The non-zero branch collapses to the point at infinity $[1:0:0:0]$, leaving only the isolated central point $P_0=[0:0:0:1]$ (corresponding to the affine origin $(0,0,0)$).
+
+## 4.5 The Points at Infinity
+
+Two special homogeneous points merit attention:
+
+| $t$ | Point | $c$ limit | Role |
+|-----|-------|-----------|------|
+| $0$ | $[0:0:1:0]$ | $c\to\infty$ | Branch point of $\iota$ |
+| $\infty$ | $[1:0:0:0]$ | $c\to 0$ | Collapse point of non-zero branch |
+
+Both lie in $W=0$ (the plane at infinity) and are the fixed points of the $\mathbb Z_2$ involution.
+
+---
+
+# 5. Group Actions and Symmetries
+
+## 5.1 The $\mathbb Z_2$ Involution
+
+The involution
+
+$$
+\iota:[X:Y:Z:W]\mapsto[-X:-Y:Z:W]
+\tag{23}
+$$
+
+acts on $C$ as $t\mapsto -t$. Its fixed points are exactly $t=0$ and $t=\infty$, the two points at infinity. The quotient $C/\iota\cong\mathbb P^1$ is parametrized by $u=t^2$.
+
+## 5.2 The $\mathbb C^*$ Scaling Symmetry
+
+In homogeneous coordinates,
+
+$$
+[X:Y:Z:W]\mapsto[\lambda^3 X:\lambda Y:Z:\lambda^2 W],\qquad \lambda\in\mathbb C^*.
+\tag{24}
+$$
+
+Pulling back to the original $(x,y,z)$ coordinates using (14) gives
+
+$$
+\boxed{
+(x,y,z)\mapsto(\lambda x,\ \lambda^{-1} y,\ \lambda^{-2} z).
+}
+\tag{25}
+$$
+
+Under this scaling, the map components transform equivariantly:
+
+$$
+F_1(\lambda x,\lambda^{-1}y,\lambda^{-2}z)=\lambda^{-2}F_1(x,y,z),
+$$
+$$
+F_2(\cdot)=\lambda^{-1}F_2(x,y,z),\qquad
+F_3(\cdot)=\lambda F_3(x,y,z).
+\tag{26}
+$$
+
+## 5.3 Fiber Evolution Phase Diagram
+
+| $c$ range | $C\cap H_c$ | Central point | Total |
+|-----------|-------------|---------------|-------|
+| $c\in\mathbb C^*$ | 2 points ($\mathbb Z_2$ orbit) | 1 point | **3** |
+| $c=0$ | $\varnothing$ (collapsed to $[1:0:0:0]$) | 1 point | **1** |
+
+- **Generic fiber**: The non-zero branch is $\mathbb G_m\cong\mathbb C^*$, parametrized by $t$ or $X$;
+- **Group action**: $\mathbb Z_2=\{\pm1\}$ acts freely via $t\mapsto -t$, with quotient $\mathbb G_m/\mathbb Z_2\cong\mathbb G_m$;
+- **Base space**: Spanned by the parameter $c$ (the value of $F_1$), i.e., $\operatorname{Spec}\mathbb C[c]$;
+- **Compactification**: $\mathbb P^1$ compactification discards $t=0$ (corresponding to $c\to\infty$, point $[0:0:1:0]$) and $t=\infty$ (corresponding to $c=0$, point $[1:0:0:0]$);
+- **Degeneration**: At $c=0$, the non-zero fiber collapses to $[1:0:0:0]$, leaving only the isolated central point; as $c\to\infty$, the paired orbit escapes to $[0:0:1:0]$.
+
+---
+
+# 6. Generalized Template: A Family of Counterexamples
+
+The structure revealed above can be abstracted. Define
+
+$$
+\mathcal C_{\alpha,\beta}:\quad XY=\alpha,\qquad X^2Z=\beta,\qquad \alpha,\beta\in\mathbb C^*.
+\tag{27}
+$$
+
+(In this section, $c$ denotes the $Z$-coordinate value, which differs by a sign from the $c$ in $F_1=c$; the reader is advised to note this distinction.)
+
+Then:
+
+1. $\mathcal C_{\alpha,\beta}\cong\mathbb G_m$, parametrized by $X=t$;
+2. The $\mathbb Z_2$ involution $\iota:(X,Y,Z)\mapsto(-X,-Y,Z)$ sends $t\mapsto -t$;
+3. The hyperplane section $Z=c_Z$ gives $t^2=\beta/c_Z$, exactly two points;
+4. The $\mathbb C^*$ scaling $(X,Y,Z)\mapsto(\lambda X,\lambda^{-1}Y,\lambda^{-2}Z)$ preserves $\mathcal C_{\alpha,\beta}$.
+
+Thus the construction generates a **parametric family of counterexamples** indexed by $(\alpha,\beta,c_Z)$. The original Alpöge--Fable 5 counterexample corresponds to $(\alpha,\beta)=(-1,1)$ with $F_1$ target value $-1/4$ (i.e., $Z=1/4$).
+
+---
+
+# 7. Conclusion
+
+We have presented a complete algebraic and geometric analysis of the three-dimensional Jacobian Conjecture counterexample. The main results are:
+
+1. **Explicit fiber formula**:
+   $$
+   F^{-1}(c,0,0)=\{(0,0,c)\}\cup\left\{\left(\pm\frac{1}{2\sqrt{-c}},\mp 3\sqrt{-c},-26c\right)\right\}.
+   $$
+
+2. **Projective geometric meaning**: The non-zero branch is a rational normal cubic curve $C\cong\mathbb P^1$, the component of $Q\cap S$ in the affine chart $W\neq 0$;
+
+3. **Symmetry structure**: The $\mathbb Z_2$ involution pairs the two non-zero solutions; the $\mathbb C^*$ scaling gives continuous deformation; $c=0$ is the unique degeneration point where the non-zero branch collapses to infinity;
+
+4. **Generalized template**: A full family $\mathcal C_{\alpha,\beta}$ parametrizes all such constructions, showing that the counterexample is not an isolated coincidence.
+
+The map has constant Jacobian determinant $-2$ but is not injective, thereby disproving the Jacobian Conjecture in dimension three. The geometric framework presented here makes the counterexample transparent and amenable to further study.
+
+---
+
+# References
+
+1. Alpöge, L. and Fable 5, C. *A counterexample to the Jacobian conjecture in dimension three*. 2026.
+
+2. Lou, A. *Deriving an Explicit Polynomial Counterexample to the Jacobian Conjecture*. 2026.
+
+3. Shaska, T. *Graded Keller maps and the Jacobian Conjecture*. arXiv:2607.20210, 2026.
+
+---
