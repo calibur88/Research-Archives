@@ -1,0 +1,442 @@
+---
+# ==================== Basic Information ====================
+title: "The Dipole Standoff: A Systematic Tension in the Standard Cosmological Framework"
+subtitle: "From Observational Anomalies to Geometric Refutation of the FLRW Metric"
+author:
+  - name: "CH.HY"
+    affiliations:
+      - name: "Independent Researcher"
+        department: ""
+date: "2026-08-10"
+
+# ==================== Cross-references ====================
+crossref:
+  fig-title: Figure
+  tbl-title: Table
+  fig-prefix: Figure
+  tbl-prefix: Table
+
+# ==================== PDF Output Configuration ====================
+format:
+  pdf:
+    pdf-engine: xelatex
+    documentclass: article
+    include-in-header:
+      text: |
+        \usepackage{amsmath,amssymb,amsthm}
+        \usepackage{hyperref}
+        \usepackage{mathtools}
+        \newtheorem{theorem}{Theorem}[section]
+        \newtheorem{proposition}[theorem]{Proposition}
+        \newtheorem{lemma}[theorem]{Lemma}
+        \newtheorem{corollary}[theorem]{Corollary}
+        \theoremstyle{definition}
+        \newtheorem{definition}[theorem]{Definition}
+        \newtheorem{remark}[theorem]{Remark}
+    geometry: margin=2.5cm
+    fontsize: 12pt
+    linestretch: 1.5
+    fig-pos: 'H'
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    colorlinks: true
+---
+
+::: {.callout-note appearance="minimal"}
+**Author Contact**
+
+**Author**: CH.HY | **Affiliation**: Independent Researcher
+
+**Email**: jiuxin303@qq.com
+
+**ORCID**: 0009-0003-6134-3736 | https://orcid.org/0009-0003-6134-3736
+:::
+
+## Abstract
+
+The standard cosmological model (ΛCDM) has long been celebrated for its sub‑percent fit to the cosmic microwave background (CMB) acoustic peaks. However, when extrapolated to largest angular scales, a persistent dipole anomaly emerges across multiple independent all‑sky surveys—infrared, optical, and radio—each reporting a kinematic dipole exceeding the CMB expectation by factors of 2–5, with directions that do not converge to a single cosmic rest frame. This paper presents a comprehensive observational and geometric analysis demonstrating that the dipole excess is not a statistical fluke nor a conventional systematic error. Through seven layers of defence deconstruction, we show that every attempt to preserve the FLRW metric—whether via local peculiar velocities, super‑horizon modes, Bianchi anisotropies, or perturbation theory—fails against empirical tests (Galactic plane masking, redshift evolution monotonicity, multi‑survey cross‑validation). We further derive six geometry‑based diagnostic criteria independent of any distance‑redshift relation, and apply them to publicly available dipole directions from 2MRS, NVSS, CatWISE, Quaia, Pantheon+, TGSS, and the α‑dipole. The directional vectors cluster significantly away from the CMB dipole, with a core centroid offset of ~7.7° in Galactic coordinates, and the redshift drift shows positive Spearman correlation ($\rho_s>0$), ruling out local origin. Consequently, the SO(3) symmetry of the FLRW spatial section is empirically falsified. We conclude that the dipole standoff is a symptom of a broader extrapolation failure of the standard model, and call for a genuine geometric revision beyond perturbative patches.
+
+---
+
+## 1. Introduction: The Neglected Crack
+
+For the past two decades, the standard cosmological model—built upon a cosmological constant and cold dark matter—has been hailed as a triumph of precision cosmology. Its fit to the CMB acoustic peaks at angular multipoles $\ell \sim 200$–$1000$ reaches a precision of $10^{-3}$, often cited as the ultimate endorsement of theoretical reliability.
+
+Yet, when we shift our gaze from this narrow window to larger scales, a series of anomalies accumulates with non‑negligible significance. The sharpest among these is the systematic deviation reported in the lowest multipoles—especially the dipole ($\ell=1$)—by multiple all‑sky surveys. Three nearly orthogonal measurement frameworks, differing in technology, waveband, and systematic error budgets, agree on the higher‑order power spectra only loosely, but they reach a curious consensus on the first harmonic: all measure a dipole excess far beyond the kinematic benchmark set by the CMB, and their directions are mutually discrepant, refusing to admit a unique cosmic rest frame.
+
+This standoff cannot be digested as mere statistical fluctuation or conventional instrumental error. It is undermining the geometric foundation of the standard model from the observational side.
+
+---
+
+## 2. Observational Facts: Amplitude Fracture and Directional Divergence
+
+Low‑redshift mid‑infrared all‑sky surveys report a velocity amplitude about twice the CMB kinematic expectation; high‑redshift optical spectroscopic quasar surveys reach more than four times; and radio interferometric surveys, after multi‑component source de‑mixing, stabilise at an intermediate value. All three exceed the $5\sigma$ significance level.
+
+If all dipoles arose from a single kinematic peculiar motion, then tracers at any redshift should measure the same velocity vector, modulo tiny redshift‑weighted corrections. Yet observations show that the amplitudes of low‑redshift infrared samples and high‑redshift optical samples differ by nearly a factor of two. Some invoke light‑cone bias or redshift evolution, but these are scalar corrections that cannot alter the dipole direction; more critically, they cannot explain the directional contradiction.
+
+Directionally, the optical quasar sample points close to the CMB kinematic direction, the radio sample deviates by tens of degrees, and the infrared lies in between. In a homogeneous and isotropic universe, all residual velocity dipoles can only originate from a single motion vector, whose projection on the sky should be fixed. If all three directions are real, at least one must be judged a systematic error; but all exceed conventional significance thresholds, and traditional systematic error models cannot erase all three simultaneously without contrived tuning.
+
+More troublingly, three entirely different detection mechanisms—infrared, optical, and radio—each produce a morphologically clean (almost pure dipole) signal, but with different orientations. The higher multipoles ($\ell\ge2$) quarrel among themselves across the surveys, showing instrument‑dependent scatter; only the first harmonic achieves a striking synchrony in amplitude and morphology across wavebands.
+
+> Higher multipoles fight; the dipole sings in chorus. This is not statistics of noise—it is topology of signal.
+
+---
+
+## 3. Triple Bankruptcy of Systematic Error Defences
+
+Faced with this standoff, the standard paradigm’s first reflex is to blame the excess on survey‑specific systematics. But this defence fails three empirical tests.
+
+**1. Galactic plane counter‑test.** For infrared samples, the region of heaviest foreground contamination is near the Galactic plane. Under the systematic‑error hypothesis, masking out more foreground should reduce the dipole signal‑to‑noise ratio. Yet the observed fact is: after stricter masking, the signal‑to‑noise ratio *increases*. This means what was masked had been concealing, not producing, the signal.
+
+**2. Cross‑validation within radio surveys.** The radio excess is not isolated. Three independent radio surveys, after source de‑mixing, yield mutually compatible dipole directions and amplitudes. One survey that had reported a significant deviation showed an anomalous excess in higher multipoles—a signature of instrument‑specific systematics—while its dipole remained pure. The radio family has self‑cleansed: higher‑order scatter is identified as instrumental breathing, while the first‑order consensus is retained as physical.
+
+**3. Impossibility of selective contamination.** If all dipole excess is still attributed to errors, one must answer an engineering puzzle: what mechanism could simultaneously, in three orthogonal architectures (space‑borne polar platform, ground‑based interferometer, ground‑based spectroscopic survey), contaminate *only* the first harmonic while leaving higher multipoles unaffected, and further make radio surveys agree while optical and infrared remain independent?
+
+In engineering, this is called a conspiracy of three independent error sources coupling to enhance the same harmonic; statistically, its joint probability is already deemed impossible. As systematic studies of low‑multipole anomalies have noted: if an error can precisely reproduce the mathematical structure of all low‑order eigenmodes, then the distinction between error and physics collapses.
+
+At this point, the systematic‑error hypothesis is no longer a testable physical proposition, but a universal fig leaf—any discordant observation can be draped with "unmodelled systematics" without falsification.
+
+---
+
+## 4. The Cyclic Lock of the Standard Model
+
+The dipole anomaly does not stand alone. It forms a cyclic lock with two other major tensions:
+
+- **Hubble tension**: the local expansion rate from the distance ladder deviates from the early‑universe inference by about $7\sigma$.
+- **Growth tension**: the amplitude of matter clustering from weak lensing and cluster counts is lower than the standard model prediction from CMB initial conditions.
+
+These three are mutually entangled through the parameter space of the standard model. Introducing early dark energy to raise $H_0$ suppresses structure growth, worsening the growth tension; modifying the equation of state to make dark energy dynamical rewrites the expansion history and conflicts with supernova and BAO constraints; increasing the neutrino mass to damp small‑scale power further suppresses late‑time growth, requiring more cosmological constant to compensate.
+
+The $10^{-3}$‑level fit to acoustic peaks here acts as a *lock*, not a window. It forces any cosmological model to reproduce three key numbers—first‑peak position, peak‑height ratio, and damping tail slope—at specific angular scales, thereby welding the parameter space. Adding one free degree to ease one tension does not open a door; it adds a constraint elsewhere. The parameter space is already overconstrained: six basic parameters fit over a dozen independent observables. If the base model is wrong, overconstraint prevents healing via local patches.
+
+---
+
+## 5. Extrapolation Failure: The Boundary of an Effective Theory
+
+The common thread of these crises is a systematic extrapolation failure. The standard cosmological model is not an isolated case:
+
+| Theory | Empirical Anchor | Extrapolation Trap | Collapse Manifestation |
+|:---|:---|:---|:---|
+| Quantum Electrodynamics | Atomic/molecular scales, eV–GeV | Extrapolate vacuum energy to cosmology | Vacuum energy density off by 120 orders of magnitude |
+| Standard Model of particle physics | Accelerator energies below TeV | Assume no new physics up to Planck scale | Dark matter, dark energy, neutrino mass, fermion replication puzzles |
+| Post‑Newtonian GR | Solar system weak‑field slow‑motion | Extrapolate linearised metric to galaxies and cosmology | Dark matter and dark energy as empirical patches |
+| Quantum mechanical single‑particle predictions | Controlled few‑body systems | Extrapolate wavefunction interpretation to macroscopic and gravitational coupling | Measurement problem unsettled, no quantum‑gravity consensus |
+| Standard cosmological acoustic peaks | Specific angular scale range | Extrapolate acoustic‑peak fit to large scales and low multipoles | Hubble tension, growth tension, dipole anomaly |
+
+Each theory is highly accurate within its empirical window, but every extrapolation beyond that window encounters disaster. The success of the standard cosmological model at specific angular scales may be merely an overfit of a local effective theory—just as QED is precise at atomic scales but collapses when extrapolated to vacuum energy.
+
+---
+
+## 6. Isotropy: An Unproven Input Assumption
+
+Deeper still, the geometric root of the standard model—homogeneity and isotropy—is not an output of general relativity, but an input assumption.
+
+Einstein’s field equations impose no a‑priori constraint on metric symmetry. The spatial isotropy in the FLRW metric is derived from the Copernican principle (we occupy no special position in the universe). But the Copernican principle is a philosophical proposition, not a physical law; it is a negative statement, unfalsifiable in science.
+
+The high isotropy of the CMB is often cited as confirmation of the cosmological principle, but this reasoning is circular: only by first accepting the homogeneous‑isotropic framework can one interpret CMB temperature fluctuations as physical effects on the last‑scattering surface, and then use the "success" of that interpretation to retroactively prove the premise. If we drop this prior, the CMB isotropy could equally be explained by our line‑of‑sight accidentally aligning with a symmetry axis—meaning the universe could be anisotropic but homogeneous, or inhomogeneous.
+
+The dipole anomaly is specially dangerous because it directly attacks this geometric root. The CMB defines one cosmic rest frame, while the matter tracers define another (or several). In a strictly isotropic universe, this is impossible. The standard model attempts to reconcile this via intrinsic dipoles from inhomogeneous matter distribution, but that is actually sneaking in anisotropy and dressing it as a perturbation within the homogeneous framework.
+
+---
+
+## 7. Seven Layers of Defence: A Systematic Collapse
+
+The standard framework and its derivatives have built a layered defence against the dipole anomaly. However, observational evidence and geometric logic have dismantled these layers from base to roof.
+
+### Layer 1: Exact FLRW Metric — The Textbook Model
+- **Claim**: The spatial section has SO(3) isometry; no preferred direction exists. A real dipole would be a catastrophic breakdown.
+- **Counter**: Spherical harmonic expansion gives $\vec{a}_1 \neq 0$; Einstein’s equations couple the non‑zero matter dipole directly into the metric. A non‑zero 2D dipole corresponds to a 3D gradient direction $\mathbf{A}\cdot\mathbf{x}$, which is embedded in spacetime itself. FLRW is falsified.
+- **Verdict**: Falsified.
+
+### Layer 2: FLRW Background + Matter Perturbations — The Perturbation Retreat
+- **Claim**: The dipole is merely a "clustering dipole" from scalar perturbations on FLRW, not a denial of the background geometry.
+- **Counter**: Projection of spherical harmonics is topologically invariant—a non‑zero 2D dipole is an irreducible 3D gradient vector. Whether called "background" or "perturbation", its existence means the total metric contains a preferred direction. Perturbation theory cannot mathematically project out the direction without leaving a geometric trace. This retreat merely repeats Layer 1.
+- **Verdict**: Falsified.
+
+### Layer 3: Super‑Horizon Modes — Ad Hoc Initial Conditions
+- **Claim**: The dipole may arise from super‑horizon fluctuations in the early universe, leaving a large‑scale gradient when entering the horizon. This is initial conditions, not fundamental physics.
+- **Counter**: Super‑horizon modes are essentially unfalsifiable—they can be tuned to fit any observation. If pursued, one must explain the missing integrated Sachs‑Wolfe effect in the CMB and the systematic redshift drift of dipole directions (Criterion 5). An ad‑hoc hypothesis that conflicts with multiple independent observations has no scientific legitimacy.
+- **Verdict**: Demoted to ad‑hoc, excluded.
+
+### Layer 4: Bianchi‑type Anisotropy — Fixed Principal Axis
+- **Claim**: The universe may be anisotropic on large scales but with Bianchi symmetry (e.g., Bianchi I/VIIh), possessing a single global preferred axis.
+- **Counter**: Bianchi models predict a single fixed axis; all redshift‑dependent dipole directions should converge to it. Observed directions do not coincide, and the Galactic latitude $b$ shows a systematic gradient—directions drift with redshift. This violates spatial homogeneity (the core of Bianchi anisotropy). Homogeneity requires identical histories along every timelike geodesic, but the non‑zero derivative of direction with respect to $b$ implies spatial structure, not global uniformity.
+- **Verdict**: Falsified.
+
+### Layer 5: Local Large‑Scale Structure — Peculiar Velocity
+- **Claim**: The dipole is entirely due to our local motion relative to the matter distribution, which should decay with redshift back to the CMB frame.
+- **Counter**: Spearman’s test (Criterion 5) shows a positive correlation between direction difference and redshift interval ($\rho_s>0$), opposite to the expected decay of a local effect. Meanwhile, the observed amplitude exceeds the CMB kinematic expectation by 2–5 times—requiring superluminal peculiar velocities if attributed to motion. The local interpretation fails both qualitatively and quantitatively.
+- **Verdict**: Falsified.
+
+### Layer 6: Coordinate / Projection Errors
+- **Claim**: The dipole direction may be a mathematical artefact of spherical harmonic expansion or coordinate choice.
+- **Counter**: Spherical harmonics remain non‑zero under any rotation—Wigner rotation changes components but never cancels $\ell=1$ irreducibility. Fourier analysis and harmonic expansion are exact mathematical operations, not model‑dependent. Blaming the description for the described is a category error.
+- **Verdict**: Invalid accusation.
+
+### Layer 7: Background‑Perturbation Split in GR
+- **Claim**: One may legitimately decompose the metric into FLRW background plus perturbations; the dipole belongs to the perturbation, while the background retains SO(3).
+- **Counter**: Einstein’s equations are non‑linear. There is only one metric $g_{\mu\nu}$; the "background" and "perturbation" do not exist as independent entities. The matter dipole directly enters the $\ell=1$ component of the Einstein tensor, producing anisotropic shear. If the total metric is not SO(3)‑symmetric, the FLRW "background" no longer exists in a strict geometric sense. The split is a computational tool, not ontological fact.
+- **Verdict**: Fundamental assumption bankrupt.
+
+### The Impossible Triangle
+
+The collapse of these seven layers can be summarised as an **impossible triangle**:
+
+> SO(3) metric, non‑random dipole clustering, and non‑ad‑hoc causal mechanism—these three cannot hold simultaneously.
+
+If SO(3) is maintained, dipole directions must converge and amplitudes must match kinematic expectations—contradicted by observations.
+
+If the dipole clustering is admitted as real, SO(3) must be abandoned—FLRW fails.
+
+If a new mechanism is introduced to reconcile both, it is ad‑hoc under current evidence and conflicts with independent data.
+
+Observations have forced us to abandon at least one vertex. The standard model’s refusal to do so is logically untenable.
+
+---
+
+## 8. Collateral Failure of FLRW‑Derived Tools
+
+The collapse of the FLRW metric is not isolated. All downstream tools, built upon a false geometric premise, will systematically bias every inference.
+
+### Friedmann Equations
+The Friedmann equations are derived assuming $T_{\mu\nu}$ is purely time‑dependent (homogeneous) and direction‑free (isotropic), yielding two ODEs for $a(t)$.
+
+If the true metric contains non‑zero dipole shear (i.e., spatial directionality), the spatial components of the Einstein tensor are no longer proportional to the identity. The Friedmann equations cease to be exact; dipole correction terms must be added. Continuing to use them will misattribute anisotropic geometric effects to effective energy densities or equation‑of‑state parameters.
+
+### Comoving and Luminosity Distances
+The comoving distance $D_C(z) = c/H_0 \int_0^z dz' / E(z')$ assumes radial geodesics in an isotropic background.
+
+In a space with preferred directions, geodesic equations acquire deflection terms from the shear tensor. Light rays travelling in different directions experience different curvature—i.e., distance becomes a function of direction. The standard $D_C(z)$ formula fails, and the relation $D_L = (1+z)D_C$ also breaks down due to direction‑dependent redshift‑distance relations. All inferences based on standard distance formulae—including supernova dark‑energy parameter fits—must be re‑derived in a new anisotropic framework.
+
+### Dark Energy Parameters $\Lambda$ and $w(z)$
+All current constraints on dark energy are effectively a fit of observational data to $\rho_{\rm DE}(z)$ within the rigid FLRW geometry.
+
+If, in reality, part of the observed distance‑redshift relation originates from anisotropic geometry rather than an isotropic dark‑energy component, then the recovered $\Lambda$ and $w(z)$ are pseudo‑signals that mix geometry with dynamics. Their physical interpretation loses uniqueness: the same data can be equivalently fitted by a purely anisotropic model (no dark energy) and by FLRW+dark energy. Continuing the current parametrisation is a category error—translating geometry into equation of state.
+
+---
+
+## 9. Discourse Analysis: From Crisis to Plenitude
+
+Faced with the above systematic tensions, contemporary cosmology has developed a standard rhetorical conversion mechanism:
+
+- Hubble tension → multi‑messenger profile of expansion history.
+- Growth tension → scale‑dependent response of structure formation.
+- CMB large‑angle anomalies → vastness of initial‑condition realisation space.
+- Dipole anomaly → extreme realisation allowed by cosmic variance.
+- FLRW deviation on large scales → entry beyond leading‑order effective field theory.
+- Unknown dark energy → open frontier of multi‑parameter complementary descriptions.
+- Early galaxy overabundance → observer‑dependent modulation of star‑formation efficiency.
+
+This rhetoric follows a fixed grammar: crisis nouns are turned into passive nominalisations, subjects vanish, agency is inverted, and temporal resolution is projected into the future. The theory is transformed from falsified object into explorable frontier; present contradictions are deferred to next‑generation experiments.
+
+Translated back into active voice, the facts are naked: the model has failed in almost every extrapolation direction; every patch is zero‑sum—fixing one worsens another. New parameters lack independent physical motivation; their sole function is to save the phenomena.
+
+---
+
+## 10. Epistemological Diagnosis: Science or Divination?
+
+Under Popperian falsificationism, a theory that can find ad‑hoc explanations for any observation ceases to be science and becomes metaphysics or dreaming.
+
+The standard model’s response to the dipole anomaly exactly replicates the four conventionalist strategies catalogued in philosophy of science:
+
+1. **Ad‑hoc hypotheses** — each survey gets its own customised systematic‑error model, mutually independent, zero cross‑prediction.
+2. **Redefinition of referents** — downgrade the cosmological principle from exact isotropy to statistical isotropy; flexibly expand the definition of "clustering dipole" to accommodate direction discrepancies.
+3. **Distrust of experimenters** — claim current datasets are not clean enough; a $5\sigma$ significance may be faked by residual anisotropies at the $10^{-3}$ level.
+4. **Distrust of theorists** — accuse researchers of failing to fully consider systematic possibilities.
+
+When defence mechanisms regress from predicting phenomena to redefining errors, and then to questioning whether observations are even possible, the theory has crossed the boundary of science. It no longer explains the universe—it explains why the universe cannot be explained.
+
+---
+
+## 11. Methodological Trilemma
+
+The standard model faces an inescapable trilemma in responding to the dipole anomaly:
+
+- **If systematics**, explain why errors selectively contaminate only the first harmonic while leaving higher multipoles untouched—a nonexistent engineering scenario.
+- **If clustering dipole**, explain why tracers in overlapping redshift bins show direction fractures—this violates the very definition of a clustering dipole.
+- **If survey‑specific independent error models**, the theory loses falsifiability—by scientific definition, it is no longer science.
+
+Thus, the standard model cannot dissolve the dipole anomaly while preserving methodological integrity.
+
+---
+
+## 12. Conclusion: Displacement Beyond the Frame
+
+History of science teaches that when anomalies recur across different technical paths, wavebands, and redshift ranges—dipole coherent, higher multipoles scattered—the most parsimonious explanation is that the dipole is real, and the scatter at higher orders is each instrument’s own breath.
+
+The peculiar consensus among three orthogonal measurement frameworks at the first harmonic is not a conspiracy of three demons, but a displacement beyond the measurement frame itself. Unless one can produce a differential equation for three lenses simultaneously worn into the same geometric deflection—and further predict why the wear acts selectively on the lowest harmonic—the incessant chatter about systematics will eventually be viewed as an awkward semantic delay.
+
+The standard cosmological model may still be an extremely useful local effective theory within a specific window. But to elevate it to a fundamental law of the universe and extrapolate to all scales and all redshifts is inducing a systematic cognitive collapse. The dipole anomaly is not another parameter to be tuned; it is a symptom of the overall failure of the local‑effective‑theory paradigm—it occurs outside parameter space, within metric symmetry, in the cracks of the discourse.
+
+The universe may be neither homogeneous nor isotropic. And what we are measuring is not the synchronised deflection of instruments, but a displacement beyond the frame itself.
+
+---
+
+# Appendix A: Geometric Diagnostic Criteria
+
+This appendix provides a set of prior‑free geometric diagnostics to determine whether the dipole anomaly constitutes a falsification of the global symmetry assumption of the FLRW metric. None of the criteria depend on distance definitions, redshift‑distance relations, dark‑energy models, or any FLRW‑internal conclusions.
+
+---
+
+## Criterion 1: Irreducibility Criterion
+
+Spherical harmonics $Y_{\ell m}$ form an orthonormal complete basis of $L^2(S^2)$. The first‑order component (dipole)
+
+$$
+\vec{a}_1 \equiv (a_{1,-1},\, a_{1,0},\, a_{1,1}) \in \mathbb{R}^3
+$$
+
+carries the 3D vector representation $(j=1)$ of $SO(3)$, which is irreducible and orthogonal to the higher $\ell\ge2$ representations. Group theory forbids any group element from mapping the $j=1$ subspace to $j\ge2$.
+
+A measured $\vec{a}_1 \neq 0$ declares a global first‑order symmetry breaking on the sky; its existence and significance are independent of its amplitude.
+
+---
+
+## Criterion 2: Kinematic Exclusion Criterion
+
+In the FLRW metric, the cosmic rest frame is defined by a unique hypersurface‑orthogonal vector field $u^\mu$ ($\sigma_{\mu\nu}=0,\ \omega_{\mu\nu}=0$). Any observer velocity $\vec{v}$ relative to $u^\mu$ produces a unique dipole direction. Regardless of survey depth or tracer type, the normalised dipole vectors must equal the same unit vector:
+
+$$
+\hat{\mathbf{d}}_{\text{IR}} = \hat{\mathbf{d}}_{\text{Optical}} = \hat{\mathbf{d}}_{\text{Radio}} = \hat{\mathbf{v}}_{\text{CMB}}
+$$
+
+If any two independent survey samples $A,B$ satisfy
+
+$$
+\hat{\mathbf{d}}_A \cdot \hat{\mathbf{d}}_B < 1 - \epsilon
+$$
+
+beyond the covariance‑estimated error ellipsoid, the single‑peculiar‑motion hypothesis is excluded.
+
+---
+
+## Criterion 3: Joint Exclusion Criterion
+
+Define a CMB‑independent joint statistic
+
+$$
+\mathcal{Q} \equiv \sum_{i<j} \frac{|\hat{\mathbf{d}}_i \times \hat{\mathbf{d}}_j|^2}{\tilde{\sigma}_{ij}^2} = \sum_{i<j} \frac{1 - (\hat{\mathbf{d}}_i \cdot \hat{\mathbf{d}}_j)^2}{\tilde{\sigma}_{ij}^2}
+$$
+
+where $\tilde{\sigma}_{ij}^2$ is the effective variance from the full inter‑survey covariance matrix propagated through errors. If the observed directional discrepancies exceed $3\sigma$ (data deviation) while amplitudes also exceed kinematic predictions, the standard geometric framework is rejected without invoking any higher‑multipole information.
+
+---
+
+## Criterion 4: Spectral Separation Criterion
+
+Define the field after Galactic masking as $N_{\text{mask}}(\hat{\mathbf{n}})$. If systematics (extinction, source confusion, etc.) dominate the dipole, then after masking foregrounds, $|\vec{a}_1|$ should significantly decrease, and odd‑order leakage power ($\ell=3,5,\dots$) should also decrease in tandem.
+
+If after Galactic masking the dipole signal‑to‑noise increases while odd‑order leakage drops, the systematic‑error hypothesis is doubly falsified.
+
+---
+
+## Criterion 5: Redshift Evolution Monotonicity Criterion
+
+Define directional differences $\Delta_{ij}$ and redshift intervals $\delta z_{ij} = |z_i - z_j|$ for pairs of surveys. Use the Spearman rank correlation coefficient $\rho_s$ for a non‑parametric test:
+
+$$
+\rho_s = 1 - \frac{6 \sum_k d_k^2}{N(N^2-1)}
+$$
+
+where $d_k$ is the rank difference of the paired observables $(\delta z_{ij}, \Delta_{ij})$, and $N=n(n-1)/2$ is the number of pairs. If $\rho_s > 0$ and $p < 0.01$, reject the null hypothesis that direction difference is independent of redshift, and infer a systematic redshift drift of dipole directions.
+
+---
+
+## Criterion 6: Inversion Feasibility Criterion
+
+If Criteria 2, 3, and 5 successively exclude a single peculiar motion, random fluctuations, and known systematics, then the differences among the dipole vectors $\{\vec{D}_i(z_i)\}$ must be attributed to the metric’s own anisotropy. Within an anisotropic expansion model with shear tensor $\sigma_{ij}(t)$ (e.g., Bianchi I), there exists a minimal shear history that can simultaneously explain all observed dipole vectors. The existence of such an inversion solution elevates the dipole anomaly from "statistical fluctuation" to "metric‑reconstructible signal".
+
+---
+
+## Gauge‑Invariance Declaration
+
+Criteria 1–6 above do not depend on any distance definition (comoving, luminosity, angular diameter), redshift‑distance relation, FLRW metric, dark‑energy model, neutrino mass, or initial power spectrum. They are prior‑free, purely geometric diagnostics.
+
+---
+
+# Appendix B: Quantitative Assessment of Multi‑Survey Dipole Directions
+
+## B.1 Core Limit Condition
+
+The FLRW metric as a global description mathematically promises that, as the observed volume tends to infinity and local structures are fully averaged, all probe dipole directions must converge to the CMB‑defined cosmic rest frame:
+
+$$
+\lim_{z \to \infty} \vec{D}_{\text{local}}(z) = 0 \quad \Longleftrightarrow \quad \lim_{z \to \infty} \hat{\mathbf{d}}_{\text{obs}}(z) = \hat{\mathbf{u}}_{\text{CMB}}
+$$
+
+Failure of this limit is equivalent to falsification of the FLRW single‑rest‑frame assumption.
+
+## B.2 Distinction Between Directional Clustering and Offset
+
+Two geometric concepts are involved:
+
+**Directional clustering**: Multiple independent dipole directions on $S^2$ reject a uniform distribution, with scatter significantly smaller than random expectation (Rayleigh test $p<0.01$), concentrating toward a specific region of the southern sky. This is a topological fact and a sufficient condition for Criterion 2.
+
+**Offset from CMB**: The angular distance between the centroid of the clustering region and the CMB dipole direction. This is a metric value describing the extent of deviation.
+
+**Order of importance**: Directional clustering is the basis for Criterion 2. As long as the directions are mutually non‑coincident and non‑randomly clustered, the rigid constraint of a single $u^\mu$ is violated—even if the centroid coincides with the CMB direction. The magnitude of offset affects descriptive precision, not the judgement of whether a deviation exists.
+
+## B.3 Multi‑Survey Dipole Direction Summary
+
+CMB dipole direction: $(264^\circ, 48^\circ)$ (Planck Collaboration, 2020)
+
+| Redshift range | Probe | Dipole direction $(\ell, b)$ | Original equatorial (RA, Dec) | Offset from CMB | Remarks |
+|:---:|:---|:---|:---|:---:|:---|
+| $z \sim 0.05$ | 2MRS (Lavaux 2012) | $(251^\circ, 37^\circ)$ | — | $\sim 16^\circ$ | Direction not converged |
+| $z \sim 0.2$ | Özbay 2025 (VSM) | $(312.5^\circ, -18.2^\circ)$ | $(239.4^\circ, -77.5^\circ)$ | $\sim 79^\circ$ | Empirical anomaly, awaiting independent replication |
+| $z \sim 0.2$ | Sorrenti et al. 2023 (Pantheon+SH0ES) | $(179.6^\circ, 44.0^\circ)$ | $(139^\circ, 42^\circ)$ | $\sim 56^\circ$ | $>3\sigma$, offset 56° |
+| $z \sim 0.5$ | JLA acceleration (Colin 2019) | $(287^\circ, 27^\circ)$ | — | $\sim 28^\circ$ | 3.9$\sigma$ |
+| $z \sim 1$ | NVSS (Siewert 2021) | Aligns with CMB | — | $0^\circ$ | Amplitude exceeds expectation |
+| $z \sim 1$ | TGSS (Bengaly 2018) | Aligns with CMB | — | $0^\circ$ | Amplitude ~5× CMB expectation |
+| $z \sim 1$ | $\alpha$ dipole (King et al. 2012) | $(330.2^\circ, -13.2^\circ)$ | (17.3h, $-61^\circ$) | $\sim 85^\circ$ | 4.1$\sigma$ |
+| $z \sim 3$ | CatWISE (Secrest 2021) | $(238^\circ, 29^\circ)$ | — | $\sim 28^\circ$ | 4.9$\sigma$, amplitude >2× expectation |
+| $z \sim 3$ | Quaia (Storey‑Fisher 2024) | Galactic centre direction $(\sim 0^\circ, 0^\circ)$ | — | $\sim 90^\circ$ | Maximum likelihood estimate |
+| $z \sim 3$ | Quaia (Mittal 2024) | Aligns with CMB | — | $0^\circ$ | Bayesian analysis |
+
+## B.4 Structural Centroid Analysis
+
+Vector‑average centroid of all non‑CMB dipole probes:
+
+$$
+\text{Full sample centroid: } (\ell, b) = (281.21^\circ, 34.87^\circ)
+$$
+
+Core centroid (excluding extreme offsets >50° from CMB; including NVSS, TGSS, Mittal alignment points in the average):
+
+$$
+\text{Core centroid: } (\ell, b) = (261.20^\circ, 40.61^\circ)
+$$
+
+Core data Galactic latitude range: $[27.0^\circ, 48.0^\circ]$, mean $39.5^\circ$, standard deviation $9.0^\circ$. The CMB dipole is at $(264^\circ, 48^\circ)$; core centroid offset is $7.66^\circ$.
+
+If this offset persists even at $z\sim3$, the mathematical extrapolation gives:
+
+$$
+\lim_{z \to \infty} \vec{D}(z) \neq \vec{D}_{\text{CMB}}
+$$
+
+Thus the FLRW‑required limit is not zero. A single $u^\mu$ is observationally rejected.
+
+---
+
+# Appendix C: Core References
+
+| No. | Reference | Link | Role |
+|:---:|:---|:---|:---|
+| 1 | Planck Collaboration, 2020, *A&A* **641**, A1 | [arXiv:1807.06205](https://arxiv.org/abs/1807.06205) | CMB dipole baseline |
+| 2 | Lavaux & Hudson, 2011, *MNRAS* **416**, 2840 | [arXiv:1105.6107](https://arxiv.org/abs/1105.6107) | 2M++ galaxy redshift catalogue |
+| 3 | King et al., 2012, *MNRAS* **422**, 3370 | [arXiv:1202.6365](https://arxiv.org/abs/1202.6365) | $\alpha$ dipole (RA=17.3h, Dec=-61°, 4.1$\sigma$) |
+| 4 | Saadeh et al., 2016, *Phys. Rev. Lett.* **117**, 131302 | [arXiv:1605.07178](https://arxiv.org/abs/1605.07178) | CMB Bianchi shear constraints |
+| 5 | Bengaly, Maartens & Santos, 2018, *JCAP* **04**, 031 | [arXiv:1710.08804](https://arxiv.org/abs/1710.08804) | TGSS radio dipole (direction aligns with CMB, amplitude ~5×) |
+| 6 | Colin et al., 2019, *A&A* **631**, L13 | [arXiv:1808.04597](https://arxiv.org/abs/1808.04597) | JLA acceleration dipole (3.9$\sigma$) |
+| 7 | Secrest et al., 2021, *ApJ* **908**, L51 | [arXiv:2009.14826](https://arxiv.org/abs/2009.14826) | CatWISE quasar dipole (4.9$\sigma$, amplitude >2× expectation) |
+| 8 | Siewert, Schmidt‑Rubart & Schwarz, 2021, *A&A* **653**, A9 | [arXiv:2010.08366](https://arxiv.org/abs/2010.08366) | NVSS dipole re‑analysis (aligns with CMB, amplitude excess) |
+| 9 | Secrest et al., 2022, *ApJ* **937**, L31 | [arXiv:2206.05624](https://arxiv.org/abs/2206.05624) | NVSS + WISE quasar joint analysis (NVSS 2.6$\sigma$, quasars 4.4$\sigma$, joint 5.1$\sigma$) |
+| 10 | Sorrenti, Durrer & Kunz, 2023, *JCAP* **11**, 054 | [arXiv:2212.10328](https://arxiv.org/abs/2212.10328) | Pantheon+SH0ES dipole (direction different from CMB, $>3\sigma$) |
+| 11 | Dam et al., 2023, *MNRAS* **525**, 231 | [arXiv:2212.07733](https://arxiv.org/abs/2212.07733) | CatWISE Bayesian re‑analysis |
+| 12 | Storey‑Fisher et al., 2024, *ApJ* **964**, 69 | [arXiv:2306.17749](https://arxiv.org/abs/2306.17749) | Quaia quasar catalogue |
+| 13 | Mittal, Oayda & Lewis, 2024, *MNRAS* **527**, 8497 | [arXiv:2311.14938](https://arxiv.org/abs/2311.14938) | Quaia Bayesian analysis (aligns with CMB) |
+| 14 | Özbay, 2025, Zenodo | [10.5281/zenodo.17635671](https://doi.org/10.5281/zenodo.17635671) | Pantheon+ VSM dipole modulation (empirical anomaly) |
+| 15 | Secrest et al., 2025, *Rev. Mod. Phys.* **97**, 041001 | [arXiv:2505.23526](https://arxiv.org/abs/2505.23526) | Multi‑survey dipole direction review |
+| 16 | Martín et al., 2026, *Phys. Rev. D* **114**, 023526 | [arXiv:2512.03867](https://arxiv.org/abs/2512.03867) | Tilted anisotropic cosmic dipole model |
